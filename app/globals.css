@@ -3,15 +3,25 @@
 /* Theme variables */
 :root,
 html[data-theme="dark"] {
-  --background: #0a0a0a;
+  --background: #0f172a;
   --foreground: #ededed;
-  --intro-bg: linear-gradient(135deg, #0f172a 0%, #0a0612 50%, #0f172a 100%);
+  --intro-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
 }
 
 html[data-theme="light"] {
   --background: #ffffff;
   --foreground: #171717;
   --intro-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e2e8f0;
 }
 
 @theme inline {

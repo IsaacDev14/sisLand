@@ -25,7 +25,7 @@ export default function Navbar() {
                         <img
                             src="/siscom-logo.png"
                             alt="Siscom"
-                            className="h-6 w-auto"
+                            className="h-10 w-auto"
                         />
                     </Link>
 

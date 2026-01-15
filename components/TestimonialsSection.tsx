@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
 
 const testimonials = [
     {
@@ -34,7 +35,7 @@ export default function TestimonialsSection() {
         <section className="bg-white py-24 px-6">
             <div className="mx-auto max-w-7xl">
                 {/* Section Header */}
-                <div className="mb-16 text-center">
+                <ScrollReveal animation="fadeUp" className="mb-16 text-center">
                     <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-pink-600">
                         Customer Stories
                     </span>
@@ -42,10 +43,10 @@ export default function TestimonialsSection() {
                         Success Stories:{" "}
                         <span className="text-pink-600">Real Impact, Real Results</span>
                     </h2>
-                </div>
+                </ScrollReveal>
 
                 {/* Testimonials Grid */}
-                <div className="grid gap-8 md:grid-cols-3">
+                <ScrollReveal animation="stagger" staggerDelay={0.15} className="grid gap-8 md:grid-cols-3">
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
@@ -90,7 +91,7 @@ export default function TestimonialsSection() {
                             </div>
                         </div>
                     ))}
-                </div>
+                </ScrollReveal>
             </div>
         </section>
     );

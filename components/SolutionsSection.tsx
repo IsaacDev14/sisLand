@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
 
 const solutions = [
     {
@@ -58,7 +59,7 @@ export default function SolutionsSection() {
         >
             <div className="mx-auto max-w-7xl px-6">
                 {/* Header */}
-                <div className="mb-16 text-center">
+                <ScrollReveal animation="fadeUp" className="mb-16 text-center">
                     <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-pink-500">
                         Our Ecosystem
                     </p>
@@ -70,10 +71,10 @@ export default function SolutionsSection() {
                         A unified platform of sovereign cloud, data, and AI capabilities
                         designed to power African innovation.
                     </p>
-                </div>
+                </ScrollReveal>
 
                 {/* Solutions Grid */}
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <ScrollReveal animation="stagger" staggerDelay={0.15} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {solutions.slice(0, 3).map((solution) => (
                         <a
                             key={solution.id}
@@ -120,10 +121,10 @@ export default function SolutionsSection() {
                             </div>
                         </a>
                     ))}
-                </div>
+                </ScrollReveal>
 
                 {/* Second row - 2 cards centered */}
-                <div className="mt-6 grid gap-6 md:grid-cols-2 lg:max-w-3xl lg:mx-auto">
+                <ScrollReveal animation="stagger" staggerDelay={0.15} delay={0.2} className="mt-6 grid gap-6 md:grid-cols-2 lg:max-w-3xl lg:mx-auto">
                     {solutions.slice(3).map((solution) => (
                         <a
                             key={solution.id}
@@ -164,13 +165,12 @@ export default function SolutionsSection() {
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"
                                     />
                                 </svg>
                             </div>
                         </a>
                     ))}
-                </div>
+                </ScrollReveal>
             </div>
         </section>
     );

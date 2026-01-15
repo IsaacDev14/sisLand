@@ -12,6 +12,8 @@ export default function Home2Hero() {
     const heroRef = useRef<HTMLElement>(null);
     const visualRef = useRef<HTMLDivElement>(null);
     const [activeNode, setActiveNode] = useState(0);
+    const [prevNode, setPrevNode] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     // Staggered entrance animation
     useEffect(() => {
@@ -36,13 +38,18 @@ export default function Home2Hero() {
         return () => ctx.revert();
     }, []);
 
-    // Animated node cycling
+    // Animated node cycling with crossfade
     useEffect(() => {
         const interval = setInterval(() => {
+            setPrevNode(activeNode);
+            setIsTransitioning(true);
             setActiveNode((prev) => (prev + 1) % 4);
+
+            // Clear transition state after animation
+            setTimeout(() => setIsTransitioning(false), 600);
         }, 2500);
         return () => clearInterval(interval);
-    }, []);
+    }, [activeNode]);
 
     const nodes = [
         { label: "Siscom Nodes", color: "#EC4899", icon: "◆" },
@@ -203,7 +210,7 @@ export default function Home2Hero() {
                                     </div>
                                     <div className="flex-1 mx-4">
                                         <div className="h-6 bg-slate-100 rounded-lg flex items-center px-3">
-                                            <span className="text-xs text-slate-400">siscom.tech</span>
+                                            <span className="text-xs text-slate-400">siscom.tech/dashboard</span>
                                         </div>
                                     </div>
                                 </div>
@@ -257,28 +264,67 @@ export default function Home2Hero() {
                                         })}
                                     </svg>
 
-                                    {/* Central cycling service label - WHITE BACKGROUND */}
+                                    {/* Central cycling service label - CROSSFADE animation */}
                                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                                        {/* Previous label (fading out) */}
+                                        {isTransitioning && (
+                                            <div
+                                                className="absolute inset-0 flex items-center gap-1.5 px-3 py-2 rounded-lg border shadow-md bg-white animate-fadeOut"
+                                                style={{
+                                                    borderColor: nodes[prevNode].color,
+                                                    boxShadow: `0 4px 15px ${nodes[prevNode].color}30`,
+                                                }}
+                                            >
+                                                <span
+                                                    className="text-sm"
+                                                    style={{ color: nodes[prevNode].color }}
+                                                >
+                                                    {nodes[prevNode].icon}
+                                                </span>
+                                                <span className="text-xs font-medium whitespace-nowrap text-slate-700">
+                                                    {nodes[prevNode].label}
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        {/* Current label (fading in) */}
                                         <div
-                                            className="flex items-center gap-1.5 px-3 py-2 rounded-lg border shadow-md transition-all duration-500 bg-white"
+                                            key={activeNode}
+                                            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg border shadow-md bg-white ${isTransitioning ? 'animate-fadeIn' : ''}`}
                                             style={{
                                                 borderColor: nodes[activeNode].color,
                                                 boxShadow: `0 4px 15px ${nodes[activeNode].color}30`,
                                             }}
                                         >
                                             <span
-                                                className="text-sm transition-colors duration-500"
+                                                className="text-sm"
                                                 style={{ color: nodes[activeNode].color }}
                                             >
                                                 {nodes[activeNode].icon}
                                             </span>
-                                            <span
-                                                className="text-xs font-medium whitespace-nowrap text-slate-700 transition-colors duration-500"
-                                            >
+                                            <span className="text-xs font-medium whitespace-nowrap text-slate-700">
                                                 {nodes[activeNode].label}
                                             </span>
                                         </div>
                                     </div>
+
+                                    {/* Animation styles */}
+                                    <style jsx>{`
+                                        @keyframes fadeIn {
+                                            0% { opacity: 0; }
+                                            100% { opacity: 1; }
+                                        }
+                                        @keyframes fadeOut {
+                                            0% { opacity: 1; }
+                                            100% { opacity: 0; }
+                                        }
+                                        .animate-fadeIn {
+                                            animation: fadeIn 0.6s ease-in-out forwards;
+                                        }
+                                        .animate-fadeOut {
+                                            animation: fadeOut 0.6s ease-in-out forwards;
+                                        }
+                                    `}</style>
 
 
                                     {/* Floating metrics */}
