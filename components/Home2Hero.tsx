@@ -59,46 +59,10 @@ export default function Home2Hero() {
     ];
 
     return (
-        <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-[#FAFBFC]">
-            {/* ===== BACKGROUND GRADIENT ORBS ===== */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {/* Primary blue glow - top right */}
-                <div
-                    className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-30"
-                    style={{
-                        background: "radial-gradient(circle, rgba(59,130,246,0.5) 0%, transparent 70%)",
-                        filter: "blur(60px)",
-                    }}
-                />
-                {/* Purple glow - center */}
-                <div
-                    className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20"
-                    style={{
-                        background: "radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%)",
-                        filter: "blur(80px)",
-                    }}
-                />
-                {/* Pink glow - bottom left */}
-                <div
-                    className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full opacity-25"
-                    style={{
-                        background: "radial-gradient(circle, rgba(236,72,153,0.4) 0%, transparent 70%)",
-                        filter: "blur(50px)",
-                    }}
-                />
-                {/* Subtle grid pattern */}
-                <div
-                    className="absolute inset-0 opacity-[0.03]"
-                    style={{
-                        backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
-                        backgroundSize: "24px 24px",
-                    }}
-                />
-            </div>
-
+        <section ref={heroRef} className="relative overflow-hidden bg-white">
             {/* ===== MAIN CONTENT - SPLIT LAYOUT ===== */}
-            <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-16 min-h-screen">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-6 items-center min-h-[calc(100vh-200px)]">
+            <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
                     {/* LEFT: Text Content */}
                     <div className="max-w-xl">
@@ -352,21 +316,6 @@ export default function Home2Hero() {
                 </div>
             </div>
 
-            {/* ===== LOGO TICKER ===== */}
-            <div className="relative z-10 border-t border-slate-200/50 bg-white/50 backdrop-blur-sm py-8">
-                <div className="max-w-7xl mx-auto px-6">
-                    <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
-                        Trusted by leading organizations across Africa
-                    </p>
-                    <div className="flex justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                        {["Oracle", "Microsoft", "AWS", "Google Cloud", "Red Hat", "Docker"].map((logo) => (
-                            <div key={logo} className="text-lg font-bold text-slate-600">
-                                {logo}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
         </section>
     );
 }
