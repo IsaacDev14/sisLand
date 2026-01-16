@@ -128,7 +128,7 @@ export default function Home2Hero() {
                             </a>
                             <a
                                 href="#demo"
-                                className="hero-cta inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-7 py-3.5 rounded-lg transition-all"
+                                className="hero-cta inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-7 py-3.5 rounded-lg transition-all [html[data-theme='light']_&]:bg-slate-100 [html[data-theme='light']_&]:text-slate-900 [html[data-theme='light']_&]:hover:bg-slate-200"
                             >
                                 Schedule Demo
                             </a>

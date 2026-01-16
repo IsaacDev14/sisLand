@@ -20,17 +20,19 @@ const footerLinks = {
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-950 border-t border-slate-800">
+        <footer className="bg-slate-950 border-t border-slate-800 [html[data-theme='light']_&]:bg-white [html[data-theme='light']_&]:border-slate-100">
             <div className="mx-auto max-w-7xl px-6 py-16">
                 <div className="grid gap-12 md:grid-cols-4">
                     {/* Brand */}
                     <div className="md:col-span-1">
                         <Link href="/" className="inline-block">
-                            <span className="text-2xl font-bold text-white">
-                                SIS<span className="text-pink-500">COM</span>
-                            </span>
+                            <img
+                                src="/siscom-logo.png"
+                                alt="Siscom"
+                                className="h-8 w-auto brightness-0 invert [html[data-theme='light']_&]:brightness-100 [html[data-theme='light']_&]:invert-0"
+                            />
                         </Link>
-                        <p className="mt-4 text-sm text-slate-400 leading-relaxed">
+                        <p className="mt-4 text-sm text-slate-400 [html[data-theme='light']_&]:text-slate-600 leading-relaxed">
                             Sovereign Cloud & AI Infrastructure powering the future of African
                             enterprise.
                         </p>
@@ -39,7 +41,7 @@ export default function Footer() {
                         <div className="mt-6 flex gap-4">
                             <a
                                 href="#"
-                                className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-pink-500/20 hover:text-pink-400"
+                                className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-pink-500/20 hover:text-pink-400 [html[data-theme='light']_&]:bg-slate-100 [html[data-theme='light']_&]:text-slate-600"
                             >
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -47,7 +49,7 @@ export default function Footer() {
                             </a>
                             <a
                                 href="#"
-                                className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-pink-500/20 hover:text-pink-400"
+                                className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-pink-500/20 hover:text-pink-400 [html[data-theme='light']_&]:bg-slate-100 [html[data-theme='light']_&]:text-slate-600"
                             >
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -58,7 +60,7 @@ export default function Footer() {
 
                     {/* Solutions */}
                     <div>
-                        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-300">
+                        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-300 [html[data-theme='light']_&]:text-slate-900">
                             Solutions
                         </h3>
                         <ul className="space-y-3">
@@ -66,7 +68,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="text-sm text-slate-400 transition-colors hover:text-pink-400"
+                                        className="text-sm text-slate-400 transition-colors hover:text-pink-400 [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-pink-600"
                                     >
                                         {link.name}
                                     </a>
@@ -77,7 +79,7 @@ export default function Footer() {
 
                     {/* Company */}
                     <div>
-                        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-300">
+                        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-300 [html[data-theme='light']_&]:text-slate-900">
                             Company
                         </h3>
                         <ul className="space-y-3">
@@ -85,7 +87,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="text-sm text-slate-400 transition-colors hover:text-pink-400"
+                                        className="text-sm text-slate-400 transition-colors hover:text-pink-400 [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-pink-600"
                                     >
                                         {link.name}
                                     </a>
@@ -96,10 +98,10 @@ export default function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-300">
+                        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-300 [html[data-theme='light']_&]:text-slate-900">
                             Contact
                         </h3>
-                        <ul className="space-y-3 text-sm text-slate-400">
+                        <ul className="space-y-3 text-sm text-slate-400 [html[data-theme='light']_&]:text-slate-600">
                             <li className="flex items-center gap-2">
                                 <svg
                                     className="h-4 w-4 text-pink-500"
@@ -116,7 +118,7 @@ export default function Footer() {
                                 </svg>
                                 <a
                                     href="mailto:info@siscom.africa"
-                                    className="hover:text-pink-400 transition-colors"
+                                    className="hover:text-pink-400 transition-colors [html[data-theme='light']_&]:hover:text-pink-600"
                                 >
                                     info@siscom.africa
                                 </a>
@@ -164,8 +166,8 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="mt-12 border-t border-slate-800 pt-8 text-center">
-                    <p className="text-sm text-slate-500">
+                <div className="mt-12 border-t border-slate-800 pt-8 text-center [html[data-theme='light']_&]:border-slate-200">
+                    <p className="text-sm text-slate-500 [html[data-theme='light']_&]:text-slate-600">
                         © 2026 Siscom Solutions. All rights reserved.
                     </p>
                 </div>

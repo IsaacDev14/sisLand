@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="group relative rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 transition-all duration-300 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-500/10"
+                            className="group relative rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 transition-all duration-300 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-500/10 [html[data-theme='light']_&]:bg-white [html[data-theme='light']_&]:shadow-lg [html[data-theme='light']_&]:border-slate-100"
                         >
                             {/* Quote icon */}
                             <div className="absolute -top-4 left-8">
@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
                             </div>
 
                             {/* Quote */}
-                            <blockquote className="mb-6 mt-4 text-slate-600 leading-relaxed">
+                            <blockquote className="mb-6 mt-4 text-slate-600 [html[data-theme='light']_&]:text-slate-700 leading-relaxed">
                                 &ldquo;{testimonial.quote}&rdquo;
                             </blockquote>
 
