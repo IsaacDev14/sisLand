@@ -4,17 +4,17 @@ import Link from "next/link";
 
 const footerLinks = {
     solutions: [
-        { name: "Siscom Nodes", href: "#nodes" },
-        { name: "Siscom Data", href: "#data" },
-        { name: "Siscom AI/ML", href: "#ai" },
-        { name: "Cloud Applications", href: "#apps" },
-        { name: "DevPreneur", href: "#devpreneur" },
+        { name: "Siscom Nodes", href: "/siscom-nodes" },
+        { name: "Siscom Data", href: "/siscom-data" },
+        { name: "Siscom AI/ML", href: "/siscom-ai-ml" },
+        { name: "Cloud Applications", href: "/cloud-apps" },
+        { name: "DevPreneur", href: "/contact" },
     ],
     company: [
-        { name: "About Us", href: "#about" },
-        { name: "Careers", href: "#careers" },
-        { name: "Partners", href: "#partners" },
-        { name: "Contact", href: "#contact" },
+        { name: "About Us", href: "/contact" },
+        { name: "Careers", href: "/contact" },
+        { name: "Partners", href: "/contact" },
+        { name: "Contact", href: "/contact" },
     ],
 };
 

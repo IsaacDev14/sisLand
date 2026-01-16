@@ -6,11 +6,11 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Nodes", href: "#nodes" },
-    { name: "Data", href: "#data" },
-    { name: "AI/ML", href: "#ai" },
-    { name: "Cloud Apps", href: "#apps" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "Nodes", href: "/siscom-nodes" },
+    { name: "Data", href: "/siscom-data" },
+    { name: "AI/ML", href: "/siscom-ai-ml" },
+    { name: "Cloud Apps", href: "/cloud-apps" },
+    { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
