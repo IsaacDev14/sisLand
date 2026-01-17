@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
-import FooterCTA from "@/components/FooterCTA";
+import Image from "next/image";
 
 export default function SiscomDataPage() {
     return (
@@ -13,197 +13,231 @@ export default function SiscomDataPage() {
 
             <main>
                 {/* ===== HERO SECTION ===== */}
-                <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+                <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
                     <div className="mx-auto max-w-7xl px-6 relative z-10">
-                        <div className="max-w-4xl">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-6 uppercase tracking-wider">
-                                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                                Intelligent Data Platform
+                        <div className="grid lg:grid-cols-2 gap-16 items-center">
+                            <div>
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-900 mb-6 uppercase tracking-wider shadow-sm">
+                                    <span className="w-2 h-2 rounded-full bg-pink-600 animate-pulse"></span>
+                                    Unified Data Platform
+                                </div>
+
+                                <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+                                    Turn raw logs into <br />
+                                    <span className="text-slate-900 decoration-pink-500/30 underline decoration-4 underline-offset-4">business intelligence.</span>
+                                </h1>
+
+                                <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg font-medium">
+                                    Ingest, process, and analyze petabytes of data with our fully managed, sovereign data stack. Built for speed, security, and compliance.
+                                </p>
+
+                                <div className="flex flex-wrap items-center gap-4">
+                                    <Link
+                                        href="/contact"
+                                        className="bg-slate-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-slate-800 transition-all hover:shadow-xl hover:shadow-slate-900/10 active:scale-95"
+                                    >
+                                        Start Building
+                                    </Link>
+                                    <Link
+                                        href="#platform"
+                                        className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-all hover:border-slate-300 active:scale-95"
+                                    >
+                                        View Architecture
+                                    </Link>
+                                </div>
                             </div>
 
-                            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-tight">
-                                From Data Warehousing to AI — <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">One Intelligent Stack</span>
-                            </h1>
-
-                            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                                Siscom Data empowers financial services and modern enterprises to transform raw data into real-time insights, AI-powered decisions, and measurable business outcomes — all on a secure, scalable, cloud-first platform.
-                            </p>
-
-                            <div className="flex flex-wrap items-center gap-4">
-                                <Link
-                                    href="/contact"
-                                    className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800 transition-all hover:shadow-lg hover:shadow-slate-900/20 active:scale-95"
-                                >
-                                    Book a Demo
-                                </Link>
-                                <Link
-                                    href="#pricing"
-                                    className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-full font-semibold hover:bg-slate-50 transition-all hover:border-slate-300 active:scale-95"
-                                >
-                                    Review Pricing
-                                </Link>
+                            {/* Hero Image */}
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-slate-200 rounded-3xl -rotate-2 transform translate-y-4 translate-x-4"></div>
+                                <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white aspect-square lg:aspect-[4/3] flex items-center justify-center p-0">
+                                    <img
+                                        src="/images/siscom_data_pipeline.png"
+                                        alt="Siscom Data Pipeline"
+                                        className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Abstract Background Graphic */}
-                    <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-slate-50 via-white to-white z-0 pointer-events-none opacity-50" />
-                    <div className="absolute top-1/3 right-0 translate-x-1/4 w-[900px] h-[900px] bg-gradient-to-tr from-blue-100/40 to-cyan-100/40 rounded-full blur-3xl opacity-60 pointer-events-none" />
                 </section>
 
-                {/* ===== THE JOURNEY ===== */}
-                <section className="py-24 bg-slate-50 border-y border-slate-200">
+                {/* ===== END-TO-END PIPELINE ===== */}
+                <section id="platform" className="py-24 bg-white">
                     <div className="mx-auto max-w-7xl px-6">
-                        <ScrollReveal className="mb-16 text-center max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-4">The Intelligent Data Journey</h2>
-                            <p className="text-lg text-slate-600">From raw data to actionable intelligence—our unified platform transforms your data ecosystem.</p>
+                        <ScrollReveal className="mb-20 text-center max-w-3xl mx-auto">
+                            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
+                                The Intelligent Data Journey
+                            </h2>
+                            <p className="text-lg text-slate-600 leading-relaxed">
+                                A complete ecosystem to manage your data lifecycle. From ingestion at the edge to actionable insights in the boardroom.
+                            </p>
                         </ScrollReveal>
 
-                        <div className="grid md:grid-cols-3 gap-8 relative">
+                        <div className="grid md:grid-cols-3 gap-12 relative">
                             {/* Connecting Line (Desktop) */}
-                            <div className="hidden md:block absolute top-24 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-blue-200 via-indigo-200 to-pink-200 z-0" />
+                            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-slate-100 -z-10">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-200 to-transparent w-full animate-pulse" />
+                            </div>
 
-                            {/* Step 1 */}
-                            <ScrollReveal delay={0.1} className="relative z-10 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm text-center">
-                                <div className="w-16 h-16 mx-auto bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 shadow-sm border border-blue-100">
-                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                            {/* Step 1: Ingest */}
+                            <ScrollReveal delay={0.1} className="relative text-center group">
+                                <div className="w-24 h-24 mx-auto bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                    <img src="/images/siscom_data_ingest.png" alt="Ingest" className="w-16 h-16 object-contain" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">1. Data Ingestion</h3>
-                                <p className="text-slate-600 text-sm mb-4">Seamlessly collect and centralize data from multiple sources in real-time.</p>
-                                <div className="flex flex-wrap justify-center gap-2">
-                                    {["Databases", "Cloud Services", "APIs"].map(tag => (
-                                        <span key={tag} className="text-xs font-medium px-2 py-1 bg-slate-50 text-slate-600 rounded border border-slate-100">{tag}</span>
-                                    ))}
-                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3">1. Ingest</h3>
+                                <p className="text-slate-600 leading-relaxed px-4">
+                                    Capture real-time streams from IoT devices, servers, and applications with <strong>Kaa Rada</strong>.
+                                </p>
                             </ScrollReveal>
 
-                            {/* Step 2 */}
-                            <ScrollReveal delay={0.2} className="relative z-10 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm text-center">
-                                <div className="w-16 h-16 mx-auto bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 shadow-sm border border-indigo-100">
-                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                            {/* Step 2: Store & Process */}
+                            <ScrollReveal delay={0.2} className="relative text-center group">
+                                <div className="w-24 h-24 mx-auto bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                    <img src="/images/siscom_storage_node.png" alt="Store" className="w-16 h-16 object-contain" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">2. Analytics & Processing</h3>
-                                <p className="text-slate-600 text-sm mb-4">Transform raw data into structured insights with advanced analytics.</p>
-                                <div className="flex flex-wrap justify-center gap-2">
-                                    {["Real-time", "Warehousing", "Advanced Analytics"].map(tag => (
-                                        <span key={tag} className="text-xs font-medium px-2 py-1 bg-slate-50 text-slate-600 rounded border border-slate-100">{tag}</span>
-                                    ))}
-                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3">2. Store & Process</h3>
+                                <p className="text-slate-600 leading-relaxed px-4">
+                                    Securely store in <strong>Data Bank</strong> and transform with <strong>WorkerBee</strong> distributed processing.
+                                </p>
                             </ScrollReveal>
 
-                            {/* Step 3 */}
-                            <ScrollReveal delay={0.3} className="relative z-10 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm text-center">
-                                <div className="w-16 h-16 mx-auto bg-pink-50 rounded-2xl flex items-center justify-center text-pink-600 mb-6 shadow-sm border border-pink-100">
-                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            {/* Step 3: Analyze */}
+                            <ScrollReveal delay={0.3} className="relative text-center group">
+                                <div className="w-24 h-24 mx-auto bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                    <img src="/images/siscom_data_analytics.png" alt="Analyze" className="w-16 h-16 object-contain" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">3. Intelligence & Insights</h3>
-                                <p className="text-slate-600 text-sm mb-4">AI-powered insights that drive strategic decisions and outcomes.</p>
-                                <div className="flex flex-wrap justify-center gap-2">
-                                    {["AI/ML Models", "Predictive", "BI"].map(tag => (
-                                        <span key={tag} className="text-xs font-medium px-2 py-1 bg-slate-50 text-slate-600 rounded border border-slate-100">{tag}</span>
-                                    ))}
-                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3">3. Analyze & Act</h3>
+                                <p className="text-slate-600 leading-relaxed px-4">
+                                    Visualize trends and predictive insights with <strong>Fishnet</strong> analytics dashboard.
+                                </p>
                             </ScrollReveal>
                         </div>
                     </div>
                 </section>
 
-                {/* ===== PRODUCTS GRID ===== */}
-                <section className="py-24 bg-white">
+                {/* ===== PRODUCTS DEEP DIVE ===== */}
+                <section className="py-24 bg-slate-50 border-y border-slate-200">
                     <div className="mx-auto max-w-7xl px-6">
                         <ScrollReveal className="mb-16">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Data Products</h2>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-2">Platform Modules</h2>
+                            <p className="text-slate-600">Composable building blocks for your modern data stack.</p>
                         </ScrollReveal>
 
                         <div className="grid md:grid-cols-2 gap-8">
-                            {/* Siscom Data Bank */}
-                            <ScrollReveal className="group p-8 rounded-2xl border border-slate-200 hover:border-blue-200 hover:shadow-lg transition-all">
+                            {/* Data Bank */}
+                            <ScrollReveal delay={0.1} className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 group">
                                 <div className="flex items-start justify-between mb-6">
-                                    <h3 className="text-2xl font-bold text-slate-900">Siscom Data Bank</h3>
-                                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wide">Sovereign Warehousing</span>
+                                    <div className="w-14 h-14 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600">
+                                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                                    </div>
+                                    <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Storage</span>
                                 </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors">Data Bank</h3>
                                 <p className="text-slate-600 mb-6 leading-relaxed">
-                                    Maintain absolute control over your data within local borders. Siscom Data Bank offers high-performance warehousing that ensures regulatory compliance without compromising on speed or scalability.
+                                    Sovereign, S3-compatible object storage. Designed for 99.999999999% durability. Store logs, media, and backups within national borders.
                                 </p>
-                                <p className="text-sm font-semibold text-slate-900 mb-2">Best for:</p>
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {["Banks", "Insurers", "Public-Sector"].map(tag => (
-                                        <span key={tag} className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-lg text-sm text-slate-600">{tag}</span>
+                                <ul className="space-y-2 mb-8">
+                                    {["Immutable Buckets", "Lifecycle Policies", "Server-Side Encryption"].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                                            <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                            {item}
+                                        </li>
                                     ))}
-                                </div>
-                                <Link href="/contact" className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-1 group-hover:gap-2 transition-all">
-                                    Learn more <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                </Link>
+                                </ul>
                             </ScrollReveal>
 
                             {/* WorkerBee */}
-                            <ScrollReveal delay={0.1} className="group p-8 rounded-2xl border border-slate-200 hover:border-amber-200 hover:shadow-lg transition-all">
+                            <ScrollReveal delay={0.2} className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 group">
                                 <div className="flex items-start justify-between mb-6">
-                                    <h3 className="text-2xl font-bold text-slate-900">WorkerBee</h3>
-                                    <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-wide">Automated Reconciliation</span>
+                                    <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600">
+                                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                    </div>
+                                    <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">ETL / Compute</span>
                                 </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">WorkerBee</h3>
                                 <p className="text-slate-600 mb-6 leading-relaxed">
-                                    Deliver real-time reconciliation and transaction monitoring with zero downtime. Detect anomalies, breaks, and risks instantly across high-volume financial operations.
+                                    Serverless data processing. Run Python, Node.js, or Go scripts in response to events. Clean, transform, and load data without managing servers.
                                 </p>
-                                <Link href="/contact" className="text-amber-600 font-semibold hover:text-amber-700 flex items-center gap-1 group-hover:gap-2 transition-all">
-                                    Learn more <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                </Link>
+                                <ul className="space-y-2 mb-8">
+                                    {["Event-Driven Triggers", "Auto-Scaling", "Durable Execution Logs"].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                                            <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </ScrollReveal>
 
                             {/* Kaa Rada */}
-                            <ScrollReveal delay={0.2} className="group p-8 rounded-2xl border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all">
+                            <ScrollReveal delay={0.3} className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 group">
                                 <div className="flex items-start justify-between mb-6">
-                                    <h3 className="text-2xl font-bold text-slate-900">Kaa Rada</h3>
-                                    <span className="px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-bold uppercase tracking-wide">Intelligent Cloud CCTV</span>
+                                    <div className="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600">
+                                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" /></svg>
+                                    </div>
+                                    <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Streaming</span>
                                 </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">Kaa Rada</h3>
                                 <p className="text-slate-600 mb-6 leading-relaxed">
-                                    Secure cloud backup for CCTV and video surveillance. Ensure your footage is always encrypted, available, and searchable for incident investigation.
+                                    High-throughput message broker. Ingest millions of events per second with sub-millisecond latency. Compatible with Kafka protocols.
                                 </p>
-                                <Link href="/contact" className="text-green-600 font-semibold hover:text-green-700 flex items-center gap-1 group-hover:gap-2 transition-all">
-                                    Learn more <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                </Link>
+                                <ul className="space-y-2 mb-8">
+                                    {["Pub/Sub Messaging", "Stream Replay", "Schema Registry"].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                                            <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </ScrollReveal>
 
-                            {/* Siscom Fishnet */}
-                            <ScrollReveal delay={0.3} className="group p-8 rounded-2xl border border-slate-200 hover:border-indigo-200 hover:shadow-lg transition-all">
+                            {/* Fishnet */}
+                            <ScrollReveal delay={0.4} className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 group">
                                 <div className="flex items-start justify-between mb-6">
-                                    <h3 className="text-2xl font-bold text-slate-900">Siscom Fishnet</h3>
-                                    <span className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wide">Unified NOC MOnitoring</span>
+                                    <div className="w-14 h-14 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600">
+                                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                                    </div>
+                                    <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Analytics</span>
                                 </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors">Fishnet</h3>
                                 <p className="text-slate-600 mb-6 leading-relaxed">
-                                    A Network Operations Center (NOC) platform that delivers full visibility. Monitor systems, networks, and services in real-time to prevent downtime.
+                                    Interactive BI dashboards. Connect your data sources and visualize metrics in real-time. Share reports with secure role-based access.
                                 </p>
-                                <Link href="/contact" className="text-indigo-600 font-semibold hover:text-indigo-700 flex items-center gap-1 group-hover:gap-2 transition-all">
-                                    Learn more <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                </Link>
+                                <ul className="space-y-2 mb-8">
+                                    {["Drag-and-Drop Builder", "SQL Editor", "Embedded Analytics"].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                                            <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </ScrollReveal>
                         </div>
                     </div>
                 </section>
 
                 {/* ===== FOOTER CTA ===== */}
-                <section className="py-24 bg-gradient-to-br from-slate-900 to-blue-900 border-t border-white/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.2),transparent_50%)]" />
+                <section className="py-24 bg-slate-900 border-t border-white/10 relative overflow-hidden">
                     <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
                         <ScrollReveal>
                             <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-                                Ready to scale your <span className="text-blue-400">Data Platform</span>?
+                                Unlock the value of your data.
                             </h2>
-                            <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
-                                Let&apos;s discuss how Siscom Data can help you build a unified, AI-ready data platform that drives real business outcomes.
+                            <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
+                                Join forward-thinking enterprises building their future on Siscom Data.
                             </p>
                             <div className="flex flex-wrap justify-center gap-4">
                                 <Link
                                     href="/contact"
-                                    className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/25 active:scale-95"
+                                    className="bg-pink-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-pink-500 transition-all hover:shadow-xl hover:shadow-pink-500/25 active:scale-95"
                                 >
-                                    Book a Demo
+                                    Schedule Demo
                                 </Link>
                                 <Link
                                     href="#pricing"
-                                    className="bg-transparent text-white border border-blue-400/30 px-8 py-4 rounded-full font-semibold hover:bg-white/5 transition-all active:scale-95"
+                                    className="bg-transparent text-white border border-slate-700 px-8 py-4 rounded-lg font-bold hover:bg-white/5 transition-all active:scale-95"
                                 >
-                                    Review Pricing
+                                    View Docs
                                 </Link>
                             </div>
                         </ScrollReveal>

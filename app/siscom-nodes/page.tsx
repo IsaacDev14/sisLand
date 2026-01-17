@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SiscomNodesPage() {
     return (
@@ -12,198 +13,253 @@ export default function SiscomNodesPage() {
 
             <main>
                 {/* ===== HERO SECTION ===== */}
-                <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+                <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
                     <div className="mx-auto max-w-7xl px-6 relative z-10">
-                        <div className="max-w-3xl">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-6 uppercase tracking-wider">
-                                <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                                Siscom Nodes
+                        <div className="grid lg:grid-cols-2 gap-16 items-center">
+                            <div>
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-900 mb-6 uppercase tracking-wider shadow-sm">
+                                    <span className="w-2 h-2 rounded-full bg-pink-600 animate-pulse"></span>
+                                    Infrastructure Level 1
+                                </div>
+
+                                <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+                                    Purpose-Built <br />
+                                    <span className="text-slate-900 decoration-pink-500/30 underline decoration-4 underline-offset-4">AI Infrastructure</span>
+                                </h1>
+
+                                <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg font-medium">
+                                    High-performance compute, sovereign storage, and low-latency networking. Engineered for African enterprise workloads.
+                                </p>
+
+                                <div className="flex flex-wrap items-center gap-4">
+                                    <Link
+                                        href="/contact"
+                                        className="bg-slate-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-slate-800 transition-all hover:shadow-xl hover:shadow-slate-900/10 active:scale-95"
+                                    >
+                                        Deploy Nodes
+                                    </Link>
+                                    <Link
+                                        href="#pricing"
+                                        className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-all hover:border-slate-300 active:scale-95"
+                                    >
+                                        View Specs
+                                    </Link>
+                                </div>
+
+                                <div className="mt-12 flex items-center gap-8 text-sm font-semibold text-slate-500">
+                                    <div className="flex items-center gap-2">
+                                        <svg className="w-5 h-5 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        99.99% SLA
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <svg className="w-5 h-5 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                                        Tier III Security
+                                    </div>
+                                </div>
                             </div>
 
-                            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">
-                                Purpose-Built <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">Cloud & AI Infrastructure</span> for African Business
-                            </h1>
-
-                            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                                Sovereign. Compliant. Flexible Billing. Local Currency. Trusted by leading AI labs, platforms, and enterprises.
-                            </p>
-
-                            <div className="flex flex-wrap items-center gap-4">
-                                <Link
-                                    href="/contact"
-                                    className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800 transition-all hover:shadow-lg hover:shadow-slate-900/20 active:scale-95"
-                                >
-                                    Get Started
-                                </Link>
-                                <Link
-                                    href="#pricing"
-                                    className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-full font-semibold hover:bg-slate-50 transition-all hover:border-slate-300 active:scale-95"
-                                >
-                                    View Pricing
-                                </Link>
+                            {/* Hero Image */}
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-slate-200 rounded-3xl rotate-3 transform translate-y-4 translate-x-4"></div>
+                                <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white aspect-square lg:aspect-[4/3] flex items-center justify-center p-8">
+                                    <img
+                                        src="/images/siscom_nodes_hero_rack.png"
+                                        alt="Siscom Server Rack"
+                                        className="object-contain w-full h-full hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Abstract Background Graphic */}
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-slate-50 via-white to-white z-0 pointer-events-none opacity-50" />
-                    <div className="absolute top-1/4 right-0 translate-x-1/3 w-[800px] h-[800px] bg-gradient-to-tr from-pink-100/40 to-indigo-100/40 rounded-full blur-3xl opacity-60 pointer-events-none" />
                 </section>
 
-                {/* ===== VALUE PROPOSITION ===== */}
+                {/* ===== PRODUCTS GRID ===== */}
                 <section className="py-24 bg-white">
                     <div className="mx-auto max-w-7xl px-6">
                         <ScrollReveal className="mb-16 max-w-3xl">
-                            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
-                                Maximize your potential with Siscom.
+                            <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                                Infrastructure for every workload.
                             </h2>
                             <p className="text-lg text-slate-600 leading-relaxed">
-                                Get to market faster by focusing on what you do best—serving customers and maximizing ROI. With Siscom Nodes, shift heavy infrastructure investments from CAPEX to OPEX, reduce complexity, and scale on demand.
+                                From bare metal for maximum performance to flexible virtual instances for scaling apps.
                             </p>
                         </ScrollReveal>
 
                         <div className="grid md:grid-cols-3 gap-8">
                             {/* Dedicated Nodes */}
-                            <ScrollReveal delay={0.1} className="group p-8 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:shadow-pink-900/5 hover:border-pink-200 transition-all duration-300">
-                                <div className="w-12 h-12 bg-white rounded-xl border border-slate-200 flex items-center justify-center mb-6 text-pink-500 shadow-sm group-hover:scale-110 transition-transform">
-                                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 01-2 2v4a2 2 0 012 2h14a2 2 0 012-2v-4a2 2 0 01-2-2m-2-4h.01M17 16h.01" /></svg>
+                            <ScrollReveal delay={0.1} className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-2xl hover:border-pink-500/20 transition-all duration-300">
+                                <div className="h-64 bg-slate-50 p-8 flex items-center justify-center border-b border-slate-100">
+                                    <img
+                                        src="/images/siscom_dedicated_node.png"
+                                        alt="Dedicated Node"
+                                        className="w-full h-full object-contain drop-shadow-xl"
+                                    />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Dedicated Nodes</h3>
-                                <p className="text-sm font-semibold text-pink-600 uppercase tracking-wider mb-4">Full Control. Maximum Performance.</p>
-                                <ul className="space-y-3 text-slate-600">
-                                    {[
-                                        "Full root access (virtual or bare metal)",
-                                        "N+1 redundancy for high availability",
-                                        "Hosted in Tier III data centers",
-                                        "Ideal for regulated workloads"
-                                    ].map((item, i) => (
-                                        <li key={i} className="flex items-start gap-2 text-sm">
-                                            <svg className="w-4 h-4 text-green-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                            {item}
+                                <div className="p-8 flex-1 flex flex-col">
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">Dedicated Nodes</h3>
+                                    <p className="text-sm font-bold text-pink-600 uppercase tracking-wider mb-4">Bare Metal Performance</p>
+                                    <p className="text-slate-600 mb-6 flex-1">
+                                        Full root access to single-tenant hardware. No "noisy neighbors", just raw power for your most demanding databases and AI models.
+                                    </p>
+                                    <ul className="space-y-3 mb-8 border-t border-slate-100 pt-6">
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> Intel Xeon / AMD EPYC
                                         </li>
-                                    ))}
-                                </ul>
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> Up to 128 Cores
+                                        </li>
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> 100Gbps Networking
+                                        </li>
+                                    </ul>
+                                </div>
                             </ScrollReveal>
 
                             {/* Virtual Nodes */}
-                            <ScrollReveal delay={0.2} className="group p-8 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:shadow-pink-900/5 hover:border-pink-200 transition-all duration-300">
-                                <div className="w-12 h-12 bg-white rounded-xl border border-slate-200 flex items-center justify-center mb-6 text-pink-500 shadow-sm group-hover:scale-110 transition-transform">
-                                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                            <ScrollReveal delay={0.2} className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-2xl hover:border-pink-500/20 transition-all duration-300">
+                                <div className="h-64 bg-slate-50 p-8 flex items-center justify-center border-b border-slate-100">
+                                    <img
+                                        src="/images/siscom_virtual_node.png"
+                                        alt="Virtual Node"
+                                        className="w-full h-full object-contain drop-shadow-xl"
+                                    />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Virtual Nodes</h3>
-                                <p className="text-sm font-semibold text-pink-600 uppercase tracking-wider mb-4">Flexible Compute. Instantly Deployed.</p>
-                                <p className="text-sm text-slate-600 mb-4">Deploy MicroNode, MegaNode, or TeraNode instances in minutes. Scale seamlessly.</p>
-                                <ul className="space-y-3 text-slate-600">
-                                    {[
-                                        "99.99% uptime SLA",
-                                        "Local technical support",
-                                        "Local billing & currency",
-                                        "3-month free trial"
-                                    ].map((item, i) => (
-                                        <li key={i} className="flex items-start gap-2 text-sm">
-                                            <svg className="w-4 h-4 text-green-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                            {item}
+                                <div className="p-8 flex-1 flex flex-col">
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">Virtual Nodes</h3>
+                                    <p className="text-sm font-bold text-pink-600 uppercase tracking-wider mb-4">Elastic Compute</p>
+                                    <p className="text-slate-600 mb-6 flex-1">
+                                        Deploy instances in seconds. Scale up or down based on traffic. Ideal for web servers, microservices, and development environments.
+                                    </p>
+                                    <ul className="space-y-3 mb-8 border-t border-slate-100 pt-6">
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> Shared or Dedicated vCPU
                                         </li>
-                                    ))}
-                                </ul>
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> Instant Provisioning
+                                        </li>
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> Hourly Billing
+                                        </li>
+                                    </ul>
+                                </div>
                             </ScrollReveal>
 
                             {/* Storage Nodes */}
-                            <ScrollReveal delay={0.3} className="group p-8 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:shadow-pink-900/5 hover:border-pink-200 transition-all duration-300">
-                                <div className="w-12 h-12 bg-white rounded-xl border border-slate-200 flex items-center justify-center mb-6 text-pink-500 shadow-sm group-hover:scale-110 transition-transform">
-                                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                            <ScrollReveal delay={0.3} className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-2xl hover:border-pink-500/20 transition-all duration-300">
+                                <div className="h-64 bg-slate-50 p-8 flex items-center justify-center border-b border-slate-100">
+                                    <img
+                                        src="/images/siscom_storage_node.png"
+                                        alt="Storage Node"
+                                        className="w-full h-full object-contain drop-shadow-xl"
+                                    />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Storage Nodes</h3>
-                                <p className="text-sm font-semibold text-pink-600 uppercase tracking-wider mb-4">High-Speed. Local Data Storage.</p>
-                                <p className="text-sm text-slate-600 mb-4">High-throughput block storage and S3-compatible object storage for heavy workloads.</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {["Media Archives", "AI Datasets", "Backups"].map((tag) => (
-                                        <span key={tag} className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-medium text-slate-600">{tag}</span>
-                                    ))}
+                                <div className="p-8 flex-1 flex flex-col">
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">Storage Nodes</h3>
+                                    <p className="text-sm font-bold text-pink-600 uppercase tracking-wider mb-4">S3-Compatible Object Storage</p>
+                                    <p className="text-slate-600 mb-6 flex-1">
+                                        Massive scalability for your data. Archive backups, host media assets, or build data lakes with our high-throughput storage clusters.
+                                    </p>
+                                    <ul className="space-y-3 mb-8 border-t border-slate-100 pt-6">
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> NVMe Caching
+                                        </li>
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> Triple Replication
+                                        </li>
+                                        <li className="text-sm font-medium text-slate-700 flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> Zero Egress Fees
+                                        </li>
+                                    </ul>
                                 </div>
                             </ScrollReveal>
                         </div>
                     </div>
                 </section>
 
-                {/* ===== INVENTORY TABLE ===== */}
-                <section className="py-24 bg-slate-50 border-y border-slate-200">
+                {/* ===== SPECS TABLE ===== */}
+                <section className="py-24 bg-slate-900 text-white">
                     <div className="mx-auto max-w-7xl px-6">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-                            <ScrollReveal>
-                                <h2 className="text-3xl font-bold text-slate-900 mb-2">Available Compute Capacity</h2>
-                                <p className="text-slate-600">Real-time inventory status for Region: <span className="font-semibold text-slate-900">Nairobi (NBO-1)</span></p>
-                            </ScrollReveal>
-                            <div className="flex gap-4 text-sm font-medium text-slate-500">
-                                <div className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-500"></span> Immediate</div>
-                                <div className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-amber-500"></span> Limited</div>
-                                <div className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-slate-400"></span> Roadmap</div>
+                        <ScrollReveal>
+                            <div className="flex items-center justify-between mb-12 border-b border-slate-800 pb-8">
+                                <div>
+                                    <h2 className="text-3xl font-bold text-white mb-2">Technical Specifications</h2>
+                                    <p className="text-slate-400">Detailed hardware configurations for our Nairobi (NBO-1) region.</p>
+                                </div>
+                                <div className="hidden md:block text-right">
+                                    <div className="text-sm text-slate-400">Last Updated</div>
+                                    <div className="font-mono text-pink-500">JAN 2026</div>
+                                </div>
                             </div>
-                        </div>
 
-                        <ScrollReveal delay={0.2} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                            <table className="w-full text-left border-collapse">
-                                <thead>
-                                    <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
-                                        <th className="px-6 py-4 font-semibold">Instance Type</th>
-                                        <th className="px-6 py-4 font-semibold">Specifications</th>
-                                        <th className="px-6 py-4 font-semibold">Primary Use</th>
-                                        <th className="px-6 py-4 font-semibold">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-100">
-                                    {[
-                                        { name: "NVIDIA GB200 NVL72", specs: "72x B200 GPUs • 1.4 ExaFLOPS", use: "Training, Inference", status: "High Demand", color: "text-amber-600 bg-amber-50" },
-                                        { name: "NVIDIA HGX H100", specs: "8x H100 GPUs • 32 PetaFLOPS", use: "LLM Training", status: "Limited", color: "text-amber-600 bg-amber-50" },
-                                        { name: "NVIDIA HGX A100", specs: "8x A100 GPUs • 5 PetaFLOPS", use: "Fine-tuning, Inference", status: "Immediate", color: "text-green-600 bg-green-50" },
-                                        { name: "NVIDIA L40S", specs: "Ada Lovelace • 48GB GDDR6", use: "Graphics, Omniverse", status: "Immediate", color: "text-green-600 bg-green-50" },
-                                    ].map((row, i) => (
-                                        <tr key={i} className="hover:bg-slate-50 transition-colors">
-                                            <td className="px-6 py-4 font-bold text-slate-900">{row.name}</td>
-                                            <td className="px-6 py-4 text-slate-600 text-sm">{row.specs}</td>
-                                            <td className="px-6 py-4 text-slate-600 text-sm">{row.use}</td>
-                                            <td className="px-6 py-4">
-                                                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${row.color}`}>
-                                                    {row.status}
-                                                </span>
-                                            </td>
+                            <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-950/50">
+                                <table className="w-full text-left text-sm">
+                                    <thead>
+                                        <tr className="bg-slate-900 border-b border-slate-800 text-slate-300 uppercase tracking-wider font-semibold">
+                                            <th className="px-6 py-4">Node Type</th>
+                                            <th className="px-6 py-4">Processor (CPU)</th>
+                                            <th className="px-6 py-4">Memory (RAM)</th>
+                                            <th className="px-6 py-4">Storage</th>
+                                            <th className="px-6 py-4">Networking</th>
                                         </tr>
-                                    ))}
-                                    <tr className="bg-slate-50 text-slate-400 italic">
-                                        <td className="px-6 py-4">NVIDIA RTX 6000 Ada</td>
-                                        <td className="px-6 py-4 text-xs">Coming Q3</td>
-                                        <td className="px-6 py-4 text-xs">Workstation</td>
-                                        <td className="px-6 py-4"><span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-500">Roadmap</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody className="divide-y divide-slate-800 text-slate-300 font-mono">
+                                        <tr className="hover:bg-slate-800/50 transition-colors">
+                                            <td className="px-6 py-4 font-bold text-white">General Purpose (G3)</td>
+                                            <td className="px-6 py-4">Intel Xeon Platinum 8480+</td>
+                                            <td className="px-6 py-4">Up to 512GB DDR5</td>
+                                            <td className="px-6 py-4">NVMe SSD</td>
+                                            <td className="px-6 py-4">25 Gbps</td>
+                                        </tr>
+                                        <tr className="hover:bg-slate-800/50 transition-colors">
+                                            <td className="px-6 py-4 font-bold text-white">Compute Optimized (C3)</td>
+                                            <td className="px-6 py-4">AMD EPYC 9654 (Genoa)</td>
+                                            <td className="px-6 py-4">Up to 256GB DDR5</td>
+                                            <td className="px-6 py-4">NVMe SSD</td>
+                                            <td className="px-6 py-4">50 Gbps</td>
+                                        </tr>
+                                        <tr className="hover:bg-slate-800/50 transition-colors">
+                                            <td className="px-6 py-4 font-bold text-white text-pink-400">AI Training (A1)</td>
+                                            <td className="px-6 py-4">2x AMD EPYC 9754</td>
+                                            <td className="px-6 py-4">2TB DDR5 + 640GB HBM3</td>
+                                            <td className="px-6 py-4">30TB NVMe Gen5</td>
+                                            <td className="px-6 py-4">2x 400 Gbps (Infiniband)</td>
+                                        </tr>
+                                        <tr className="hover:bg-slate-800/50 transition-colors">
+                                            <td className="px-6 py-4 font-bold text-white">High Memory (M3)</td>
+                                            <td className="px-6 py-4">Intel Xeon Gold 6430</td>
+                                            <td className="px-6 py-4">Up to 2TB DDR5</td>
+                                            <td className="px-6 py-4">NVMe SSD</td>
+                                            <td className="px-6 py-4">25 Gbps</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </ScrollReveal>
                     </div>
                 </section>
 
                 {/* ===== FOOTER CTA ===== */}
-                <section className="py-24 bg-slate-900 border-t border-white/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(236,72,153,0.15),transparent_50%)]" />
+                <section className="py-24 bg-white border-t border-slate-100 relative overflow-hidden">
                     <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
                         <ScrollReveal>
-                            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-                                Get Early Access to <span className="text-pink-500">Siscom GPU Infrastructure</span>
+                            <h2 className="text-3xl lg:text-5xl font-bold text-slate-900 mb-6">
+                                Ready to deploy?
                             </h2>
-                            <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-                                Build faster, train smarter, and deploy AI workloads with confidence.
+                            <p className="text-slate-600 mb-10 max-w-xl mx-auto text-lg">
+                                Spin up your first instance in minutes. No credit card required for the trial.
                             </p>
                             <div className="flex flex-wrap justify-center gap-4">
                                 <Link
                                     href="/contact"
-                                    className="bg-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-pink-500 transition-all hover:shadow-lg hover:shadow-pink-500/25 active:scale-95"
+                                    className="bg-slate-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-slate-800 transition-all hover:shadow-xl hover:shadow-slate-900/10 active:scale-95"
                                 >
-                                    Get Started
+                                    Start Free Trial
                                 </Link>
                                 <Link
-                                    href="#pricing"
-                                    className="bg-transparent text-white border border-slate-700 px-8 py-4 rounded-full font-semibold hover:bg-white/5 transition-all active:scale-95"
+                                    href="/contact"
+                                    className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-all hover:border-slate-300 active:scale-95"
                                 >
-                                    View Pricing
+                                    Talk to Sales
                                 </Link>
                             </div>
                         </ScrollReveal>
