@@ -3,30 +3,90 @@
 /* Theme variables */
 :root,
 html[data-theme="dark"] {
-  --background: #0f172a;
-  --foreground: #ededed;
-  --intro-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --border-color: #334155;
+  --background: #09090b;
+  /* Zinc 950 */
+  --foreground: #fafafa;
+  /* Zinc 50 */
+  --card: #18181b;
+  /* Zinc 900 */
+  --card-foreground: #fafafa;
+  --popover: #09090b;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+  --secondary: #27272a;
+  /* Zinc 800 */
+  --secondary-foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  /* Zinc 400 */
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4d4d8;
+
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --border-color: #27272a;
 }
 
 html[data-theme="light"] {
   --background: #ffffff;
-  --foreground: #171717;
-  --intro-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #09090b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  /* Zinc 100 */
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  /* Zinc 500 */
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #e4e4e7;
+  /* Zinc 200 */
+  --input: #e4e4e7;
+  --ring: #18181b;
+
   --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --border-color: #e2e8f0;
+  --bg-secondary: #f4f4f5;
+  --text-primary: #09090b;
+  --text-secondary: #71717a;
+  --border-color: #e4e4e7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -41,42 +101,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Light theme overrides for sections */
-html[data-theme="light"] .bg-slate-950 {
-  background-color: #f8fafc !important;
-}
 
-html[data-theme="light"] .bg-gradient-to-br.from-slate-950 {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%) !important;
-}
-
-html[data-theme="light"] .text-white {
-  color: #0f172a !important;
-}
-
-html[data-theme="light"] .text-slate-300 {
-  color: #475569 !important;
-}
-
-html[data-theme="light"] .text-slate-400 {
-  color: #64748b !important;
-}
-
-html[data-theme="light"] .border-slate-800 {
-  border-color: #e2e8f0 !important;
-}
-
-html[data-theme="light"] .bg-slate-800\/50 {
-  background-color: rgba(241, 245, 249, 0.9) !important;
-}
-
-html[data-theme="light"] .bg-slate-900\/80 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-html[data-theme="light"] .bg-slate-900\/90 {
-  background-color: rgba(255, 255, 255, 0.98) !important;
-}
 
 /* Custom scrollbar - theme aware */
 ::-webkit-scrollbar {
@@ -97,6 +122,3 @@ html[data-theme="light"] .bg-slate-900\/90 {
 }
 
 /* Smooth animations */
-* {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}

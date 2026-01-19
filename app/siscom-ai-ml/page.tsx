@@ -2,182 +2,191 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
-import Image from "next/image";
+import { GridPattern, DotPattern } from "@/components/GridPattern";
+import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 
 export default function SiscomAIMLPage() {
     return (
-        <div className="min-h-screen bg-white text-slate-900 selection:bg-pink-100 selection:text-pink-900">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
             <Navbar />
 
-            <main>
-                {/* ===== HERO SECTION ===== */}
-                <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
-                    <div className="mx-auto max-w-7xl px-6 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-16 items-center">
-                            <div>
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-900 mb-6 uppercase tracking-wider shadow-sm">
-                                    <span className="w-2 h-2 rounded-full bg-pink-600 animate-pulse"></span>
-                                    Enterprise Intelligence
-                                </div>
+            <main className="pt-32 pb-24 relative">
+                {/* Background Pattern - Dots for AI feeling */}
+                <DotPattern
+                    width={24}
+                    height={24}
+                    cx={1}
+                    cy={1}
+                    cr={1}
+                    className="absolute inset-0 h-full w-full fill-neutral-200/40 [mask-image:linear-gradient(to_bottom,white,transparent)] dark:fill-neutral-800/40"
+                />
 
-                                <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-                                    Deploy generative AI <br />
-                                    <span className="text-slate-900 decoration-pink-500/30 underline decoration-4 underline-offset-4">with confidence.</span>
-                                </h1>
-
-                                <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg font-medium">
-                                    Train, fine-tune, and serve models on sovereign infrastructure. Enterprise-grade security for your proprietary data.
-                                </p>
-
-                                <div className="flex flex-wrap items-center gap-4">
-                                    <Link
-                                        href="/contact"
-                                        className="bg-slate-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-slate-800 transition-all hover:shadow-xl hover:shadow-slate-900/10 active:scale-95"
-                                    >
-                                        Start Training
-                                    </Link>
-                                    <Link
-                                        href="#platform"
-                                        className="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-all hover:border-slate-300 active:scale-95"
-                                    >
-                                        Explore Models
-                                    </Link>
-                                </div>
-                            </div>
-
-                            {/* Hero Image */}
-                            <div className="relative">
-                                <div className="absolute inset-0 bg-slate-200 rounded-3xl rotate-3 transform translate-y-4 translate-x-4"></div>
-                                <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white aspect-square lg:aspect-[4/3] flex items-center justify-center p-8">
-                                    <img
-                                        src="/images/siscom_ai_training_cluster.png"
-                                        alt="AI Training Cluster"
-                                        className="object-contain w-full h-full hover:scale-105 transition-transform duration-700"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* ===== AI LIFECYCLE ===== */}
-                <section id="platform" className="py-24 bg-white">
-                    <div className="mx-auto max-w-7xl px-6">
-                        <ScrollReveal className="mb-20 text-center max-w-3xl mx-auto">
-                            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
-                                Complete AI Lifecycle Management
-                            </h2>
-                            <p className="text-lg text-slate-600 leading-relaxed">
-                                From raw data to production inference, Siscom provides the toolchain to build faster.
+                {/* Hero Section */}
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
+                    <div className="max-w-3xl">
+                        <FadeIn>
+                            <span className="text-pink-500 font-medium mb-4 block tracking-wide uppercase text-sm">Siscom AI</span>
+                            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
+                                Autonomous AI Agents
+                            </h1>
+                            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                                Deploy intelligent edge agents that automate complex financial and operational workflows.
+                                Running securely on sovereign infrastructure.
                             </p>
-                        </ScrollReveal>
-
-                        <div className="grid md:grid-cols-3 gap-12 relative">
-                            {/* Connecting Line */}
-                            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-slate-100 -z-10">
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-200 to-transparent w-full animate-pulse" />
-                            </div>
-
-                            {/* Step 1: Orchestrate */}
-                            <ScrollReveal delay={0.1} className="relative text-center group">
-                                <div className="w-24 h-24 mx-auto bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
-                                    <img src="/images/siscom_data_pipeline.png" alt="Orchestrate" className="w-16 h-16 object-contain" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">1. Orchestrate</h3>
-                                <p className="text-slate-600 leading-relaxed px-4">
-                                    Automate data preparation and model training pipelines.
-                                </p>
-                            </ScrollReveal>
-
-                            {/* Step 2: Evaluate */}
-                            <ScrollReveal delay={0.2} className="relative text-center group">
-                                <div className="w-24 h-24 mx-auto bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
-                                    <img src="/images/siscom_ai_inference_engine.png" alt="Evaluate" className="w-16 h-16 object-contain" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">2. Evaluate</h3>
-                                <p className="text-slate-600 leading-relaxed px-4">
-                                    Benchmark model performance against industry standards.
-                                </p>
-                            </ScrollReveal>
-
-                            {/* Step 3: Optimize */}
-                            <ScrollReveal delay={0.3} className="relative text-center group">
-                                <div className="w-24 h-24 mx-auto bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
-                                    <img src="/images/siscom_data_intelligence.png" alt="Optimize" className="w-16 h-16 object-contain" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">3. Optimize</h3>
-                                <p className="text-slate-600 leading-relaxed px-4">
-                                    Deploy high-performance inference at the edge or cloud.
-                                </p>
-                            </ScrollReveal>
-                        </div>
-                    </div>
-                </section>
-
-                {/* ===== AGENT CATALOG ===== */}
-                <section className="py-24 bg-slate-50 border-y border-slate-200">
-                    <div className="mx-auto max-w-7xl px-6">
-                        <ScrollReveal className="mb-16">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-2">Specialized AI Agents</h2>
-                            <p className="text-slate-600">Pre-trained models available for immediate deployment.</p>
-                        </ScrollReveal>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {[
-                                { title: "Sentiment Analysis", desc: "Real-time emotion detection for customer support feeds.", icon: "siscom_data_analytics.png" },
-                                { title: "Document OCR", desc: "Extract structured data from scanned invoices and IDs.", icon: "siscom_data_ingest.png" },
-                                { title: "Fraud Detection", desc: "Anomaly detection for financial transactions.", icon: "siscom_ai_inference_engine.png" },
-                                { title: "Recommendation Engine", desc: "Personalized product suggestions for e-commerce.", icon: "siscom_data_intelligence.png" },
-                                { title: "Voice Synthesis", desc: "Natural language text-to-speech for local languages.", icon: "siscom_ai_training_cluster.png" },
-                                { title: "Predictive Maintenance", desc: "Forecast equipment failures before they happen.", icon: "siscom_data_pipeline.png" }
-                            ].map((agent, i) => (
-                                <ScrollReveal key={i} delay={i * 0.1} className="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-lg transition-all duration-300 group">
-                                    <div className="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center mb-4 border border-slate-100 group-hover:border-pink-200 transition-colors">
-                                        <img src={`/images/${agent.icon}`} alt={agent.title} className="w-8 h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
-                                    </div>
-                                    <h3 className="text-lg font-bold text-slate-900 mb-2">{agent.title}</h3>
-                                    <p className="text-sm text-slate-600 leading-relaxed mb-4">{agent.desc}</p>
-                                    <Link href="/contact" className="text-sm font-semibold text-pink-600 hover:text-pink-700 inline-flex items-center gap-1">
-                                        Deploy Agent <span aria-hidden="true">&rarr;</span>
-                                    </Link>
-                                </ScrollReveal>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* ===== FOOTER CTA ===== */}
-                <section className="py-24 bg-slate-900 border-t border-white/10 relative overflow-hidden">
-                    <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
-                        <ScrollReveal>
-                            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-                                Accelerate your AI roadmap.
-                            </h2>
-                            <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-                                Get access to H100s and specialized local models today.
-                            </p>
-                            <div className="flex flex-wrap justify-center gap-4">
+                            <div className="flex gap-4">
                                 <Link
                                     href="/contact"
-                                    className="bg-pink-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-pink-500 transition-all hover:shadow-xl hover:shadow-pink-500/25 active:scale-95"
+                                    className="bg-pink-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-pink-500 transition-colors shadow-lg shadow-pink-600/20"
                                 >
-                                    Request Access
-                                </Link>
-                                <Link
-                                    href="#pricing"
-                                    className="bg-transparent text-white border border-slate-700 px-8 py-4 rounded-lg font-bold hover:bg-white/5 transition-all active:scale-95"
-                                >
-                                    Model Pricing
+                                    Contact Sales
                                 </Link>
                             </div>
-                        </ScrollReveal>
+                        </FadeIn>
+                    </div>
+                </section>
+
+                {/* Agent Grid */}
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-32 relative z-10">
+                    <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        {/* Agent Card 1 - Banker AI */}
+                        <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-pink-500 transition-colors shadow-sm hover:shadow-md">
+                            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                            <div className="mb-6 h-16 w-16 relative">
+                                <img
+                                    src="/uploaded_image_0_1768799275525.png"
+                                    alt="Banker AI"
+                                    className="object-contain w-full h-full drop-shadow-sm"
+                                />
+                            </div>
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-500 transition-colors">Banker AI</h3>
+                            <p className="text-muted-foreground mb-6 max-w-sm">Automates the creation of Investor Memos and credit risk analysis for financial institutions.</p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-600 dark:text-pink-400 text-xs font-medium border border-pink-500/10">Financial Analysis</span>
+                                <span className="px-2.5 py-1 rounded-md bg-zinc-500/10 text-muted-foreground text-xs font-medium border border-border">Risk Assessment</span>
+                            </div>
+                        </FadeIn>
+
+                        {/* Agent Card 2 - Risk AI */}
+                        <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-red-500 transition-colors shadow-sm hover:shadow-md">
+                            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                            <div className="mb-6 h-16 w-16 relative">
+                                <img
+                                    src="/uploaded_image_1_1768799275525.png"
+                                    alt="Risk AI"
+                                    className="object-contain w-full h-full drop-shadow-sm"
+                                />
+                            </div>
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-red-500 transition-colors">Risk AI</h3>
+                            <p className="text-muted-foreground mb-6 max-w-sm">Real-time monitoring of transaction risks and compliance violations across banking networks.</p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-2.5 py-1 rounded-md bg-red-500/10 text-red-600 dark:text-red-400 text-xs font-medium border border-red-500/10">Security</span>
+                                <span className="px-2.5 py-1 rounded-md bg-zinc-500/10 text-muted-foreground text-xs font-medium border border-border">Compliance</span>
+                            </div>
+                        </FadeIn>
+
+                        {/* Agent Card 3 - Data Analyst AI */}
+                        <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-pink-500 transition-colors shadow-sm hover:shadow-md">
+                            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                            <div className="mb-6 h-16 w-16 relative">
+                                <img
+                                    src="/uploaded_image_2_1768799275525.png"
+                                    alt="Data Analyst AI"
+                                    className="object-contain w-full h-full drop-shadow-sm"
+                                />
+                            </div>
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-500 transition-colors">Data Analyst AI</h3>
+                            <p className="text-muted-foreground mb-6 max-w-sm">Processes millions of records in seconds to extract actionable insights and trends.</p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-600 dark:text-pink-400 text-xs font-medium border border-pink-500/10">Big Data</span>
+                                <span className="px-2.5 py-1 rounded-md bg-zinc-500/10 text-muted-foreground text-xs font-medium border border-border">Insights</span>
+                            </div>
+                        </FadeIn>
+
+                        {/* Agent Card 4 - Trader AI */}
+                        <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-red-500 transition-colors shadow-sm hover:shadow-md">
+                            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                            <div className="mb-6 h-16 w-16 relative">
+                                <img
+                                    src="/uploaded_image_3_1768799275525.png"
+                                    alt="Trader AI"
+                                    className="object-contain w-full h-full drop-shadow-sm"
+                                />
+                            </div>
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-red-500 transition-colors">Trader AI</h3>
+                            <p className="text-muted-foreground mb-6 max-w-sm">Algorithmic trading execution and market strategy optimization.</p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-2.5 py-1 rounded-md bg-red-500/10 text-red-600 dark:text-red-400 text-xs font-medium border border-red-500/10">FinTech</span>
+                                <span className="px-2.5 py-1 rounded-md bg-zinc-500/10 text-muted-foreground text-xs font-medium border border-border">Markets</span>
+                            </div>
+                        </FadeIn>
+
+                    </FadeInStagger>
+                </section>
+
+                {/* Builder Section */}
+                <section className="border-t border-border bg-muted/30 py-24 relative overflow-hidden">
+                    <GridPattern
+                        x={-1}
+                        y={-1}
+                        className="absolute inset-0 h-full w-full fill-neutral-200/30 stroke-neutral-200/30 [mask-image:linear-gradient(to_bottom,transparent,white,transparent)] dark:fill-neutral-800/30 dark:stroke-neutral-800/30"
+                        width={30}
+                        height={30}
+                    />
+
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                        <FadeIn>
+                            <h2 className="text-3xl font-bold text-foreground mb-6">AI Builder Platform</h2>
+                            <p className="text-lg text-muted-foreground mb-8">
+                                A comprehensive suite for orchestrating, evaluating, and deploying your own custom AI models.
+                            </p>
+                            <ul className="space-y-4">
+                                {[
+                                    "Model Orchestration & Chaining",
+                                    "Accuracy Evaluation Suite",
+                                    "User & Data Governance",
+                                    "Edge Deployment Pipeline"
+                                ].map(item => (
+                                    <li key={item} className="flex items-center text-foreground/80">
+                                        <svg className="w-5 h-5 text-pink-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </FadeIn>
+
+                        {/* Visual: Builder Interface Mockup */}
+                        <FadeIn className="bg-card rounded-xl border border-border p-8 min-h-[320px] flex items-center justify-center shadow-lg relative">
+                            {/* Abstract Interface Nodes */}
+                            <div className="relative w-full max-w-sm aspect-video bg-muted/50 rounded border border-dashed border-border flex items-center justify-center">
+                                <div className="absolute top-4 left-4 w-12 h-12 bg-card border border-border rounded shadow flex items-center justify-center">
+                                    <span className="text-xl">📥</span>
+                                </div>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-card border border-pink-500/30 rounded-full shadow-lg flex items-center justify-center z-10">
+                                    <span className="text-2xl animate-pulse">⚙️</span>
+                                </div>
+                                <div className="absolute bottom-4 right-4 w-12 h-12 bg-card border border-border rounded shadow flex items-center justify-center">
+                                    <span className="text-xl">📤</span>
+                                </div>
+
+                                {/* Connecting Lines */}
+                                <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                                    <line x1="20%" y1="20%" x2="50%" y2="50%" stroke="currentColor" className="text-muted-foreground/20" strokeWidth="2" strokeDasharray="4 4" />
+                                    <line x1="50%" y1="50%" x2="80%" y2="80%" stroke="currentColor" className="text-muted-foreground/20" strokeWidth="2" strokeDasharray="4 4" />
+                                </svg>
+                            </div>
+                        </FadeIn>
                     </div>
                 </section>
 
             </main>
-
             <Footer />
         </div>
     );

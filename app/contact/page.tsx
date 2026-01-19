@@ -2,112 +2,109 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
+import { GridPattern } from "@/components/GridPattern";
+import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 
 export default function ContactPage() {
     return (
-        <div className="min-h-screen bg-white text-slate-900 selection:bg-pink-100 selection:text-pink-900">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
             <Navbar />
 
-            <main>
-                {/* ===== HERO SECTION ===== */}
-                <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
-                    <div className="mx-auto max-w-7xl px-6 relative z-10">
-                        <div className="max-w-3xl">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-700 mb-6 uppercase tracking-wider shadow-sm">
-                                <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                                Contact Us
-                            </div>
+            <main className="pt-32 pb-24 relative">
+                <GridPattern
+                    width={100}
+                    height={100}
+                    className="absolute inset-0 h-full w-full fill-neutral-200/20 [mask-image:linear-gradient(to_bottom,white,transparent)] dark:fill-neutral-800/20"
+                />
 
-                            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-tight">
-                                Power Your Business with <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">Siscom</span>
-                            </h1>
+                <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
 
-                            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                                Ready to deploy sovereign infrastructure, scale your AI workforce, or transform your data stack? Our team is here to help.
+                        {/* Left Column: Info */}
+                        <FadeIn>
+                            <h1 className="text-4xl font-bold text-foreground mb-8">Get in Touch</h1>
+                            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
+                                Ready to modernize your infrastructure? Our team is ready to discuss your unique challenges and requirements.
                             </p>
-                        </div>
-                    </div>
-                </section>
 
-                {/* ===== CONTACT FORM & DETAILS ===== */}
-                <section className="py-12 bg-white mb-24">
-                    <div className="mx-auto max-w-6xl px-6">
-                        <div className="grid lg:grid-cols-2 gap-16 items-start">
-
-                            {/* Contact Info */}
-                            <ScrollReveal>
-                                <h2 className="text-2xl font-bold text-slate-900 mb-8">Get in Touch</h2>
-
-                                <div className="space-y-8">
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center shrink-0">
-                                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                                        </div>
-                                        <div>
-                                            <h3 className="text-lg font-bold text-slate-900 mb-1">Email Us</h3>
-                                            <p className="text-slate-600 mb-1">For general inquiries and sales:</p>
-                                            <a href="mailto:info@siscom.africa" className="text-pink-600 font-semibold hover:underline">info@siscom.africa</a>
-                                        </div>
+                            <div className="space-y-8 mb-16">
+                                <div className="flex gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground shrink-0 border border-border">
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
                                     </div>
-
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                        </div>
-                                        <div>
-                                            <h3 className="text-lg font-bold text-slate-900 mb-1">Call Us</h3>
-                                            <p className="text-slate-600 mb-1">Mon-Fri from 8am to 5pm EAT:</p>
-                                            <a href="tel:+254700000000" className="text-blue-600 font-semibold hover:underline">+254 700 000 000</a>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                                        </div>
-                                        <div>
-                                            <h3 className="text-lg font-bold text-slate-900 mb-1">Visit Us</h3>
-                                            <p className="text-slate-600">Nairobi, Kenya</p>
-                                        </div>
+                                    <div>
+                                        <h3 className="text-foreground font-semibold mb-1">Visit Us</h3>
+                                        <p className="text-muted-foreground">Reliance Center, Woodvale Grove</p>
+                                        <p className="text-muted-foreground">Nairobi, Kenya</p>
                                     </div>
                                 </div>
-                            </ScrollReveal>
+                                <div className="flex gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground shrink-0 border border-border">
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-foreground font-semibold mb-1">Email</h3>
+                                        <a href="mailto:info@siscom.africa" className="text-muted-foreground hover:text-foreground transition-colors">
+                                            info@siscom.africa
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground shrink-0 border border-border">
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-foreground font-semibold mb-1">Phone</h3>
+                                        <p className="text-muted-foreground">+254 745 666 660</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </FadeIn>
 
-                            {/* Form */}
-                            <ScrollReveal delay={0.2} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-xl">
+                        {/* Right Column: Form */}
+                        <FadeIn>
+                            <div className="bg-card rounded-2xl border border-border p-8 lg:p-10 shadow-lg relative">
+                                <h2 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h2>
+
                                 <form className="space-y-6">
-                                    <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="grid grid-cols-2 gap-6">
                                         <div>
-                                            <label className="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
-                                            <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition-all" placeholder="Jane" />
+                                            <label htmlFor="firstName" className="block text-sm font-medium text-muted-foreground mb-2">First Name</label>
+                                            <input type="text" id="firstName" className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
-                                            <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition-all" placeholder="Doe" />
+                                            <label htmlFor="lastName" className="block text-sm font-medium text-muted-foreground mb-2">Last Name</label>
+                                            <input type="text" id="lastName" className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
                                         </div>
                                     </div>
+
                                     <div>
-                                        <label className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
-                                        <input type="email" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition-all" placeholder="jane@company.com" />
+                                        <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">Work Email</label>
+                                        <input type="email" id="email" className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
                                     </div>
+
                                     <div>
-                                        <label className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
-                                        <textarea rows={4} className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition-all" placeholder="How can we help you?" />
+                                        <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">How can we help?</label>
+                                        <textarea id="message" rows={4} className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
                                     </div>
-                                    <button type="button" className="w-full bg-slate-900 text-white font-bold py-4 rounded-lg hover:bg-slate-800 transition-all hover:shadow-lg active:scale-95">
+
+                                    <button type="submit" className="w-full bg-foreground text-background font-bold py-3.5 rounded-md hover:opacity-90 transition-opacity">
                                         Send Message
                                     </button>
                                 </form>
-                            </ScrollReveal>
+                            </div>
+                        </FadeIn>
 
-                        </div>
                     </div>
-                </section>
-
+                </div>
             </main>
-
             <Footer />
         </div>
     );
