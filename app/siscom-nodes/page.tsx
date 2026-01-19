@@ -284,7 +284,7 @@ export default function SiscomNodesPage() {
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {Offerings.map((offering, idx) => (
-                            <div key={idx} className="relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm flex flex-col hover:border-white/20 transition-colors group">
+                            <div key={idx} className="relative p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm flex flex-col transition-all duration-300 group hover:border-pink-500/50 hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1">
                                 {/* Icon - Siscom Pink */}
                                 <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-6 bg-pink-500/10">
                                     <div className="w-6 h-6 rounded-md bg-pink-500" />

@@ -8,7 +8,7 @@ import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 
 export default function SiscomDataPage() {
     return (
-        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-cyan-500/30 overflow-hidden">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
             <Navbar />
 
             <main className="pt-32 pb-24 relative">
@@ -22,7 +22,7 @@ export default function SiscomDataPage() {
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <FadeIn className="max-w-2xl">
-                            <span className="text-cyan-500 font-medium mb-4 block tracking-wide uppercase text-sm">Siscom Data</span>
+                            <span className="text-pink-500 font-medium mb-4 block tracking-wide uppercase text-sm">Siscom Data</span>
                             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
                                 Data & BI Platform
                             </h1>
@@ -33,7 +33,7 @@ export default function SiscomDataPage() {
                             <div className="flex gap-4">
                                 <Link
                                     href="/contact"
-                                    className="bg-cyan-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-cyan-500 transition-colors shadow-lg shadow-cyan-600/20"
+                                    className="bg-pink-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-pink-500 transition-colors shadow-lg shadow-pink-600/20"
                                 >
                                     Start Analyzing
                                 </Link>
@@ -56,9 +56,9 @@ export default function SiscomDataPage() {
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
                     <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* Feature 1 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-cyan-500/30 transition-colors">
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
                             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-sm border border-cyan-500/20">01</span>
+                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">01</span>
                                 Clustering
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
@@ -66,9 +66,9 @@ export default function SiscomDataPage() {
                             </p>
                         </FadeIn>
                         {/* Feature 2 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-cyan-500/30 transition-colors">
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
                             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-sm border border-cyan-500/20">02</span>
+                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">02</span>
                                 Mining
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
@@ -76,9 +76,9 @@ export default function SiscomDataPage() {
                             </p>
                         </FadeIn>
                         {/* Feature 3 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-cyan-500/30 transition-colors">
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
                             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-sm border border-cyan-500/20">03</span>
+                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">03</span>
                                 Visualization
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
@@ -86,9 +86,9 @@ export default function SiscomDataPage() {
                             </p>
                         </FadeIn>
                         {/* Feature 4 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-cyan-500/30 transition-colors">
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
                             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-sm border border-cyan-500/20">04</span>
+                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">04</span>
                                 Pipelines
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
@@ -96,9 +96,9 @@ export default function SiscomDataPage() {
                             </p>
                         </FadeIn>
                         {/* Feature 5 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-cyan-500/30 transition-colors">
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
                             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-sm border border-cyan-500/20">05</span>
+                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">05</span>
                                 Storage
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
@@ -106,9 +106,9 @@ export default function SiscomDataPage() {
                             </p>
                         </FadeIn>
                         {/* Feature 6 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-cyan-500/30 transition-colors">
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
                             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-sm border border-cyan-500/20">06</span>
+                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">06</span>
                                 Governance
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
@@ -124,16 +124,16 @@ export default function SiscomDataPage() {
                             <h2 className="text-2xl font-bold text-foreground mb-12">Industry Use Cases</h2>
 
                             <div className="grid md:grid-cols-3 gap-8">
-                                <div className="border-l-2 border-cyan-500 pl-6 space-y-2 group hover:pl-8 transition-all duration-300">
-                                    <h4 className="text-foreground font-semibold group-hover:text-cyan-500 transition-colors">Healthcare</h4>
+                                <div className="border-l-2 border-pink-500 pl-6 space-y-2 group hover:pl-8 transition-all duration-300">
+                                    <h4 className="text-foreground font-semibold group-hover:text-pink-500 transition-colors">Healthcare</h4>
                                     <p className="text-sm text-muted-foreground">Patient outcome analysis and resource optimization.</p>
                                 </div>
-                                <div className="border-l-2 border-cyan-500 pl-6 space-y-2 group hover:pl-8 transition-all duration-300">
-                                    <h4 className="text-foreground font-semibold group-hover:text-cyan-500 transition-colors">Manufacturing</h4>
+                                <div className="border-l-2 border-pink-500 pl-6 space-y-2 group hover:pl-8 transition-all duration-300">
+                                    <h4 className="text-foreground font-semibold group-hover:text-pink-500 transition-colors">Manufacturing</h4>
                                     <p className="text-sm text-muted-foreground">Predictive maintenance and supply chain visibility.</p>
                                 </div>
-                                <div className="border-l-2 border-cyan-500 pl-6 space-y-2 group hover:pl-8 transition-all duration-300">
-                                    <h4 className="text-foreground font-semibold group-hover:text-cyan-500 transition-colors">Retail</h4>
+                                <div className="border-l-2 border-pink-500 pl-6 space-y-2 group hover:pl-8 transition-all duration-300">
+                                    <h4 className="text-foreground font-semibold group-hover:text-pink-500 transition-colors">Retail</h4>
                                     <p className="text-sm text-muted-foreground">Customer behavior tracking and inventory forecasting.</p>
                                 </div>
                             </div>

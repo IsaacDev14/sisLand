@@ -41,7 +41,7 @@ const apps = [
 
 export default function CloudAppsPage() {
     return (
-        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-orange-500/30 overflow-hidden">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
             <Navbar />
 
             <main className="pt-32 pb-24 relative">
@@ -55,7 +55,7 @@ export default function CloudAppsPage() {
                     <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <FadeIn className="max-w-2xl">
-                                <span className="text-orange-500 font-medium mb-4 block tracking-wide uppercase text-sm">Siscom Apps</span>
+                                <span className="text-pink-500 font-medium mb-4 block tracking-wide uppercase text-sm">Siscom Apps</span>
                                 <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
                                     Cloud Apps
                                 </h1>
@@ -65,7 +65,7 @@ export default function CloudAppsPage() {
                                 <div className="flex gap-4">
                                     <Link
                                         href="/contact"
-                                        className="bg-orange-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-orange-500 transition-colors shadow-lg shadow-orange-600/20"
+                                        className="bg-pink-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-pink-500 transition-colors shadow-lg shadow-pink-600/20"
                                     >
                                         Explore Apps
                                     </Link>
@@ -90,7 +90,7 @@ export default function CloudAppsPage() {
                     <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {apps.map((app, idx) => (
                             <FadeIn key={idx} className="group bg-card border border-border rounded-xl p-6 hover:border-foreground/20 hover:shadow-lg transition-all duration-300">
-                                <div className="h-2 w-12 bg-orange-500/20 rounded-full mb-6 group-hover:bg-orange-500 transition-colors" />
+                                <div className="h-2 w-12 bg-pink-500/20 rounded-full mb-6 group-hover:bg-pink-500 transition-colors" />
                                 <h3 className="text-lg font-bold text-foreground mb-2">{app.name}</h3>
                                 <p className="text-muted-foreground mb-6 text-sm leading-relaxed min-h-[40px]">
                                     {app.description}
