@@ -8,8 +8,8 @@ import { GridPattern } from "@/components/GridPattern";
 import { FadeIn } from "@/components/FadeIn";
 
 // Icons
-const CheckIcon = () => (
-    <svg className="w-5 h-5 text-emerald-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+const CheckIcon = ({ className }: { className?: string }) => (
+    <svg className={className || "w-5 h-5 text-emerald-500 mr-2"} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
     </svg>
 );
@@ -75,6 +75,60 @@ const Products = [
     },
 ];
 
+// Data: Infrastructure Offerings
+const Offerings = [
+    {
+        title: "Dedicated Nodes",
+        tagline: "Full Control. Maximum Performance.",
+        description: "Access the full power of dedicated compute—virtual or physical—with complete root access. Designed for mission-critical workloads that demand isolation, performance, and reliability.",
+        theme: "blue",
+        benefits: [
+            "Full root access (virtual or bare metal)",
+            "N+1 redundancy for high availability",
+            "Hosted in Tier III data centers",
+            "Ideal for regulated, high-performance workloads"
+        ],
+        cta: "Explore Dedicated Nodes"
+    },
+    {
+        title: "Virtual Nodes",
+        tagline: "Flexible Compute, Instantly Deployed.",
+        description: "Get a slice of Siscom's sovereign infrastructure with Virtual Nodes—deploy remotely in minutes and scale as you grow. Choose the right size for your workload and start fast.",
+        theme: "emerald",
+        nodeTypes: ["MicroNode", "MegaNode", "TerraNode"],
+        benefits: [
+            "99.99% uptime SLA",
+            "Local technical support",
+            "Local billing & local currency",
+            "3-month free trial"
+        ],
+        cta: "Get Started Now"
+    },
+    {
+        title: "Storage Nodes",
+        tagline: "High-Speed, Local Data Storage",
+        description: "Store enterprise data, video footage, backups, and large datasets locally with maximum upload and download speeds—secure, scalable, and optimized for data-intensive workloads.",
+        theme: "amber",
+        useCases: [
+            "Enterprise data storage",
+            "Media & video archives",
+            "AI datasets & backups"
+        ],
+        cta: "Explore Storage Solutions"
+    }
+];
+
+// Data: GPU Products
+const GPUProducts = [
+    { name: "NVIDIA GB200 NVL72 / HGX B200", status: "Available Now" },
+    { name: "NVIDIA HGX H100 / H200", status: "Available Now" },
+    { name: "NVIDIA HGX A100", status: "Available Now" },
+    { name: "NVIDIA PCIe A100", status: "Available Now" },
+    { name: "NVIDIA L40 / L40S", status: "Available Now" },
+    { name: "NVIDIA A40", status: "Available Now" },
+    { name: "NVIDIA RTX GPUs", status: "Coming Soon" },
+    { name: "MiniCards", status: "Coming Soon" },
+];
 
 
 function ServerUnit({ index, isActive }: { index: number; isActive: boolean }) {
@@ -174,7 +228,7 @@ export default function SiscomNodesPage() {
                 <GridPattern
                     x={-1}
                     y={-1}
-                    className="absolute inset-0 h-full w-full fill-neutral-200/50 stroke-neutral-200/50 [mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] dark:fill-neutral-800/50 dark:stroke-neutral-800/50"
+                    className="absolute inset-0 h-full w-full fill-neutral-200/20 stroke-neutral-200/20 [mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] dark:fill-neutral-800/20 dark:stroke-neutral-800/20"
                     width={40}
                     height={40}
                 />
@@ -183,23 +237,26 @@ export default function SiscomNodesPage() {
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <FadeIn className="max-w-2xl">
+                            {/* Tagline */}
+                            <p className="text-xs font-semibold tracking-widest text-pink-500 uppercase mb-4">
+                                Sovereign Cloud & AI Infrastructure
+                            </p>
                             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 text-foreground">
                                 Siscom Nodes
                             </h1>
-                            <p className="text-xl text-muted-foreground leading-relaxed mb-8 font-light">
-                                Local, compliant, and affordable cloud infrastructure.
-                                Built on enterprise-grade hardware utilizing the latest generation processors.
+                            <p className="text-xl text-muted-foreground leading-relaxed mb-6 font-light">
+                                Secure, sovereign compute and AI infrastructure built to meet the performance, compliance, and data-residency needs of African businesses—scalable, resilient, and cloud-first.
                             </p>
+
                             <div className="flex flex-wrap gap-4">
                                 <Link
                                     href="/contact"
-                                    // UPDATED: Used Pink Brand Color
                                     className="bg-pink-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-pink-500 transition-colors shadow-lg shadow-pink-600/20"
                                 >
                                     Start Deploying
                                 </Link>
                                 <Link
-                                    href="#products"
+                                    href="#offerings"
                                     className="border border-border bg-background/50 backdrop-blur px-8 py-3.5 rounded-full font-medium hover:bg-muted transition-colors"
                                 >
                                     View Pricing
@@ -216,106 +273,153 @@ export default function SiscomNodesPage() {
                     </div>
                 </section>
 
-                {/* Feature Grid */}
-                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-32 relative z-10">
-                    <div className="border-t border-border pt-16">
-                        <h2 className="text-2xl font-semibold mb-12 text-foreground">Infrastructure Features</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-                            {Features.map((feature, idx) => (
-                                <div key={idx}>
-                                    <h3 className="text-lg font-medium text-foreground mb-3">{feature.title}</h3>
-                                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                                </div>
-                            ))}
-                        </div>
+                {/* Infrastructure Offerings */}
+                <section id="offerings" className="mx-auto max-w-7xl px-6 lg:px-8 mb-32 relative z-10">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold text-foreground mb-4">Infrastructure Offerings</h2>
+                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                            Choose the right infrastructure for your workload—from dedicated bare metal to flexible virtual nodes.
+                        </p>
                     </div>
-                </section>
 
-                {/* Product Cards */}
-                <section id="products" className="bg-muted/30 py-24 border-y border-border relative">
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                        <div className="mb-12">
-                            <h2 className="text-2xl font-semibold text-foreground">Compute Products</h2>
-                        </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {Offerings.map((offering, idx) => (
+                            <div key={idx} className="relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm flex flex-col hover:border-white/20 transition-colors group">
+                                {/* Icon - Siscom Pink */}
+                                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-6 bg-pink-500/10">
+                                    <div className="w-6 h-6 rounded-md bg-pink-500" />
+                                </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {Products.map((product, idx) => (
-                                <div
-                                    key={idx}
-                                    className={`
-                      relative p-8 rounded-2xl border bg-card flex flex-col shadow-sm
-                      ${product.popular ? 'border-pink-500 shadow-lg ring-1 ring-pink-500/20' : 'border-border hover:border-pink-500/30'}
-                      transition-all duration-300
-                    `}
-                                >
-                                    {product.popular && (
-                                        <span className="absolute -top-3 left-6 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                                            MOST POPULAR
-                                        </span>
-                                    )}
+                                <h3 className="text-xl font-semibold text-foreground mb-2">{offering.title}</h3>
+                                <p className="text-sm font-medium mb-4 text-pink-500">
+                                    {offering.tagline}
+                                </p>
+                                <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+                                    {offering.description}
+                                </p>
 
-                                    <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mb-6 border border-border text-foreground">
-                                        {product.icon}
-                                    </div>
-
-                                    <h3 className="text-xl font-bold text-foreground mb-2">{product.title}</h3>
-                                    <p className="text-muted-foreground text-sm mb-6">{product.price}</p>
-
-                                    <ul className="mb-8 space-y-3 flex-grow">
-                                        {product.features.map(feat => (
-                                            <li key={feat} className="flex items-center text-sm text-foreground/80">
-                                                <CheckIcon />
-                                                {feat}
-                                            </li>
+                                {/* Virtual Node Types (Specific) */}
+                                {offering.nodeTypes && (
+                                    <div className="flex flex-wrap gap-2 mb-8">
+                                        <span className="text-xs text-muted-foreground w-full mb-1">Node Types:</span>
+                                        {offering.nodeTypes.map(type => (
+                                            <span key={type} className="px-2 py-1 bg-white/5 border border-white/10 rounded text-xs text-foreground">
+                                                {type}
+                                            </span>
                                         ))}
-                                    </ul>
+                                    </div>
+                                )}
 
-                                    <Link
-                                        href={product.href}
-                                        // UPDATED: Used Pink Brand Color for Buttons
-                                        className={`
-                        w-full py-3 rounded-lg text-center font-medium transition-colors
-                        ${product.popular
-                                                ? 'bg-pink-600 text-white hover:bg-pink-500 shadow-md shadow-pink-600/10'
-                                                : 'bg-muted text-foreground hover:bg-muted/80'}
-                      `}
-                                    >
-                                        {product.cta}
-                                    </Link>
+                                {/* Use Cases / Benefits List */}
+                                <div className="space-y-3 mb-8 flex-1">
+                                    {(offering.benefits || offering.useCases)?.map((item, i) => (
+                                        <div key={i} className="flex gap-3 text-sm text-neutral-300">
+                                            <CheckIcon className="w-5 h-5 flex-shrink-0 text-pink-500" />
+                                            <span>{item}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
+
+                                <Link href="#" className="flex items-center text-sm font-semibold text-pink-500 hover:text-pink-400 transition-colors mt-auto">
+                                    {offering.cta} <span className="ml-1">→</span>
+                                </Link>
+                            </div>
+                        ))}
                     </div>
                 </section>
 
-                {/* Technical Specs Table (Simple) */}
+                {/* GPU Compute Grid */}
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-32 relative z-10">
+                    <div className="text-center mb-12">
+                        <h2 className="text-2xl font-bold text-foreground">Available GPU Compute Products</h2>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {GPUProducts.map((product, idx) => (
+                            <div key={idx} className="p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex flex-col items-center text-center">
+                                {/* Pink Chip Icon */}
+                                <div className="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center mb-4 text-pink-500">
+                                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+                                </div>
+                                <h3 className="text-sm font-medium text-foreground mb-4">{product.name}</h3>
+                                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider
+                                    ${product.status === 'Available Now' ? 'bg-pink-500/10 text-pink-500' : 'bg-muted text-muted-foreground'}
+                                `}>
+                                    {product.status}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+
+                {/* Hardware Specifications - Premium Card Grid */}
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 py-24 relative z-10">
-                    <div className="max-w-4xl">
-                        <h2 className="text-2xl font-semibold mb-8 text-foreground">Hardware Specifications</h2>
-                        <div className="overflow-hidden rounded-xl border border-border shadow-sm">
-                            <table className="min-w-full divide-y divide-border">
-                                <thead className="bg-muted/50">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Component</th>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Details</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-border bg-card">
-                                    {/* Rows would be dynamically generated, keeping simple for now */}
-                                    {[
-                                        ["Processors", "Latest Gen Intel Xeon Scalable / AMD EPYC"],
-                                        ["Memory", "DDR5 ECC Registered RAM"],
-                                        ["Storage", "Enterprise NVMe SSDs (RAID 10 Default)"],
-                                        ["Network", "2x 10Gbps Uplinks per Node (Redundant)"]
-                                    ].map(([key, val], i) => (
-                                        <tr key={i} className="hover:bg-muted/20 transition-colors">
-                                            <td className="px-6 py-4 text-sm font-medium text-foreground">{key}</td>
-                                            <td className="px-6 py-4 text-sm text-muted-foreground">{val}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold text-foreground mb-4">Hardware Specifications</h2>
+                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                            Enterprise-grade components powering your sovereign infrastructure
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[
+                            {
+                                icon: (
+                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
+                                    </svg>
+                                ),
+                                label: "Processors",
+                                value: "Intel Xeon Scalable",
+                                detail: "& AMD EPYC (Latest Gen)"
+                            },
+                            {
+                                icon: (
+                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
+                                    </svg>
+                                ),
+                                label: "Memory",
+                                value: "DDR5 ECC",
+                                detail: "Registered RAM"
+                            },
+                            {
+                                icon: (
+                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                                    </svg>
+                                ),
+                                label: "Storage",
+                                value: "NVMe SSDs",
+                                detail: "RAID 10 Default"
+                            },
+                            {
+                                icon: (
+                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                                    </svg>
+                                ),
+                                label: "Network",
+                                value: "2x 10Gbps",
+                                detail: "Redundant Uplinks"
+                            }
+                        ].map((spec, idx) => (
+                            <div key={idx} className="group relative p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm hover:border-pink-500/30 hover:shadow-lg hover:shadow-pink-500/5 transition-all duration-300">
+                                {/* Icon */}
+                                <div className="w-14 h-14 rounded-xl bg-pink-500/10 flex items-center justify-center mb-5 text-pink-500 group-hover:bg-pink-500/20 transition-colors">
+                                    {spec.icon}
+                                </div>
+
+                                {/* Label */}
+                                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">{spec.label}</p>
+
+                                {/* Value */}
+                                <h3 className="text-xl font-bold text-foreground mb-1">{spec.value}</h3>
+
+                                {/* Detail */}
+                                <p className="text-sm text-muted-foreground">{spec.detail}</p>
+                            </div>
+                        ))}
                     </div>
                 </section>
 
