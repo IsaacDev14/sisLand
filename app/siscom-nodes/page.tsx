@@ -121,37 +121,66 @@ export default function SiscomNodesPage() {
                         <FadeIn className="hidden lg:block relative">
                             <div className="relative aspect-square w-full max-w-md mx-auto">
                                 {/* Server Rack Illustration using CSS borders and divs */}
-                                <div className="w-full h-full bg-card border border-border rounded-xl shadow-2xl p-6 flex flex-col gap-4 relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent pointer-events-none" />
+                                <div className="w-full h-full bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl shadow-2xl p-6 flex flex-col gap-4 relative overflow-hidden ring-1 ring-white/5">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-transparent pointer-events-none" />
 
-                                    {/* Server Unit 1 */}
-                                    <div className="h-16 bg-muted rounded-md border border-border flex items-center px-4 gap-4 animate-pulse">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                                    {/* Server Unit 1 (Idle) */}
+                                    <div className="h-16 bg-muted/40 rounded-md border border-border/50 flex items-center px-4 gap-4 transition-colors hover:bg-muted/60">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
                                         <div className="flex-1" />
-                                        <div className="w-32 h-2 bg-pink-500/20 rounded" />
+                                        {/* Drive Bays */}
+                                        <div className="flex gap-1">
+                                            <div className="w-8 h-2 bg-zinc-500/10 rounded-sm" />
+                                            <div className="w-8 h-2 bg-zinc-500/10 rounded-sm" />
+                                            <div className="w-8 h-2 bg-zinc-500/10 rounded-sm" />
+                                        </div>
                                     </div>
-                                    {/* Server Unit 2 */}
-                                    <div className="h-16 bg-muted rounded-md border border-border flex items-center px-4 gap-4">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                        <div className="w-2 h-2 rounded-full bg-zinc-500" />
+
+                                    {/* Server Unit 2 (Busy/Processing) */}
+                                    <div className="h-16 bg-muted/40 rounded-md border border-border/50 flex items-center px-4 gap-4 relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)] animate-pulse" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
                                         <div className="flex-1" />
                                         <div className="w-32 h-2 bg-zinc-500/20 rounded" />
                                     </div>
-                                    {/* Server Unit 3 */}
-                                    <div className="h-16 bg-muted rounded-md border border-border flex items-center px-4 gap-4">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
+
+                                    {/* Server Unit 3 (Maintenance) */}
+                                    <div className="h-16 bg-muted/40 rounded-md border border-border/50 flex items-center px-4 gap-4">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
                                         <div className="flex-1" />
-                                        <div className="w-32 h-2 bg-zinc-500/20 rounded" />
+                                        <div className="w-24 h-2 bg-zinc-500/20 rounded" />
                                     </div>
-                                    {/* Server Unit 4 (Active) */}
-                                    <div className="h-16 bg-zinc-900 border border-zinc-800 rounded-md flex items-center px-4 gap-4 relative overflow-hidden group">
-                                        <div className="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <div className="w-2 h-2 rounded-full bg-pink-500 animate-ping" />
-                                        <div className="w-2 h-2 rounded-full bg-pink-500" />
-                                        <div className="flex-1" />
-                                        <div className="w-24 h-2 bg-zinc-700 rounded" />
+
+                                    {/* Server Unit 4 (Active / Deploying - HERO UNIT) */}
+                                    <div className="h-20 bg-gradient-to-r from-zinc-900 to-zinc-950 border border-pink-500/30 rounded-lg flex items-center px-5 gap-5 relative overflow-hidden shadow-[0_4px_20px_-4px_rgba(236,72,153,0.3)] group mt-2">
+                                        {/* Glowing Accents */}
+                                        <div className="absolute top-0 left-0 w-1 h-full bg-pink-500" />
+                                        <div className="absolute inset-0 bg-[url('/grid-pixel.png')] opacity-20" /> {/* Optional Texture */}
+
+                                        {/* Status LEDs */}
+                                        <div className="flex flex-col gap-1.5 z-10">
+                                            <div className="w-2 h-2 rounded-full bg-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.8)] animate-[pulse_1.5s_ease-in-out_infinite]" />
+                                            <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                                        </div>
+
+                                        {/* Activity Graph Simulation */}
+                                        <div className="flex-1 flex items-center gap-1 h-full py-6 z-10 opacity-80">
+                                            {[40, 70, 45, 90, 60, 80, 50].map((h, i) => (
+                                                <div
+                                                    key={i}
+                                                    className="w-1.5 bg-pink-500/40 rounded-full transition-all duration-500"
+                                                    style={{ height: `${h}%` }}
+                                                />
+                                            ))}
+                                        </div>
+
+                                        {/* Label */}
+                                        <div className="text-[10px] font-mono text-pink-200/50 tracking-widest uppercase z-10 border border-pink-500/20 px-2 py-1 rounded">
+                                            Active
+                                        </div>
                                     </div>
                                 </div>
                             </div>
