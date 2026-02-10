@@ -1,129 +1,126 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 
-interface Particle {
+interface Bubble {
     x: number;
     y: number;
-    vx: number;
-    vy: number;
-    life: number;
-    maxLife: number;
-    size: number;
-    hue: number;
+    radius: number;
+    alpha: number;
+    drift: number;
+    rise: number;
+    decay: number;
 }
 
+/**
+ * Subtle floating bubbles that spawn near the cursor and fade away quickly.
+ * Scoped to its parent container. Non-persistent, non-intrusive.
+ */
 export default function MouseTrail() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const particles = useRef<Particle[]>([]);
+    const animRef = useRef<number>(0);
+    const bubbles = useRef<Bubble[]>([]);
+    const lastSpawn = useRef(0);
+    const active = useRef(false);
+    const moving = useRef(false);
+    const moveTimer = useRef<ReturnType<typeof setTimeout>>();
     const mouse = useRef({ x: -100, y: -100 });
-    const animationRef = useRef<number>(0);
-
-    const createParticles = useCallback((x: number, y: number) => {
-        const count = 3;
-        for (let i = 0; i < count; i++) {
-            const angle = Math.random() * Math.PI * 2;
-            const speed = Math.random() * 2 + 0.5;
-            particles.current.push({
-                x,
-                y,
-                vx: Math.cos(angle) * speed,
-                vy: Math.sin(angle) * speed - 1,
-                life: 1,
-                maxLife: 40 + Math.random() * 30,
-                size: Math.random() * 4 + 2,
-                hue: 330 + Math.random() * 30, // pink range
-            });
-        }
-    }, []);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-
+        const parent = canvas.parentElement;
+        if (!parent) return;
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
         const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            const rect = parent.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
         };
         resize();
         window.addEventListener("resize", resize);
 
-        const handleMouse = (e: MouseEvent) => {
-            mouse.current.x = e.clientX;
-            mouse.current.y = e.clientY;
-            createParticles(e.clientX, e.clientY);
+        const handleEnter = () => { active.current = true; };
+        const handleLeave = () => { active.current = false; moving.current = false; };
+        const handleMove = (e: MouseEvent) => {
+            const rect = parent.getBoundingClientRect();
+            mouse.current.x = e.clientX - rect.left;
+            mouse.current.y = e.clientY - rect.top;
+            moving.current = true;
+            clearTimeout(moveTimer.current);
+            moveTimer.current = setTimeout(() => { moving.current = false; }, 100);
         };
-        window.addEventListener("mousemove", handleMouse);
 
-        const animate = () => {
+        parent.addEventListener("mouseenter", handleEnter);
+        parent.addEventListener("mouseleave", handleLeave);
+        parent.addEventListener("mousemove", handleMove);
+
+        const spawn = (now: number) => {
+            if (now - lastSpawn.current < 60) return; // throttle
+            lastSpawn.current = now;
+
+            const count = 1 + Math.floor(Math.random() * 2); // 1-2 bubbles
+            for (let i = 0; i < count; i++) {
+                bubbles.current.push({
+                    x: mouse.current.x + (Math.random() - 0.5) * 24,
+                    y: mouse.current.y + (Math.random() - 0.5) * 24,
+                    radius: 2 + Math.random() * 4,  // 2-6px — small
+                    alpha: 0.25 + Math.random() * 0.2, // subtle start opacity
+                    drift: (Math.random() - 0.5) * 0.6,
+                    rise: -(0.3 + Math.random() * 0.5), // float upward
+                    decay: 0.008 + Math.random() * 0.006, // fade speed
+                });
+            }
+        };
+
+        const animate = (now: number) => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Update & draw particles
-            particles.current = particles.current.filter((p) => {
-                p.life++;
-                if (p.life > p.maxLife) return false;
+            if (active.current && moving.current) spawn(now);
 
-                p.x += p.vx;
-                p.y += p.vy;
-                p.vy += 0.02; // tiny gravity
-                p.vx *= 0.99;
+            bubbles.current = bubbles.current.filter((b) => {
+                b.alpha -= b.decay;
+                if (b.alpha <= 0) return false;
 
-                const progress = p.life / p.maxLife;
-                const alpha = 1 - progress;
-                const scale = 1 - progress * 0.5;
+                b.x += b.drift;
+                b.y += b.rise;
 
+                // Draw bubble
                 ctx.save();
-                ctx.globalAlpha = alpha * 0.6;
-                ctx.fillStyle = `hsla(${p.hue}, 80%, 60%, ${alpha})`;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size * scale, 0, Math.PI * 2);
+                ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(330, 75%, 60%, ${b.alpha})`;
                 ctx.fill();
 
-                // Glow
-                ctx.globalAlpha = alpha * 0.2;
-                ctx.fillStyle = `hsla(${p.hue}, 90%, 70%, ${alpha * 0.3})`;
+                // Tiny highlight for glass effect
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size * scale * 3, 0, Math.PI * 2);
+                ctx.arc(b.x - b.radius * 0.25, b.y - b.radius * 0.3, b.radius * 0.35, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(330, 90%, 85%, ${b.alpha * 0.5})`;
                 ctx.fill();
 
                 ctx.restore();
                 return true;
             });
 
-            // Cursor glow
-            ctx.save();
-            const gradient = ctx.createRadialGradient(
-                mouse.current.x, mouse.current.y, 0,
-                mouse.current.x, mouse.current.y, 80
-            );
-            gradient.addColorStop(0, "hsla(330, 80%, 60%, 0.15)");
-            gradient.addColorStop(0.5, "hsla(330, 80%, 60%, 0.05)");
-            gradient.addColorStop(1, "hsla(330, 80%, 60%, 0)");
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            ctx.arc(mouse.current.x, mouse.current.y, 80, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-
-            animationRef.current = requestAnimationFrame(animate);
+            animRef.current = requestAnimationFrame(animate);
         };
-        animate();
+        animRef.current = requestAnimationFrame(animate);
 
         return () => {
             window.removeEventListener("resize", resize);
-            window.removeEventListener("mousemove", handleMouse);
-            cancelAnimationFrame(animationRef.current);
+            parent.removeEventListener("mouseenter", handleEnter);
+            parent.removeEventListener("mouseleave", handleLeave);
+            parent.removeEventListener("mousemove", handleMove);
+            cancelAnimationFrame(animRef.current);
         };
-    }, [createParticles]);
+    }, []);
 
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 z-50 pointer-events-none"
-            style={{ mixBlendMode: "screen" }}
+            className="absolute inset-0 z-20 pointer-events-none"
         />
     );
 }

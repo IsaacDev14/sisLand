@@ -90,12 +90,13 @@ export default function AppPageTemplate({
 }: AppPageTemplateProps) {
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
-            <MouseTrail />
             <Navbar />
 
             <main className="relative">
                 {/* ────────── SECTION 1 : SPLIT HERO ────────── */}
                 <section className="pt-32 pb-20 relative z-10">
+                    {/* Lazy mouse-follow glow — hero only */}
+                    <MouseTrail />
                     <div className="absolute inset-0 z-0 pointer-events-none">
                         <GridPattern
                             width={60}
@@ -146,22 +147,22 @@ export default function AppPageTemplate({
                                 initial={{ opacity: 0, x: 40 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.7, delay: 0.15 }}
-                                className="relative"
+                                className="relative flex items-center justify-center"
                             >
-                                <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border bg-card">
+                                <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border bg-card max-w-md w-full">
                                     {/* macOS dots */}
-                                    <div className="flex items-center gap-2 px-4 py-3 bg-secondary border-b border-border">
-                                        <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                                        <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-                                        <span className="w-3 h-3 rounded-full bg-[#28C840]" />
-                                        <span className="ml-4 text-xs text-muted-foreground font-medium">{appName} — Dashboard</span>
+                                    <div className="flex items-center gap-2 px-4 py-2.5 bg-secondary border-b border-border">
+                                        <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+                                        <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
+                                        <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
+                                        <span className="ml-3 text-xs text-muted-foreground font-medium">{appName}</span>
                                     </div>
                                     {heroImage ? (
                                         <Image
                                             src={heroImage}
                                             alt={`${appName} Dashboard`}
-                                            width={800}
-                                            height={500}
+                                            width={560}
+                                            height={350}
                                             className="w-full h-auto object-cover"
                                             priority
                                         />
