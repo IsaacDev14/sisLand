@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import { GridPattern } from "@/components/GridPattern";
 import { FadeIn } from "@/components/FadeIn";
 import { SolutionCard } from "@/components/SolutionCard";
@@ -190,6 +191,7 @@ export default function SiscomNodesPage() {
                             delay={0.1}
                             icon={<Server className="w-6 h-6 text-pink-500" />}
                             gradient="from-pink-500/20 via-rose-500/20 to-red-500/20"
+                            imageSrc="/images/nodes/bare-metal.png"
                         />
                         <SolutionCard
                             title="Virtual Servers"
@@ -198,6 +200,7 @@ export default function SiscomNodesPage() {
                             delay={0.2}
                             icon={<Cloud className="w-6 h-6 text-pink-500" />}
                             gradient="from-pink-500/20 via-rose-500/20 to-red-500/20"
+                            imageSrc="/images/nodes/virtual-server.png"
                         />
                         <SolutionCard
                             title="Storage"
@@ -206,6 +209,7 @@ export default function SiscomNodesPage() {
                             delay={0.3}
                             icon={<Database className="w-6 h-6 text-pink-500" />}
                             gradient="from-pink-500/20 via-rose-500/20 to-red-500/20"
+                            imageSrc="/images/nodes/storage.png"
                         />
                     </div>
                 </section>
@@ -217,12 +221,19 @@ export default function SiscomNodesPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {GPUProducts.map((product, idx) => (
-                            <div key={idx} className="p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
-                                {/* Pink Chip Icon */}
-                                <div className="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center mb-4 text-pink-500 group-hover:scale-110 transition-transform">
-                                    <Cpu className="w-6 h-6" />
+                            <div key={idx} className="p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group overflow-hidden relative">
+                                {/* GPU Image */}
+                                <div className="w-full h-32 relative mb-4 rounded-lg overflow-hidden">
+                                    <Image
+                                        src="/images/nodes/gpu.png"
+                                        alt={product.name}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                                 </div>
-                                <h3 className="text-sm font-medium text-foreground mb-4">{product.name}</h3>
+
+                                <h3 className="text-sm font-medium text-foreground mb-4 relative z-10">{product.name}</h3>
                                 <Badge variant={product.status === 'Available Now' ? 'default' : 'secondary'} className={product.status === 'Available Now' ? 'bg-pink-500/10 text-pink-600 hover:bg-pink-500/20 border-pink-200 dark:border-pink-900' : ''}>
                                     {product.status}
                                 </Badge>
