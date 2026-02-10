@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { ReactNode, useState } from "react";
 import { GridPattern } from "./GridPattern";
-import MouseTrail from "./MouseTrail";
+import MagnifyingMesh from "@/components/MagnifyingMesh";
 
 /* ─── Interfaces ─── */
 interface Feature {
@@ -96,7 +96,12 @@ export default function AppPageTemplate({
                 {/* ────────── SECTION 1 : SPLIT HERO ────────── */}
                 <section className="pt-32 pb-20 relative z-10">
                     {/* Lazy mouse-follow glow — hero only */}
-                    <MouseTrail />
+                    <MagnifyingMesh
+                        gap={50}
+                        radius={250}
+                        strength={0.3}
+                        className="opacity-40 stroke-pink-500/20"
+                    />
                     <div className="absolute inset-0 z-0 pointer-events-none">
                         <GridPattern
                             width={60}

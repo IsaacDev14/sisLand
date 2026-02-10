@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import MagnifyingMesh from "@/components/MagnifyingMesh";
 
 // ================== DATABRICKS-INSPIRED HERO ==================
 // Split layout • Animated product visual • Blurred glow orbs
@@ -60,6 +61,12 @@ export default function Home2Hero() {
 
     return (
         <section ref={heroRef} className="relative overflow-hidden bg-background">
+            <MagnifyingMesh
+                gap={50}
+                radius={250}
+                strength={0.3}
+                className="opacity-40 stroke-pink-500/20"
+            />
             {/* ===== MAIN CONTENT - SPLIT LAYOUT ===== */}
             <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
