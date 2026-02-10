@@ -32,7 +32,7 @@ const partners = [
                     <path fill="#34A853" d="M8.85 17.5C10.58 18.59 12.79 18.78 14.7 17.96L14.62 17.89L12.65 15.92C11.26 16.38 9.68 16.06 8.54 15.01L7.03 16.89C7.56 17.22 8.17 17.42 8.85 17.5Z" />
                     <path fill="#FBBC05" d="M5.57 11.89C5.57 12.82 5.79 13.7 6.19 14.47L8.06 12.58C7.8 11.92 7.8 11.17 8.06 10.5L6.19 8.61C5.79 9.39 5.57 10.28 5.57 11.22V11.89Z" />
                 </svg>
-                <span className="text-xl font-bold text-slate-700">Google Cloud</span>
+                <span className="text-xl font-bold text-foreground">Google Cloud</span>
             </div>
         ),
     },

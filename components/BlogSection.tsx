@@ -34,15 +34,15 @@ const blogPosts = [
 
 export default function BlogSection() {
     return (
-        <section className="bg-white py-24 px-6">
+        <section className="bg-background py-24 px-6">
             <div className="mx-auto max-w-7xl">
                 {/* Section Header */}
                 <div className="mb-16 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                     <div>
-                        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+                        <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
                             Blog & News
                         </h2>
-                        <p className="mt-2 text-slate-500">
+                        <p className="mt-2 text-muted-foreground">
                             Insights, updates, and stories from the Siscom team
                         </p>
                     </div>
@@ -72,7 +72,7 @@ export default function BlogSection() {
                     {blogPosts.map((post, index) => (
                         <article
                             key={index}
-                            className="group cursor-pointer rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:border-slate-300 hover:shadow-xl"
+                            className="group cursor-pointer rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-pink-300/50 hover:shadow-xl"
                         >
                             {/* Image */}
                             <div className="relative h-48 overflow-hidden">
@@ -97,15 +97,15 @@ export default function BlogSection() {
                                     >
                                         {post.category}
                                     </span>
-                                    <span className="text-xs text-slate-400">•</span>
-                                    <span className="text-xs text-slate-400">{post.date}</span>
+                                    <span className="text-xs text-muted-foreground">•</span>
+                                    <span className="text-xs text-muted-foreground">{post.date}</span>
                                 </div>
 
-                                <h3 className="mb-2 text-lg font-bold text-slate-900 group-hover:text-pink-600 transition-colors">
+                                <h3 className="mb-2 text-lg font-bold text-foreground group-hover:text-pink-600 transition-colors">
                                     {post.title}
                                 </h3>
 
-                                <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
+                                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                                     {post.excerpt}
                                 </p>
                             </div>

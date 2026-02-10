@@ -32,14 +32,14 @@ const testimonials = [
 
 export default function TestimonialsSection() {
     return (
-        <section className="bg-white py-24 px-6">
+        <section className="bg-background py-24 px-6">
             <div className="mx-auto max-w-7xl">
                 {/* Section Header */}
                 <ScrollReveal animation="fadeUp" className="mb-16 text-center">
                     <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-pink-600">
                         Customer Stories
                     </span>
-                    <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
+                    <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
                         Success Stories:{" "}
                         <span className="text-pink-600">Real Impact, Real Results</span>
                     </h2>
@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="group relative rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 transition-all duration-300 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-500/10 [html[data-theme='light']_&]:bg-white [html[data-theme='light']_&]:shadow-lg [html[data-theme='light']_&]:border-slate-100"
+                            className="group relative rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-500/10"
                         >
                             {/* Quote icon */}
                             <div className="absolute -top-4 left-8">
@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
                             </div>
 
                             {/* Quote */}
-                            <blockquote className="mb-6 mt-4 text-slate-600 [html[data-theme='light']_&]:text-slate-700 leading-relaxed">
+                            <blockquote className="mb-6 mt-4 text-muted-foreground leading-relaxed">
                                 &ldquo;{testimonial.quote}&rdquo;
                             </blockquote>
 
@@ -81,10 +81,10 @@ export default function TestimonialsSection() {
                                     />
                                 </div>
                                 <div>
-                                    <p className="font-semibold text-slate-900">
+                                    <p className="font-semibold text-foreground">
                                         {testimonial.name}
                                     </p>
-                                    <p className="text-sm text-slate-500">
+                                    <p className="text-sm text-muted-foreground">
                                         {testimonial.title}, {testimonial.company}
                                     </p>
                                 </div>
