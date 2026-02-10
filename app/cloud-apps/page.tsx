@@ -7,6 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { GridPattern } from "@/components/GridPattern";
+import MouseTrail from "@/components/MouseTrail";
 
 const apps = [
     {
@@ -77,6 +78,7 @@ export default function CloudAppsPage() {
             <main className="relative">
                 {/* ---- HERO ---- */}
                 <section className="relative pt-32 pb-24 overflow-hidden">
+                    <MouseTrail />
                     <div className="absolute inset-0 z-0 pointer-events-none">
                         <GridPattern
                             width={50}
