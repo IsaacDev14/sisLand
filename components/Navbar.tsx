@@ -7,9 +7,10 @@ import ThemeToggle from "./ThemeToggle";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Removed "Nodes" from here to handle it manually with dropdown
 const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Nodes", href: "/siscom-nodes" },
+    // Nodes is manually placed
     { name: "Data", href: "/siscom-data" },
     { name: "AI/ML", href: "/siscom-ai-ml" },
     { name: "Cloud Apps", href: "/cloud-apps" },
@@ -21,17 +22,28 @@ const companyItems = [
     { name: "Community", href: "/community", description: "Events, Discord & Forum" },
 ];
 
+const nodesItems = [
+    { name: "Virtual Servers", href: "/siscom-nodes/virtual-servers", description: "Flexible cloud copute" },
+    { name: "Bare Metal", href: "/siscom-nodes/bare-metal", description: "Dedicated physical performance" },
+    { name: "Storage", href: "/siscom-nodes/storage", description: "Object & Block storage" },
+];
+
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [companyDropdownOpen, setCompanyDropdownOpen] = useState(false);
+    const [nodesDropdownOpen, setNodesDropdownOpen] = useState(false);
     const pathname = usePathname();
-    const dropdownRef = useRef<HTMLDivElement>(null);
+    const companyDropdownRef = useRef<HTMLDivElement>(null);
+    const nodesDropdownRef = useRef<HTMLDivElement>(null);
 
-    // Close dropdown when clicking outside
+    // Close dropdowns when clicking outside
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            if (companyDropdownRef.current && !companyDropdownRef.current.contains(event.target as Node)) {
                 setCompanyDropdownOpen(false);
+            }
+            if (nodesDropdownRef.current && !nodesDropdownRef.current.contains(event.target as Node)) {
+                setNodesDropdownOpen(false);
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
@@ -44,6 +56,7 @@ export default function Navbar() {
     useEffect(() => {
         setMobileMenuOpen(false);
         setCompanyDropdownOpen(false);
+        setNodesDropdownOpen(false);
     }, [pathname]);
 
     return (
@@ -61,7 +74,70 @@ export default function Navbar() {
 
                     {/* Desktop Nav */}
                     <div className="hidden items-center gap-6 lg:flex">
-                        {navLinks.map((link) => {
+                        {/* Home Link */}
+                        <Link
+                            href="/"
+                            className={`text-sm font-medium transition-colors ${pathname === "/"
+                                ? "text-pink-500 dark:text-pink-400"
+                                : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
+                                }`}
+                        >
+                            Home
+                        </Link>
+
+                        {/* Nodes Dropdown (Clickable Parent) */}
+                        <div className="relative" ref={nodesDropdownRef}
+                            onMouseEnter={() => setNodesDropdownOpen(true)}
+                            onMouseLeave={() => setNodesDropdownOpen(false)}>
+                            <div className="flex items-center gap-1">
+                                <Link
+                                    href="/siscom-nodes"
+                                    className={`text-sm font-medium transition-colors ${pathname.startsWith("/siscom-nodes")
+                                            ? "text-pink-500"
+                                            : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
+                                        }`}
+                                    onClick={() => setNodesDropdownOpen(false)}
+                                >
+                                    Nodes
+                                </Link>
+                                <ChevronDown className={`w-4 h-4 transition-transform text-slate-300 [html[data-theme='light']_&]:text-slate-600 ${nodesDropdownOpen ? "rotate-180" : ""}`} />
+                            </div>
+
+                            <AnimatePresence>
+                                {nodesDropdownOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="absolute top-full left-0 mt-2 w-64 rounded-xl border border-border bg-popover p-2 shadow-xl"
+                                    >
+                                        <div className="grid gap-1">
+                                            {nodesItems.map((item) => (
+                                                <Link
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    className="flex items-start gap-3 rounded-lg p-3 hover:bg-muted transition-colors group"
+                                                    onClick={() => setNodesDropdownOpen(false)}
+                                                >
+                                                    <div>
+                                                        <div className="text-sm font-medium text-foreground group-hover:text-pink-500 transition-colors">
+                                                            {item.name}
+                                                        </div>
+                                                        <div className="text-xs text-muted-foreground">
+                                                            {item.description}
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Other Nav Links */}
+                        {navLinks.slice(1).map((link) => { // Skip Home as it's separate now
                             const isActive = pathname === link.href;
                             return (
                                 <Link
@@ -78,7 +154,7 @@ export default function Navbar() {
                         })}
 
                         {/* Company Dropdown */}
-                        <div className="relative" ref={dropdownRef}>
+                        <div className="relative" ref={companyDropdownRef}>
                             <button
                                 onClick={() => setCompanyDropdownOpen(!companyDropdownOpen)}
                                 onMouseEnter={() => setCompanyDropdownOpen(true)}
@@ -133,7 +209,7 @@ export default function Navbar() {
                                 : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
                                 }`}
                         >
-                            Contact Us
+                            Contact
                         </Link>
                     </div>
 
@@ -184,7 +260,43 @@ export default function Navbar() {
                 {/* Mobile menu */}
                 {mobileMenuOpen && (
                     <div className="border-t border-slate-800 py-4 lg:hidden [html[data-theme='light']_&]:border-slate-200">
-                        {navLinks.map((link) => {
+                        {/* Home Link */}
+                        <Link
+                            href="/"
+                            className={`block py-2 transition-colors ${pathname === "/"
+                                ? "text-pink-500 dark:text-pink-400"
+                                : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
+                                }`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Home
+                        </Link>
+
+                        {/* Mobile Nodes Section */}
+                        <div className="py-2 border-t border-slate-800/50 mt-2 pt-4">
+                            <div className="flex items-center justify-between px-2 mb-2">
+                                <Link
+                                    href="/siscom-nodes"
+                                    className="text-xs font-semibold text-muted-foreground uppercase hover:text-pink-500 transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Nodes (All)
+                                </Link>
+                            </div>
+                            {nodesItems.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className="flex items-center gap-3 py-2 px-2 text-slate-300 hover:text-white hover:bg-white/5 rounded-md transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    <span>{item.name}</span>
+                                </Link>
+                            ))}
+                        </div>
+
+                        {/* Other Mobile Links */}
+                        {navLinks.slice(1).map((link) => {
                             const isActive = pathname === link.href;
                             return (
                                 <Link
@@ -225,7 +337,7 @@ export default function Navbar() {
                                 }`}
                             onClick={() => setMobileMenuOpen(false)}
                         >
-                            Contact Us
+                            Contact
                         </Link>
 
                         <Link

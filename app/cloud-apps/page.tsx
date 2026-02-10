@@ -10,32 +10,38 @@ const apps = [
     {
         name: "KAYA CLM",
         description: "Complete contract lifecycle management solution. Streamline creation and approvals.",
-        features: ["Workflows", "Compliance", "eSignature"]
+        features: ["Workflows", "Compliance", "eSignature"],
+        href: "/cloud-apps/kaya-clm"
     },
     {
         name: "SHOPVERSE",
         description: "E-commerce platform to build and grow your online store.",
-        features: ["Inventory", "Payments", "Analytics"]
+        features: ["Inventory", "Payments", "Analytics"],
+        href: "/cloud-apps/shopverse"
     },
     {
         name: "PULSE 360",
         description: "Customer engagement and feedback management platform.",
-        features: ["Surveys", "NPS Tracking", "Insights"]
+        features: ["Surveys", "NPS Tracking", "Insights"],
+        href: "/cloud-apps/pulse-360"
     },
     {
         name: "SMARTCOOP",
         description: "Digital solution for SACCO and cooperative management.",
-        features: ["Member Mgmt", "Loans", "Dividends"]
+        features: ["Member Mgmt", "Loans", "Dividends"],
+        href: "/cloud-apps/smartcoop"
     },
     {
         name: "MOBILIZE",
         description: "Digital mobilization platform for campaigns and advocacy.",
-        features: ["Outreach", "Donations", "Events"]
+        features: ["Outreach", "Donations", "Events"],
+        href: "/cloud-apps/mobilize"
     },
     {
         name: "PESAHUB",
         description: "Comprehensive financial management platform for SMEs.",
-        features: ["Invoicing", "Expenses", "Reports"]
+        features: ["Invoicing", "Expenses", "Reports"],
+        href: "/cloud-apps/pesahub"
     },
 ];
 
@@ -49,6 +55,8 @@ export default function CloudAppsPage() {
                     width={40}
                     height={40}
                     className="absolute inset-0 h-full w-full fill-neutral-200/40 [mask-image:linear-gradient(to_bottom,white,transparent)] dark:fill-neutral-800/40"
+                    x={-1}
+                    y={-1}
                 />
 
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
@@ -89,20 +97,22 @@ export default function CloudAppsPage() {
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
                     <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {apps.map((app, idx) => (
-                            <FadeIn key={idx} className="group bg-card border border-border rounded-xl p-6 hover:border-foreground/20 hover:shadow-lg transition-all duration-300">
-                                <div className="h-2 w-12 bg-pink-500/20 rounded-full mb-6 group-hover:bg-pink-500 transition-colors" />
-                                <h3 className="text-lg font-bold text-foreground mb-2">{app.name}</h3>
-                                <p className="text-muted-foreground mb-6 text-sm leading-relaxed min-h-[40px]">
-                                    {app.description}
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {app.features.map(f => (
-                                        <span key={f} className="text-xs font-medium bg-muted text-muted-foreground px-2 py-1 rounded border border-border">
-                                            {f}
-                                        </span>
-                                    ))}
-                                </div>
-                            </FadeIn>
+                            <Link key={idx} href={app.href} className="block group h-full">
+                                <FadeIn key={idx} className="h-full bg-card border border-border rounded-xl p-6 hover:border-pink-500/50 hover:shadow-lg transition-all duration-300 flex flex-col">
+                                    <div className="h-2 w-12 bg-pink-500/20 rounded-full mb-6 group-hover:bg-pink-500 transition-colors" />
+                                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-pink-500 transition-colors">{app.name}</h3>
+                                    <p className="text-muted-foreground mb-6 text-sm leading-relaxed min-h-[40px] flex-grow">
+                                        {app.description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2 mt-auto">
+                                        {app.features.map(f => (
+                                            <span key={f} className="text-xs font-medium bg-muted text-muted-foreground px-2 py-1 rounded border border-border">
+                                                {f}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </FadeIn>
+                            </Link>
                         ))}
                     </FadeInStagger>
                 </section>
