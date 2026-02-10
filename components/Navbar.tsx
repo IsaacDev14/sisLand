@@ -125,21 +125,21 @@ export default function Navbar() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 10 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute top-full left-0 mt-2 w-64 rounded-xl border border-border bg-popover p-2 shadow-xl"
+                                        className="absolute top-full left-0 mt-2 w-52 rounded-lg border border-border bg-popover p-1 shadow-xl"
                                     >
-                                        <div className="grid gap-1">
+                                        <div className="grid gap-0.5">
                                             {nodesItems.map((item) => (
                                                 <Link
                                                     key={item.name}
                                                     href={item.href}
-                                                    className="flex items-start gap-3 rounded-lg p-3 hover:bg-muted transition-colors group"
+                                                    className="flex items-start rounded-md px-2.5 py-1.5 hover:bg-muted transition-colors group"
                                                     onClick={() => setNodesDropdownOpen(false)}
                                                 >
                                                     <div>
-                                                        <div className="text-sm font-medium text-foreground group-hover:text-pink-500 transition-colors">
+                                                        <div className="text-xs font-medium text-foreground group-hover:text-pink-500 transition-colors">
                                                             {item.name}
                                                         </div>
-                                                        <div className="text-xs text-muted-foreground">
+                                                        <div className="text-[10px] text-pink-500 leading-tight">
                                                             {item.description}
                                                         </div>
                                                     </div>
