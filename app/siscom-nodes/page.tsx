@@ -200,7 +200,7 @@ export default function SiscomNodesPage() {
                             delay={0.2}
                             icon={<Cloud className="w-6 h-6 text-pink-500" />}
                             gradient="from-pink-500/20 via-rose-500/20 to-red-500/20"
-                            imageSrc="/images/nodes/virtual-server.png"
+                            imageSrc="/images/nodes/virtual-server-v2.png"
                         />
                         <SolutionCard
                             title="Storage"
