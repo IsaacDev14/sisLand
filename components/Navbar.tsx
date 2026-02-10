@@ -28,13 +28,24 @@ const nodesItems = [
     { name: "Storage", href: "/siscom-nodes/storage", description: "Object & Block storage" },
 ];
 
+const cloudAppItems = [
+    { name: "KAYA CLM", href: "/cloud-apps/kaya-clm", description: "Customer Lifecycle Management" },
+    { name: "SHOPVERSE", href: "/cloud-apps/shopverse", description: "African E-Commerce Platform" },
+    { name: "PULSE 360", href: "/cloud-apps/pulse-360", description: "Customer Engagement" },
+    { name: "SMARTCOOP", href: "/cloud-apps/smartcoop", description: "Cooperative Management" },
+    { name: "MOBILIZE", href: "/cloud-apps/mobilize", description: "Campaign Mobilization" },
+    { name: "PESAHUB", href: "/cloud-apps/pesahub", description: "Fintech Infrastructure" },
+];
+
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [companyDropdownOpen, setCompanyDropdownOpen] = useState(false);
     const [nodesDropdownOpen, setNodesDropdownOpen] = useState(false);
+    const [cloudAppsDropdownOpen, setCloudAppsDropdownOpen] = useState(false);
     const pathname = usePathname();
     const companyDropdownRef = useRef<HTMLDivElement>(null);
     const nodesDropdownRef = useRef<HTMLDivElement>(null);
+    const cloudAppsDropdownRef = useRef<HTMLDivElement>(null);
 
     // Close dropdowns when clicking outside
     useEffect(() => {
@@ -44,6 +55,9 @@ export default function Navbar() {
             }
             if (nodesDropdownRef.current && !nodesDropdownRef.current.contains(event.target as Node)) {
                 setNodesDropdownOpen(false);
+            }
+            if (cloudAppsDropdownRef.current && !cloudAppsDropdownRef.current.contains(event.target as Node)) {
+                setCloudAppsDropdownOpen(false);
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
@@ -57,6 +71,7 @@ export default function Navbar() {
         setMobileMenuOpen(false);
         setCompanyDropdownOpen(false);
         setNodesDropdownOpen(false);
+        setCloudAppsDropdownOpen(false);
     }, [pathname]);
 
     return (
@@ -93,8 +108,8 @@ export default function Navbar() {
                                 <Link
                                     href="/siscom-nodes"
                                     className={`text-sm font-medium transition-colors ${pathname.startsWith("/siscom-nodes")
-                                            ? "text-pink-500"
-                                            : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
+                                        ? "text-pink-500"
+                                        : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
                                         }`}
                                     onClick={() => setNodesDropdownOpen(false)}
                                 >
@@ -137,7 +152,7 @@ export default function Navbar() {
                         </div>
 
                         {/* Other Nav Links */}
-                        {navLinks.slice(1).map((link) => { // Skip Home as it's separate now
+                        {navLinks.slice(1, 3).map((link) => { // Data and AI/ML
                             const isActive = pathname === link.href;
                             return (
                                 <Link
@@ -153,14 +168,65 @@ export default function Navbar() {
                             );
                         })}
 
+                        {/* Cloud Apps Dropdown (Clickable Parent) */}
+                        <div className="relative" ref={cloudAppsDropdownRef}
+                            onMouseEnter={() => setCloudAppsDropdownOpen(true)}
+                            onMouseLeave={() => setCloudAppsDropdownOpen(false)}>
+                            <div className="flex items-center gap-1">
+                                <Link
+                                    href="/cloud-apps"
+                                    className={`text-sm font-medium transition-colors ${pathname.startsWith("/cloud-apps")
+                                        ? "text-pink-500"
+                                        : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
+                                        }`}
+                                    onClick={() => setCloudAppsDropdownOpen(false)}
+                                >
+                                    Cloud Apps
+                                </Link>
+                                <ChevronDown className={`w-4 h-4 transition-transform text-slate-300 [html[data-theme='light']_&]:text-slate-600 ${cloudAppsDropdownOpen ? "rotate-180" : ""}`} />
+                            </div>
+
+                            <AnimatePresence>
+                                {cloudAppsDropdownOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="absolute top-full left-0 mt-2 w-64 rounded-xl border border-border bg-popover p-2 shadow-xl"
+                                    >
+                                        <div className="grid gap-1">
+                                            {cloudAppItems.map((item) => (
+                                                <Link
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    className="flex items-start gap-3 rounded-lg p-3 hover:bg-muted transition-colors group"
+                                                    onClick={() => setCloudAppsDropdownOpen(false)}
+                                                >
+                                                    <div>
+                                                        <div className="text-sm font-medium text-foreground group-hover:text-pink-500 transition-colors">
+                                                            {item.name}
+                                                        </div>
+                                                        <div className="text-xs text-muted-foreground line-clamp-1">
+                                                            {item.description}
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+
                         {/* Company Dropdown */}
                         <div className="relative" ref={companyDropdownRef}>
                             <button
                                 onClick={() => setCompanyDropdownOpen(!companyDropdownOpen)}
                                 onMouseEnter={() => setCompanyDropdownOpen(true)}
                                 className={`flex items-center gap-1 text-sm font-medium transition-colors ${companyDropdownOpen || pathname.startsWith("/about") || pathname.startsWith("/faqs") || pathname.startsWith("/community")
-                                        ? "text-pink-500"
-                                        : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
+                                    ? "text-pink-500"
+                                    : "text-slate-300 hover:text-white [html[data-theme='light']_&]:text-slate-600 [html[data-theme='light']_&]:hover:text-slate-900"
                                     }`}
                             >
                                 Company
@@ -218,7 +284,7 @@ export default function Navbar() {
                         <ThemeToggle />
                         <Link
                             href="/contact"
-                            className="rounded-full bg-gradient-to-r from-pink-600 to-red-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-500/25 transition-all hover:shadow-xl hover:shadow-pink-500/40"
+                            className="rounded-full bg-pink-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-500/25 transition-all hover:bg-pink-700 hover:shadow-xl hover:shadow-pink-500/40"
                         >
                             Get Started
                         </Link>
@@ -296,7 +362,7 @@ export default function Navbar() {
                         </div>
 
                         {/* Other Mobile Links */}
-                        {navLinks.slice(1).map((link) => {
+                        {navLinks.slice(1, 3).map((link) => {
                             const isActive = pathname === link.href;
                             return (
                                 <Link
@@ -312,6 +378,29 @@ export default function Navbar() {
                                 </Link>
                             );
                         })}
+
+                        {/* Mobile Cloud Apps Section */}
+                        <div className="py-2 border-t border-slate-800/50 mt-2 pt-4">
+                            <div className="flex items-center justify-between px-2 mb-2">
+                                <Link
+                                    href="/cloud-apps"
+                                    className="text-xs font-semibold text-muted-foreground uppercase hover:text-pink-500 transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Cloud Apps (All)
+                                </Link>
+                            </div>
+                            {cloudAppItems.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className="flex items-center gap-3 py-2 px-2 text-slate-300 hover:text-white hover:bg-white/5 rounded-md transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    <span>{item.name}</span>
+                                </Link>
+                            ))}
+                        </div>
 
                         {/* Mobile Company Section */}
                         <div className="py-2 border-t border-slate-800/50 mt-2 pt-4">
@@ -342,7 +431,7 @@ export default function Navbar() {
 
                         <Link
                             href="#contact"
-                            className="mt-4 block rounded-full bg-gradient-to-r from-pink-600 to-red-500 px-5 py-2 text-center text-sm font-semibold text-white"
+                            className="mt-4 block rounded-full bg-pink-600 px-5 py-2 text-center text-sm font-semibold text-white hover:bg-pink-700 transition-colors"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Get Started

@@ -1,93 +1,87 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Link from "next/link";
-import { GridPattern } from "@/components/GridPattern";
-import { FadeIn, FadeInStagger } from "@/components/FadeIn";
+import AppPageTemplate from "@/components/AppPageTemplate";
+import { ClipboardCheck, Users, FileText, Shield, BarChart3, Clock, Zap, Heart } from "lucide-react";
 
 export default function KayaCLMPage() {
-    const features = [
-        "Smart Booking & Appointment Automation",
-        "In-Store Experience Management",
-        "Complete Customer Lifecycle Management"
-    ];
-
     return (
-        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
-            <Navbar />
-
-            <main className="pt-32 pb-24 relative">
-                <GridPattern
-                    width={40}
-                    height={40}
-                    className="absolute inset-0 h-full w-full fill-neutral-200/40 [mask-image:linear-gradient(to_bottom,white,transparent)] dark:fill-neutral-800/40"
-                    x={-1}
-                    y={-1}
-                />
-
-                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <FadeIn className="max-w-2xl">
-                            <span className="text-pink-500 font-medium mb-4 block tracking-wide uppercase text-sm">Siscom Apps</span>
-                            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
-                                KAYA CLM
-                            </h1>
-                            <p className="text-xl font-medium text-foreground mb-4">
-                                Customer Lifecycle Management for Service Businesses
-                            </p>
-                            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                                An automated customer lifecycle management platform that handles bookings, walk-ins, and queues while keeping customers informed with real-time updates and travel-time guidance. Designed to eliminate operational chaos and enhance customer trust through transparency.
-                            </p>
-                            <div className="flex gap-4">
-                                <Link
-                                    href="/contact"
-                                    className="bg-pink-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-pink-500 transition-colors shadow-lg shadow-pink-600/20"
-                                >
-                                    Get Started
-                                </Link>
-                            </div>
-                        </FadeIn>
-
-                        <FadeIn className="hidden lg:block">
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border bg-slate-900/50 aspect-video flex items-center justify-center">
-                                <div className="text-slate-600 font-mono text-sm">App Dashboard Preview</div>
-                                {/* Placeholder for actual app screenshot if available */}
-                            </div>
-                        </FadeIn>
-                    </div>
-                </section>
-
-                <section className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-                    <div className="mb-12">
-                        <h2 className="text-3xl font-bold text-foreground mb-4">Key Features</h2>
-                        <div className="h-1 w-20 bg-pink-500 rounded-full" />
-                    </div>
-
-                    <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {features.map((feature, idx) => (
-                            <FadeIn key={idx} className="bg-card border border-border rounded-xl p-8 hover:border-pink-500/50 transition-colors">
-                                <div className="h-10 w-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-500 mb-4">
-                                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <h3 className="text-xl font-semibold text-foreground">{feature}</h3>
-                            </FadeIn>
-                        ))}
-                    </FadeInStagger>
-                </section>
-
-                <section className="mx-auto max-w-7xl px-6 lg:px-8 mt-24 pt-24 border-t border-border text-center relative z-10">
-                    <FadeIn>
-                        <h2 className="text-3xl font-bold text-foreground mb-6">Ready to streamline your operations?</h2>
-                        <Link href="/contact" className="inline-block bg-foreground text-background px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity">
-                            Contact Sales
-                        </Link>
-                    </FadeIn>
-                </section>
-            </main>
-            <Footer />
-        </div>
+        <AppPageTemplate
+            appName="KAYA CLM"
+            tagline="Siscom Kaya CLM – Customer Lifecycle Management for Service Businesses"
+            description="KAYA CLM is a complete customer lifecycle management solution built for service businesses. From onboarding to retention, manage every stage of your customer relationship with intelligent workflows, real-time tracking, and automated follow-ups."
+            heroImage="/images/dashboards/kaya-clm.png"
+            ctaText="Ready to Transform Your Customer Management?"
+            features={[
+                {
+                    icon: <ClipboardCheck className="w-6 h-6" />,
+                    title: "Smart Scheduling",
+                    description: "Drag-and-drop calendars, auto-assign jobs based on staff availability, skills, and location."
+                },
+                {
+                    icon: <Users className="w-6 h-6" />,
+                    title: "360° Customer View",
+                    description: "Complete profiles with service history, preferences, notes, and communication logs."
+                },
+                {
+                    icon: <Clock className="w-6 h-6" />,
+                    title: "Real-Time Tracking",
+                    description: "Live status and transparent wait times create trust and satisfaction."
+                },
+                {
+                    icon: <Zap className="w-6 h-6" />,
+                    title: "Automated Workflows",
+                    description: "Trigger actions based on events—reminders, follow-ups, escalations all automated."
+                },
+                {
+                    icon: <FileText className="w-6 h-6" />,
+                    title: "Invoicing & Billing",
+                    description: "Generate professional invoices and track payments with integrated billing."
+                },
+                {
+                    icon: <Shield className="w-6 h-6" />,
+                    title: "Compliance Ready",
+                    description: "Audit trails, consent management, and data protection built in."
+                },
+                {
+                    icon: <BarChart3 className="w-6 h-6" />,
+                    title: "Scale Operations",
+                    description: "Serve more customers without chaos or operational overhead."
+                },
+                {
+                    icon: <Heart className="w-6 h-6" />,
+                    title: "Build Loyalty",
+                    description: "Track history, automate follow-ups, reward repeat visits."
+                }
+            ]}
+            pillars={[
+                {
+                    title: "Customer Management",
+                    features: [
+                        "Unified customer profiles",
+                        "Service history & preferences",
+                        "Automated onboarding flows",
+                        "Customer segmentation"
+                    ]
+                },
+                {
+                    title: "Operations",
+                    features: [
+                        "Smart scheduling & dispatch",
+                        "Real-time job tracking",
+                        "Inventory management",
+                        "Staff performance analytics"
+                    ]
+                },
+                {
+                    title: "Growth",
+                    features: [
+                        "Automated follow-ups",
+                        "Feedback collection",
+                        "Loyalty programs",
+                        "Revenue analytics"
+                    ]
+                }
+            ]}
+        />
     );
 }
