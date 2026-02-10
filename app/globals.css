@@ -122,3 +122,16 @@ body {
 }
 
 /* Smooth animations */
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@utility animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
