@@ -5,10 +5,12 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { ReactNode } from "react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
+import { ReactNode, useState } from "react";
 import { GridPattern } from "./GridPattern";
+import MouseTrail from "./MouseTrail";
 
+/* ─── Interfaces ─── */
 interface Feature {
     icon: ReactNode;
     title: string;
@@ -20,6 +22,21 @@ interface Pillar {
     features: string[];
 }
 
+interface Stat {
+    value: string;
+    label: string;
+}
+
+interface UseCase {
+    title: string;
+    description: string;
+}
+
+interface FAQ {
+    question: string;
+    answer: string;
+}
+
 interface AppPageTemplateProps {
     appName: string;
     tagline: string;
@@ -29,8 +46,36 @@ interface AppPageTemplateProps {
     ctaText: string;
     accentColor?: string;
     heroImage?: string;
+    stats?: Stat[];
+    useCases?: UseCase[];
+    faqs?: FAQ[];
 }
 
+/* ─── FAQ Accordion Item ─── */
+function FAQItem({ faq }: { faq: FAQ }) {
+    const [open, setOpen] = useState(false);
+    return (
+        <div className="border-b border-border">
+            <button
+                onClick={() => setOpen(!open)}
+                className="flex w-full items-center justify-between py-5 text-left text-foreground font-semibold text-lg hover:text-pink-600 transition-colors"
+            >
+                {faq.question}
+                <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+            </button>
+            <motion.div
+                initial={false}
+                animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+            >
+                <p className="pb-5 text-muted-foreground leading-relaxed">{faq.answer}</p>
+            </motion.div>
+        </div>
+    );
+}
+
+/* ─── Main Template ─── */
 export default function AppPageTemplate({
     appName,
     tagline,
@@ -38,133 +83,152 @@ export default function AppPageTemplate({
     features,
     pillars,
     ctaText,
-    accentColor = "pink",
-    heroImage
+    heroImage,
+    stats,
+    useCases,
+    faqs
 }: AppPageTemplateProps) {
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
+            <MouseTrail />
             <Navbar />
 
             <main className="relative">
-                {/* Background Grid */}
-                <div className="absolute inset-0 z-0 pointer-events-none">
-                    <GridPattern
-                        width={60}
-                        height={60}
-                        x={-1}
-                        y={-1}
-                        strokeDasharray={"4 2"}
-                        className="[mask-image:radial-gradient(900px_circle_at_center,white,transparent)] opacity-40 dark:opacity-20"
-                    />
-                </div>
+                {/* ────────── SECTION 1 : SPLIT HERO ────────── */}
+                <section className="pt-32 pb-20 relative z-10">
+                    <div className="absolute inset-0 z-0 pointer-events-none">
+                        <GridPattern
+                            width={60}
+                            height={60}
+                            x={-1}
+                            y={-1}
+                            strokeDasharray={"4 2"}
+                            className="[mask-image:radial-gradient(800px_circle_at_center,white,transparent)] opacity-20"
+                        />
+                    </div>
 
-                {/* Peripheral Glow */}
-                <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
-                    <div className="absolute -left-40 top-0 h-[800px] w-[600px] bg-gradient-to-r from-purple-600/20 to-transparent blur-[120px]" />
-                    <div className="absolute -right-40 top-0 h-[800px] w-[600px] bg-gradient-to-l from-pink-600/20 to-transparent blur-[120px]" />
-                </div>
-
-                {/* Hero - Massive centered text like siscom.tech */}
-                <section className="pt-40 pb-20 relative z-10">
-                    <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7 }}
-                        >
-                            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground mb-8 leading-[0.95] drop-shadow-sm">
-                                {tagline}
-                            </h1>
-                            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-                                {description}
-                            </p>
-                            <div className="flex items-center justify-center gap-4 flex-wrap mb-16">
-                                <Link
-                                    href="/contact"
-                                    className="inline-flex items-center gap-2 border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-foreground px-8 py-3.5 rounded-full font-semibold hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all hover:scale-105 duration-300 text-sm"
-                                >
-                                    Jump on a call
-                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                    </svg>
-                                </Link>
-                                <Link
-                                    href="/contact"
-                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-rose-600 text-white px-8 py-3.5 rounded-full font-semibold hover:from-pink-500 hover:to-rose-500 transition-all shadow-lg shadow-pink-600/25 hover:shadow-pink-600/40 hover:scale-105 duration-300 text-sm"
-                                >
-                                    Sign up here
-                                    <ArrowRight className="w-4 h-4" />
-                                </Link>
-                            </div>
-
-                            {/* Visual Preview Dashboard Mockup */}
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+                        <div className="grid lg:grid-cols-2 gap-16 items-center">
+                            {/* Left — Text */}
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                className="relative rounded-2xl bg-slate-900/5 dark:bg-slate-100/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:ring-slate-100/10 lg:-m-4 lg:rounded-3xl lg:p-4 backdrop-blur-sm"
+                                initial={{ opacity: 0, x: -40 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.7 }}
                             >
-                                <div className="rounded-xl shadow-2xl ring-1 ring-slate-900/10 dark:ring-slate-100/10 overflow-hidden bg-white dark:bg-slate-950 aspect-[21/9] flex items-center justify-center relative group">
+                                <span className="inline-block text-pink-600 font-semibold text-sm tracking-widest uppercase mb-4">
+                                    {appName}
+                                </span>
+                                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-foreground mb-6 leading-[1.05]">
+                                    {tagline}
+                                </h1>
+                                <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
+                                    {description}
+                                </p>
+                                <div className="flex items-center gap-4 flex-wrap">
+                                    <Link
+                                        href="/contact"
+                                        className="inline-flex items-center gap-2 bg-pink-600 text-white px-7 py-3 rounded-full font-semibold hover:bg-pink-700 transition-colors shadow-lg shadow-pink-600/25 text-sm"
+                                    >
+                                        Request a Demo
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                    <Link
+                                        href="/contact"
+                                        className="inline-flex items-center gap-2 border border-border bg-card text-foreground px-7 py-3 rounded-full font-semibold hover:bg-muted transition-colors text-sm"
+                                    >
+                                        Talk to Sales
+                                    </Link>
+                                </div>
+                            </motion.div>
+
+                            {/* Right — Dashboard Preview */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 40 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.7, delay: 0.15 }}
+                                className="relative"
+                            >
+                                <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border bg-card">
+                                    {/* macOS dots */}
+                                    <div className="flex items-center gap-2 px-4 py-3 bg-secondary border-b border-border">
+                                        <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                                        <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+                                        <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+                                        <span className="ml-4 text-xs text-muted-foreground font-medium">{appName} — Dashboard</span>
+                                    </div>
                                     {heroImage ? (
-                                        <div className="relative w-full h-full">
-                                            <Image
-                                                src={heroImage}
-                                                alt={`${appName} Dashboard`}
-                                                fill
-                                                className="object-cover object-top"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
-                                                priority
-                                            />
-                                            {/* Gradient Overlay for better integration */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent pointer-events-none" />
-                                        </div>
+                                        <Image
+                                            src={heroImage}
+                                            alt={`${appName} Dashboard`}
+                                            width={800}
+                                            height={500}
+                                            className="w-full h-auto object-cover"
+                                            priority
+                                        />
                                     ) : (
-                                        <>
-                                            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950" />
-                                            <div className="relative z-10 text-center">
-                                                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 mx-auto mb-4 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-500">
-                                                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                                                    </svg>
-                                                </div>
-                                                <span className="text-slate-400 font-medium tracking-wide uppercase text-sm">{appName} Interface</span>
-                                            </div>
-                                            <div className="absolute top-4 left-4 right-4 h-8 bg-slate-100 dark:bg-slate-900 rounded-full opacity-50" />
-                                            <div className="absolute top-16 left-4 w-60 bottom-4 bg-slate-100 dark:bg-slate-900 rounded-xl opacity-30 hidden md:block" />
-                                            <div className="absolute top-16 right-4 left-4 md:left-72 bottom-4 bg-slate-100 dark:bg-slate-900 rounded-xl opacity-30" />
-                                        </>
+                                        <div className="aspect-video bg-secondary flex items-center justify-center">
+                                            <span className="text-muted-foreground text-sm uppercase tracking-widest">{appName}</span>
+                                        </div>
                                     )}
                                 </div>
                             </motion.div>
-                        </motion.div>
+                        </div>
                     </div>
                 </section>
 
-                {/* Bento Feature Grid */}
-                <section className="py-24 relative z-10 bg-slate-50/50 dark:bg-slate-900/20">
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Platform Capabilities</h2>
-                            <p className="mt-4 text-lg text-muted-foreground">Everything you need to succeed.</p>
+                {/* ────────── SECTION 2 : STATS BAR ────────── */}
+                {stats && stats.length > 0 && (
+                    <section className="py-12 border-y border-border bg-secondary/50 relative z-10">
+                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                                {stats.map((stat, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: idx * 0.1 }}
+                                        className="text-center"
+                                    >
+                                        <div className="text-3xl sm:text-4xl font-black text-foreground mb-1">{stat.value}</div>
+                                        <div className="text-sm text-muted-foreground">{stat.label}</div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    </section>
+                )}
+
+                {/* ────────── SECTION 3 : FEATURE BENTO GRID ────────── */}
+                <section className="py-24 relative z-10">
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-16"
+                        >
+                            <span className="text-pink-600 font-semibold text-sm tracking-widest uppercase">Capabilities</span>
+                            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground mt-3">
+                                Everything you need, nothing you don&apos;t
+                            </h2>
+                        </motion.div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                             {features.map((feature, idx) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: idx * 0.1 }}
-                                    className={`group relative overflow-hidden p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-300 hover:-translate-y-1 ${idx === 0 ? "lg:col-span-2 lg:row-span-1 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-950" : ""
+                                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                                    className={`group relative p-7 rounded-2xl border border-border bg-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${idx === 0 ? "md:col-span-2" : ""
                                         }`}
                                 >
-                                    <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                                        <div className="text-foreground transform scale-150 rotate-12">{feature.icon}</div>
-                                    </div>
-                                    <div className="mb-6 inline-flex p-3 rounded-2xl bg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-400 group-hover:scale-110 transition-transform duration-300">
+                                    <div className="mb-5 inline-flex p-3 rounded-xl bg-pink-600/10 text-pink-600 group-hover:bg-pink-600 group-hover:text-white transition-colors duration-300">
                                         {feature.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
+                                    <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
                                     <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
                                 </motion.div>
                             ))}
@@ -172,61 +236,90 @@ export default function AppPageTemplate({
                     </div>
                 </section>
 
-                {/* Complete Feature Set — dark section */}
-                <section className="py-32 bg-slate-950 dark:bg-slate-950 relative overflow-hidden">
-                    {/* Peripheral glow on dark section */}
-                    <div className="pointer-events-none absolute inset-0">
-                        <div className="absolute -left-40 top-0 h-full w-[600px] bg-gradient-to-r from-purple-600/10 to-transparent blur-[100px]" />
-                        <div className="absolute -right-40 top-0 h-full w-[600px] bg-gradient-to-l from-pink-600/10 to-transparent blur-[100px]" />
-                        <GridPattern
-                            width={40}
-                            height={40}
-                            x={-1}
-                            y={-1}
-                            className="stroke-slate-800/50 [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]"
-                        />
-                    </div>
-
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+                {/* ────────── SECTION 4 : HOW IT WORKS ────────── */}
+                <section className="py-24 relative z-10 bg-secondary/50">
+                    <div className="mx-auto max-w-5xl px-6 lg:px-8">
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="text-center mb-20"
+                            className="text-center mb-16"
                         >
-                            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 tracking-tight">Complete Feature Set</h2>
-                            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                                {pillars.length > 0 && `${pillars.length} powerful pillars working together seamlessly to drive your business forward.`}
+                            <span className="text-pink-600 font-semibold text-sm tracking-widest uppercase">How It Works</span>
+                            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground mt-3">
+                                Up and running in 3 steps
+                            </h2>
+                        </motion.div>
+
+                        <div className="relative">
+                            {/* Connector line */}
+                            <div className="hidden md:block absolute top-12 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-px bg-border" />
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                                {[
+                                    { step: "01", title: "Connect", desc: "Sign up, connect your data sources, and configure your workspace in minutes." },
+                                    { step: "02", title: "Configure", desc: "Tailor workflows, permissions, and automations to match how your team operates." },
+                                    { step: "03", title: "Launch", desc: "Go live with confidence. Our team supports you through onboarding and beyond." }
+                                ].map((item, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: idx * 0.2 }}
+                                        className="text-center relative"
+                                    >
+                                        <div className="w-12 h-12 rounded-full bg-pink-600 text-white font-bold text-sm flex items-center justify-center mx-auto mb-5 shadow-lg shadow-pink-600/25 relative z-10">
+                                            {item.step}
+                                        </div>
+                                        <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                                        <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{item.desc}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ────────── SECTION 5 : PILLARS (3 Columns) ────────── */}
+                <section className="py-28 relative z-10">
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-16"
+                        >
+                            <span className="text-pink-600 font-semibold text-sm tracking-widest uppercase">Built for Scale</span>
+                            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground mt-3">
+                                Complete Feature Set
+                            </h2>
+                            <p className="mt-4 text-muted-foreground max-w-lg mx-auto">
+                                {pillars.length} core pillars working together to power your operations.
                             </p>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {pillars.map((pillar, idx) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    whileHover={{ y: -5 }}
                                     transition={{ duration: 0.4, delay: idx * 0.15 }}
-                                    className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-3xl p-8 hover:bg-slate-900/80 hover:border-pink-500/30 transition-all duration-300"
+                                    className="bg-card border border-border rounded-2xl p-8 hover:border-pink-600/30 transition-all duration-300"
                                 >
-                                    <div className="flex items-center gap-4 mb-8">
-                                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-pink-500/20">
-                                            {idx + 1}
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="h-9 w-9 rounded-lg bg-pink-600 flex items-center justify-center text-white font-bold text-sm">
+                                            {String(idx + 1).padStart(2, "0")}
                                         </div>
-                                        <h3 className="text-2xl font-bold text-white">{pillar.title}</h3>
+                                        <h3 className="text-xl font-bold text-foreground">{pillar.title}</h3>
                                     </div>
-                                    <ul className="space-y-4">
+                                    <ul className="space-y-3">
                                         {pillar.features.map((feat, fIdx) => (
-                                            <li key={fIdx} className="flex items-start gap-3 text-slate-400 group">
-                                                <div className="mt-1 h-5 w-5 rounded-full bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-500/20 transition-colors">
-                                                    <svg className="w-3 h-3 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                                    </svg>
-                                                </div>
-                                                <span className="text-sm leading-relaxed group-hover:text-slate-300 transition-colors">{feat}</span>
+                                            <li key={fIdx} className="flex items-start gap-3 group">
+                                                <Check className="w-4 h-4 text-pink-600 mt-0.5 flex-shrink-0" />
+                                                <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{feat}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -236,35 +329,95 @@ export default function AppPageTemplate({
                     </div>
                 </section>
 
-                {/* Bottom CTA */}
-                <section className="py-32 relative z-10">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-pink-500/5" />
-                    </div>
-                    <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center relative z-10">
+                {/* ────────── SECTION 6 : USE CASES ────────── */}
+                {useCases && useCases.length > 0 && (
+                    <section className="py-24 relative z-10 bg-secondary/50">
+                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="text-center mb-16"
+                            >
+                                <span className="text-pink-600 font-semibold text-sm tracking-widest uppercase">Use Cases</span>
+                                <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground mt-3">
+                                    Who is it for?
+                                </h2>
+                            </motion.div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {useCases.map((uc, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: idx * 0.1 }}
+                                        className="p-6 rounded-2xl border border-border bg-card hover:border-pink-600/30 transition-colors"
+                                    >
+                                        <div className="w-10 h-10 rounded-lg bg-pink-600/10 text-pink-600 flex items-center justify-center font-bold text-sm mb-4">
+                                            {String(idx + 1).padStart(2, "0")}
+                                        </div>
+                                        <h3 className="text-lg font-bold text-foreground mb-2">{uc.title}</h3>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{uc.description}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* ────────── SECTION 7 : FAQ ────────── */}
+                {faqs && faqs.length > 0 && (
+                    <section className="py-24 relative z-10">
+                        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="text-center mb-12"
+                            >
+                                <span className="text-pink-600 font-semibold text-sm tracking-widest uppercase">FAQ</span>
+                                <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground mt-3">
+                                    Frequently Asked Questions
+                                </h2>
+                            </motion.div>
+
+                            <div className="border-t border-border">
+                                {faqs.map((faq, idx) => (
+                                    <FAQItem key={idx} faq={faq} />
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* ────────── SECTION 8 : CTA ────────── */}
+                <section className="py-28 relative z-10 bg-secondary">
+                    <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-4xl sm:text-5xl font-black text-foreground mb-8 tracking-tight">{ctaText}</h2>
-                            <p className="text-xl text-muted-foreground mb-12 max-w-xl mx-auto">
-                                Get started today and see the difference. No credit card required.
+                            <h2 className="text-4xl sm:text-5xl font-black text-foreground mb-6 tracking-tight">{ctaText}</h2>
+                            <p className="text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
+                                Get started today. No credit card required.
                             </p>
                             <div className="flex items-center justify-center gap-4 flex-wrap">
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center gap-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-foreground px-8 py-4 rounded-full font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-base"
-                                >
-                                    Contact Sales
-                                </Link>
-                                <Link
-                                    href="/contact"
-                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-rose-600 text-white px-8 py-4 rounded-full font-semibold hover:from-pink-500 hover:to-rose-500 transition-all shadow-xl shadow-pink-600/30 hover:shadow-pink-600/50 hover:scale-105 duration-300 text-base"
+                                    className="inline-flex items-center gap-2 bg-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-pink-700 transition-colors shadow-lg shadow-pink-600/25 text-base"
                                 >
                                     Get Started
                                     <ArrowRight className="w-5 h-5" />
+                                </Link>
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 border border-border bg-card text-foreground px-8 py-4 rounded-full font-semibold hover:bg-muted transition-colors text-base"
+                                >
+                                    Contact Sales
                                 </Link>
                             </div>
                         </motion.div>

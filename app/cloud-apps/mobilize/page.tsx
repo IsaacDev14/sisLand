@@ -7,10 +7,16 @@ export default function MobilizePage() {
     return (
         <AppPageTemplate
             appName="MOBILIZE"
-            tagline="Mobilize – Digital Mobilization Platform for Campaigns & Advocacy"
-            description="Mobilize is a comprehensive digital mobilization platform built for political campaigns, advocacy groups, and community organizations. Manage outreach, fundraising, polling, events, and real-time analytics from a single command center."
+            tagline="Digital Mobilization Platform for Campaigns & Advocacy"
+            description="Manage outreach, fundraising, polling, events, and real-time analytics from a single command center. Built for political campaigns, advocacy groups, and community organizations."
             heroImage="/images/dashboards/mobilize.png"
             ctaText="Power Your Next Campaign with Mobilize"
+            stats={[
+                { value: "1M+", label: "People Reached" },
+                { value: "50+", label: "Campaigns Powered" },
+                { value: "12", label: "Countries Active" },
+                { value: "4x", label: "Engagement Rate" }
+            ]}
             features={[
                 {
                     icon: <Megaphone className="w-6 h-6" />,
@@ -81,6 +87,20 @@ export default function MobilizePage() {
                         "Impact measurement"
                     ]
                 }
+            ]}
+            useCases={[
+                { title: "Political Campaigns", description: "Voter outreach, constituency mapping, door-to-door tracking, and election day coordination." },
+                { title: "Advocacy & NGOs", description: "Petition campaigns, grassroots mobilization, and impact reporting for donors." },
+                { title: "Trade Unions", description: "Member communication, strike coordination, collective bargaining campaigns." },
+                { title: "Community Organizations", description: "Neighborhood initiatives, fundraising drives, and volunteer coordination." },
+                { title: "Religious Organizations", description: "Event management, congregation outreach, and community project mobilization." },
+                { title: "Corporate CSR", description: "Employee engagement programs, volunteer drives, and social impact measurement." }
+            ]}
+            faqs={[
+                { question: "Can I target specific regions or demographics?", answer: "Yes. Mobilize supports geo-fencing, constituency mapping, and demographic targeting. Send different messages to different audiences based on location, age, gender, or custom segments." },
+                { question: "How does fundraising work?", answer: "Create branded donation pages, enable peer-to-peer fundraising, accept payments via M-Pesa and cards, and track all contributions with real-time dashboards." },
+                { question: "Is data secure and private?", answer: "Absolutely. All data is encrypted at rest and in transit. We comply with data protection regulations and offer role-based access controls." },
+                { question: "Can I manage multiple campaigns simultaneously?", answer: "Yes. Our multi-campaign dashboard lets you run parallel campaigns with separate teams, budgets, and analytics while maintaining a unified command view." }
             ]}
         />
     );

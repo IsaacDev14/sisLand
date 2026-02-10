@@ -7,10 +7,16 @@ export default function ShopversePage() {
     return (
         <AppPageTemplate
             appName="SHOPVERSE"
-            tagline="Shopverse – The All‑in‑One E‑Commerce Platform for African Merchants"
-            description="Shopverse empowers African merchants to build, launch, and scale their online stores. From product listings to payment processing and logistics integration, everything you need to sell online is in one platform."
+            tagline="The All-in-One E-Commerce Platform for African Merchants"
+            description="Build, launch, and scale your online store. From product listings to payment processing and logistics integration, everything you need to sell online in one platform."
             heroImage="/images/dashboards/shopverse.png"
             ctaText="Launch Your Online Store Today"
+            stats={[
+                { value: "10K+", label: "Active Merchants" },
+                { value: "$2M+", label: "Monthly GMV" },
+                { value: "15+", label: "Payment Methods" },
+                { value: "<2s", label: "Page Load Time" }
+            ]}
             features={[
                 {
                     icon: <ShoppingCart className="w-6 h-6" />,
@@ -81,6 +87,20 @@ export default function ShopversePage() {
                         "Social media integration"
                     ]
                 }
+            ]}
+            useCases={[
+                { title: "Fashion & Apparel", description: "Size guides, lookbooks, and variant management for clothing brands." },
+                { title: "Electronics Retailers", description: "Spec sheets, warranty tracking, and comparison shopping features." },
+                { title: "Grocery & FMCG", description: "Perishable stock management, delivery slots, and subscription orders." },
+                { title: "Artisans & Crafts", description: "Showcase handmade products with rich media and story-driven storefronts." },
+                { title: "B2B Wholesale", description: "Bulk pricing, tiered discounts, and purchase order workflows." },
+                { title: "Digital Products", description: "Sell courses, e-books, and software with instant digital delivery." }
+            ]}
+            faqs={[
+                { question: "How much does it cost to open a store?", answer: "You can start free with our Starter plan. Paid plans start at affordable monthly rates and scale with your sales volume. No hidden fees." },
+                { question: "Which payment methods are supported?", answer: "We support M-Pesa, Airtel Money, bank transfers, Visa/Mastercard, and 10+ other payment methods popular across Africa." },
+                { question: "Can I sell internationally?", answer: "Yes. Shopverse supports multi-currency checkout, international shipping integrations, and tax calculations for cross-border commerce." },
+                { question: "Do I need technical skills?", answer: "Not at all. Our drag-and-drop builder lets you create a professional store in minutes. For advanced customization, our API and theme system are available." }
             ]}
         />
     );

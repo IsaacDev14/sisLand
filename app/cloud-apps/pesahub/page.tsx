@@ -7,10 +7,16 @@ export default function PesaHubPage() {
     return (
         <AppPageTemplate
             appName="PESAHUB"
-            tagline="PesaHub – Financial Infrastructure for African Businesses"
-            description="PesaHub is a comprehensive financial management platform designed for African SMEs. From invoicing and expense tracking to payment processing and financial reporting, PesaHub gives businesses full control over their financial operations."
+            tagline="Financial Infrastructure for African Businesses"
+            description="From invoicing and expense tracking to payment processing and financial reporting, PesaHub gives SMEs full control over their financial operations."
             heroImage="/images/dashboards/pesahub.png"
             ctaText="Take Control of Your Finances"
+            stats={[
+                { value: "$50M+", label: "Transactions Processed" },
+                { value: "5K+", label: "Active Businesses" },
+                { value: "8", label: "Currencies Supported" },
+                { value: "99.99%", label: "Payment Uptime" }
+            ]}
             features={[
                 {
                     icon: <FileText className="w-6 h-6" />,
@@ -81,6 +87,20 @@ export default function PesaHubPage() {
                         "Multi-entity consolidation"
                     ]
                 }
+            ]}
+            useCases={[
+                { title: "Startups & SMEs", description: "Simple invoicing, expense tracking, and cash flow visibility without an accountant." },
+                { title: "Freelancers & Consultants", description: "Professional invoicing, time tracking, and multi-client billing." },
+                { title: "Retail Businesses", description: "POS integration, inventory costing, and daily sales reconciliation." },
+                { title: "Import/Export Companies", description: "Multi-currency invoicing, customs documentation, and FX management." },
+                { title: "NGOs & Nonprofits", description: "Grant tracking, donor reporting, and fund accountability." },
+                { title: "Multi-Entity Groups", description: "Consolidated reporting, inter-company transactions, and group-level analytics." }
+            ]}
+            faqs={[
+                { question: "Is PesaHub a replacement for an accountant?", answer: "PesaHub automates bookkeeping, invoicing, and reporting but works alongside your accountant. Many accountants use PesaHub to access real-time financials and prepare tax filings faster." },
+                { question: "Which payment methods are supported?", answer: "M-Pesa, Airtel Money, bank transfers, Visa/Mastercard, and multiple mobile money platforms across East and West Africa." },
+                { question: "Can PesaHub handle multiple currencies?", answer: "Yes. We support 8+ currencies with real-time exchange rates, automatic FX gain/loss calculations, and multi-currency reporting." },
+                { question: "Is my financial data secure?", answer: "Yes. We use bank-grade encryption, SOC 2 compliant infrastructure, and role-based access controls. Your data is backed up in real time across multiple regions." }
             ]}
         />
     );
