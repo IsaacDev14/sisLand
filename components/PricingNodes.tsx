@@ -195,11 +195,6 @@ export default function PricingNodes() {
                     </div>
                 </div>
 
-                <div className="mt-8 text-center">
-                    <p className="text-sm text-muted-foreground">
-                        * Setup fee is 50% of the first month's billing. All prices exclude VAT.
-                    </p>
-                </div>
             </div>
         </section>
     );
