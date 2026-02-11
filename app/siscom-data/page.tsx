@@ -3,229 +3,408 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
-import { ArrowRight, Database, BarChart3, ShieldCheck, Zap, Globe2, Server, Lock } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import MagnifyingMesh from "@/components/MagnifyingMesh";
+import { ArrowRight } from "lucide-react";
 
 export default function SiscomDataPage() {
     return (
-        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-blue-500/30 overflow-x-hidden">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
             <Navbar />
 
-            <main className="pt-24 relative">
-                {/* ────────── HERO SECTION ────────── */}
-                <section className="relative overflow-hidden pt-10 pb-24 lg:pt-20 lg:pb-32">
-                    {/* Background - Solid Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-background to-background pointer-events-none" />
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
-
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 text-center">
+            <main className="pt-32 pb-24 relative">
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
+                    <div className="absolute inset-0 z-0 opacity-40">
+                        <MagnifyingMesh />
+                    </div>
+                    <div className="relative z-10 max-w-4xl mx-auto text-center">
                         <FadeIn>
-                            <Badge variant="outline" className="mb-8 border-blue-500/50 text-blue-400 bg-blue-500/10 backdrop-blur-sm px-4 py-1.5 text-sm rounded-full">
-                                <span className="mr-2 h-2 w-2 rounded-full bg-blue-400 animate-pulse"></span>
-                                Unified Data Platform
-                            </Badge>
-
-                            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-8">
-                                Turn Sovereignty into <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                                    Intelligent Action
-                                </span>
+                            <span className="inline-block bg-pink-500/10 text-pink-600 px-3 py-1 rounded-full text-sm font-medium mb-6 border border-pink-500/20">
+                                SISCOM DATA
+                            </span>
+                            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground mb-8">
+                                From Data Warehousing to AI — <span className="text-pink-600">One Intelligent Stack</span>
                             </h1>
-
-                            <p className="text-xl text-muted-foreground leading-relaxed mb-12 max-w-2xl mx-auto">
-                                The first sovereign data lakehouse built for Africa. Ingest, process, and analyze petabytes of data with strict compliance and zero egress fees.
+                            <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+                                Siscom Data empowers financial services and modern enterprises to transform raw data into real-time insights, AI-powered decisions, and measurable business outcomes — all on a secure, scalable, cloud-first platform.
                             </p>
-
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                                <Button size="lg" className="rounded-full px-8 bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/20 h-14 text-lg">
-                                    Start Free Trial
-                                    <ArrowRight className="w-5 h-5 ml-2" />
-                                </Button>
-                                <Button variant="ghost" size="lg" className="rounded-full px-8 text-foreground hover:bg-white/5 h-14 text-lg">
-                                    Talk to Sales
-                                </Button>
-                            </div>
-                        </FadeIn>
-
-                        {/* Hero Visual - Abstract Data Flow */}
-                        <FadeIn delay={0.2} className="mt-20 relative">
-                            <div className="relative mx-auto max-w-5xl rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-sm overflow-hidden aspect-[16/9] flex items-center justify-center group">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-purple-600/10" />
-
-                                {/* Placeholder for Dashboard/Visual */}
-                                <div className="text-center space-y-4">
-                                    <div className="w-24 h-24 mx-auto rounded-full bg-blue-500/20 flex items-center justify-center ring-1 ring-blue-400/50 shadow-[0_0_30px_rgba(59,130,246,0.3)] animate-pulse">
-                                        <Database className="w-10 h-10 text-blue-400" />
-                                    </div>
-                                    <h3 className="text-lg font-medium text-blue-100">Siscom Lakehouse Engine</h3>
-                                    <p className="text-sm text-blue-200/60 font-mono">Processing 15PB Daily</p>
-                                </div>
-
-                                {/* Animated Grid Lines (Subtle) */}
-                                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_70%)]" />
-                            </div>
                         </FadeIn>
                     </div>
                 </section>
 
-                {/* ────────── STATS SECTION ────────── */}
-                <section className="border-y border-white/5 bg-white/[0.02]">
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x divide-white/5">
-                            {[
-                                { label: "Data Processed Daily", value: "15PB+" },
-                                { label: "Query Latency", value: "<10ms" },
-                                { label: "Data Sovereignty", value: "100%" },
-                                { label: "Uptime Guarnatee", value: "99.99%" },
-                            ].map((stat, i) => (
-                                <div key={i} className="px-4">
-                                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
-                                    <div className="text-sm text-blue-200/60 font-medium uppercase tracking-wider">{stat.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <div className="w-full h-px bg-border/50 my-16 max-w-7xl mx-auto" />
 
-                {/* ────────── FEATURES BENTO GRID ────────── */}
-                <section className="py-24 lg:py-32 relative">
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                        <div className="mb-16 md:text-center max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-                                Everything you need to master your data
-                            </h2>
-                            <p className="text-lg text-muted-foreground">
-                                A unified platform that brings together data warehousing, data lakes, and streaming analytics.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {/* Card 1 - Large */}
-                            <FadeIn className="md:col-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 lg:p-12">
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-6">
-                                        <Database className="w-6 h-6 text-blue-400" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white mb-4">Sovereign Data Lakehouse</h3>
-                                    <p className="text-muted-foreground max-w-md">
-                                        Combine the flexibility of data lakes with the performance of data warehouses. Keep your data locally resident in compliant African regions.
-                                    </p>
-                                </div>
-                                <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-blue-500/20 blur-[80px] rounded-full pointer-events-none" />
-                            </FadeIn>
-
-                            {/* Card 2 */}
-                            <FadeIn className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 lg:p-12">
-                                <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-6">
-                                    <Zap className="w-6 h-6 text-cyan-400" />
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-4">Real-time Analytics</h3>
-                                <p className="text-muted-foreground">
-                                    Ingest and analyze streaming data from IoT devices, transactions, and logs with sub-second latency.
-                                </p>
-                            </FadeIn>
-
-                            {/* Card 3 */}
-                            <FadeIn className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 lg:p-12">
-                                <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-6">
-                                    <ShieldCheck className="w-6 h-6 text-purple-400" />
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-4">Enterprise Governance</h3>
-                                <p className="text-muted-foreground">
-                                    Fine-grained, role-based access control (RBAC), column-level masking, and automated compliance auditing.
-                                </p>
-                            </FadeIn>
-
-                            {/* Card 4 - Large */}
-                            <FadeIn className="md:col-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 lg:p-12">
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-6">
-                                        <BarChart3 className="w-6 h-6 text-emerald-400" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white mb-4">Intelligent BI & Reporting</h3>
-                                    <p className="text-muted-foreground max-w-md">
-                                        Create stunning, interactive dashboards that drive decision-making. Integrate seamlessly with Siscom AI for predictive insights.
-                                    </p>
-                                </div>
-                                <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full pointer-events-none" />
-                            </FadeIn>
-                        </div>
-                    </div>
-                </section>
-
-                {/* ────────── INDUSTRY USE CASES ────────── */}
-                <section className="py-24 bg-white/[0.02]">
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
-                                Trusted by Industry Leaders
-                            </h2>
-                            <p className="text-lg text-muted-foreground">Soling complex data challenges across key African sectors.</p>
-                        </div>
-
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    title: "Financial Services",
-                                    icon: <Lock className="w-6 h-6" />,
-                                    desc: "Real-time fraud detection and regulatory reporting compliance.",
-                                    stat: "40% reduction in fraud",
-                                    color: "blue"
-                                },
-                                {
-                                    title: "Telecommunications",
-                                    icon: <Globe2 className="w-6 h-6" />,
-                                    desc: "Network optimization and customer churn prediction models.",
-                                    stat: "100M+ daily events",
-                                    color: "cyan"
-                                },
-                                {
-                                    title: "Public Sector",
-                                    icon: <Server className="w-6 h-6" />,
-                                    desc: "Secure citizen data management and service delivery analytics.",
-                                    stat: "Nation-scale deployment",
-                                    color: "indigo"
-                                }
-                            ].map((item, i) => (
-                                <FadeIn key={i} delay={i * 0.1} className="group p-8 rounded-2xl bg-card border border-border hover:border-blue-500/30 transition-all duration-300">
-                                    <div className={`w-12 h-12 rounded-full bg-${item.color}-500/10 flex items-center justify-center mb-6 text-${item.color}-400 group-hover:scale-110 transition-transform`}>
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                                    <p className="text-muted-foreground mb-6 min-h-[3rem]">{item.desc}</p>
-                                    <div className="pt-6 border-t border-white/5">
-                                        <p className="text-sm font-semibold text-blue-400">{item.stat}</p>
-                                    </div>
-                                </FadeIn>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* ────────── CTA SECTION ────────── */}
-                <section className="py-24 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-blue-600/5" />
-                    <div className="mx-auto max-w-4xl px-6 relative z-10 text-center">
-                        <h2 className="text-4xl font-bold text-white mb-6">Ready to unlock your data&apos;s potential?</h2>
-                        <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-                            Join the fastest-growing data platform in Africa. Start your free trial today or contact our sales team for a custom demo.
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10 text-center">
+                    <FadeIn>
+                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Our Data Products</h2>
+                        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+                            Purpose-built solutions for every data challenge, from warehousing to real-time monitoring.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" className="rounded-full px-10 bg-white text-blue-900 hover:bg-blue-50 h-14 text-lg font-semibold">
-                                Get Started Now
-                            </Button>
-                            <Button variant="outline" size="lg" className="rounded-full px-10 border-white/20 text-white hover:bg-white/10 h-14 text-lg">
-                                Contact Sales
-                            </Button>
-                        </div>
-                    </div>
+                    </FadeIn>
                 </section>
 
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+                    <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {/* 1. Siscom Data Bank */}
+                        <FadeIn className="group p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-pink-500/40 transition-all duration-300 flex flex-col hover:-translate-y-1">
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-600 transition-colors">Siscom Data Bank</h3>
+                            <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Sovereign Data Warehousing</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                A secure, sovereign-compliant data warehouse designed for regulated industries.
+                                Centralizes enterprise data while meeting data residency, governance, and regulatory requirements.
+                            </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Sovereign and compliant by design</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> High-performance analytics on unified data</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Secure foundation for AI & insights</li>
+                            </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </FadeIn>
+
+                        {/* 2. WorkerBee */}
+                        <FadeIn className="group p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-pink-500/40 transition-all duration-300 flex flex-col hover:-translate-y-1">
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-600 transition-colors">WorkerBee</h3>
+                            <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Automated Reconciliation</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                Real-time reconciliation and transaction monitoring with zero downtime.
+                                Detect anomalies, breaks, and risks instantly across systems.
+                            </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Automated reconciliation across systems</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Continuous, real-time monitoring</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Designed for high-volume finance ops</li>
+                            </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </FadeIn>
+
+                        {/* 3. Kaa Rada */}
+                        <FadeIn className="group p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-pink-500/40 transition-all duration-300 flex flex-col hover:-translate-y-1">
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-600 transition-colors">Kaa Rada</h3>
+                            <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Cloud CCTV Backup</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                Secure cloud backup for CCTV and video surveillance, ensuring footage is always available when you need it.
+                            </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Reliable cloud storage for video streams</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Scalable, cost-efficient backup</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Improved incident investigation</li>
+                            </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </FadeIn>
+
+                        {/* 4. Siscom Fishnet */}
+                        <FadeIn className="group p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-pink-500/40 transition-all duration-300 flex flex-col hover:-translate-y-1">
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-600 transition-colors">Siscom Fishnet</h3>
+                            <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Unified NOC Monitoring</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                A Network Operations Center (NOC) monitoring platform that delivers full visibility across systems, networks, and services.
+                            </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Real-time monitoring and alerting</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Centralized infrastructure view</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Faster incident detection & resolution</li>
+                            </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </FadeIn>
+
+                        {/* 5. Siscom DAAS */}
+                        <FadeIn className="group p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-pink-500/40 transition-all duration-300 flex flex-col md:col-span-2 lg:col-span-2 bg-gradient-to-br from-card to-secondary/30 hover:-translate-y-1">
+                            <div className="flex flex-col md:flex-row gap-8 h-full">
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-600 transition-colors">Siscom DAAS</h3>
+                                    <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Data Analytics as a Service</p>
+                                    <p className="text-muted-foreground leading-relaxed mb-6">
+                                        Unlock the full power of data analytics, data engineering, business intelligence, and agentic AI — without building or maintaining large, expensive in-house teams.
+                                    </p>
+                                    <p className="text-foreground font-medium">
+                                        Siscom DAAS delivers expert-led analytics and AI capabilities on demand, so you can move faster, reduce cost, and focus on outcomes.
+                                    </p>
+                                    <div className="mt-8">
+                                        <Link
+                                            href="/contact"
+                                            className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                        >
+                                            Inquire About DAAS <ArrowRight className="w-4 h-4" />
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className="flex-1 flex items-center justify-center bg-background/50 rounded-xl p-6 border border-border/50 group-hover:border-pink-500/30 transition-colors">
+                                    <div className="text-center space-y-4">
+                                        <div className="text-4xl font-bold text-foreground">On-Demand</div>
+                                        <div className="text-sm text-muted-foreground uppercase tracking-wider">Expertise</div>
+                                        <div className="w-12 h-1 bg-pink-500 mx-auto rounded-full" />
+                                        <div className="text-sm text-muted-foreground">Analytics • Engineering • BI • AI</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </FadeIn>
+                    </FadeInStagger>
+                </section>
+
+                <section className="bg-muted/30 py-24 mt-24 border-t border-border relative">
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+                        <FadeIn className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Industries & Use Cases</h2>
+                            <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto">
+                                Siscom Data powers intelligent outcomes across every sector of the economy.
+                            </p>
+                        </FadeIn>
+
+                        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {/* Financial Services */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1">
+                                <h3 className="text-xl font-bold text-foreground mb-4">Financial Services</h3>
+                                <ul className="space-y-3">
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Hyperpersonalization and lead management
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Fraud detection and prevention
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Regulatory reporting and compliance
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Treasury and capital optimization
+                                    </li>
+                                </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Capital Markets */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1">
+                                <h3 className="text-xl font-bold text-foreground mb-4">Capital Markets & Investment Banks</h3>
+                                <ul className="space-y-3">
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Data-driven investment strategies
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Advanced analytics for portfolio insights
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Risk modeling and predictive analysis
+                                    </li>
+                                </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Security Companies */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1">
+                                <h3 className="text-xl font-bold text-foreground mb-4">Security Companies</h3>
+                                <ul className="space-y-3">
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Cloud CCTV backup and monitoring
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Incident analysis and compliance reporting
+                                    </li>
+                                </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Media Companies */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1">
+                                <h3 className="text-xl font-bold text-foreground mb-4">Media Companies</h3>
+                                <ul className="space-y-3">
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Audience analytics and personalization
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Content performance insights
+                                    </li>
+                                </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Manufacturing */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1">
+                                <h3 className="text-xl font-bold text-foreground mb-4">Manufacturing</h3>
+                                <ul className="space-y-3">
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Operational analytics
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Predictive maintenance
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Production efficiency insights
+                                    </li>
+                                </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Aviation */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1">
+                                <h3 className="text-xl font-bold text-foreground mb-4">Aviation</h3>
+                                <ul className="space-y-3">
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Customer lifecycle analytics
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Operational intelligence and monitoring
+                                    </li>
+                                    <li className="flex gap-3 text-muted-foreground text-sm">
+                                        <span className="text-pink-500 mt-0.5">●</span> Risk and compliance reporting
+                                    </li>
+                                </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Wide Cards for Complex Use Cases */}
+
+                            {/* MSMEs */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                                <h3 className="text-xl font-bold text-foreground mb-2">MSMEs</h3>
+                                <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Enterprise-grade intelligence without enterprise overhead</p>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    Empower MSMEs with unified data, analytics, and AI to make smarter decisions, optimize operations, and scale faster — without building large data teams.
+                                </p>
+                                <div className="mt-6">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Healthcare */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                                <h3 className="text-xl font-bold text-foreground mb-2">Healthcare</h3>
+                                <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Unified data for better care and operational efficiency</p>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    Aggregate siloed clinical, operational, and financial data into a single trusted view. Enable analytics, AI-driven insights, and compliance-ready reporting to improve patient outcomes and efficiency.
+                                </p>
+                                <div className="mt-6">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Agriculture */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                                <h3 className="text-xl font-bold text-foreground mb-2">Agriculture</h3>
+                                <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Unified and market-driven agricultural intelligence</p>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    Unify operational, sensor, weather, and supply chain data to enable predictive insights, yield optimization, and resource efficiency — with market intelligence to track pricing, demand, and trends across regions.
+                                </p>
+                                <div className="mt-6">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </FadeIn>
+
+                            {/* Infrastructure - Spanning full width on mobile/tablet, single column on large */}
+                            <FadeIn className="bg-card p-8 rounded-2xl border border-border shadow-sm hover:border-pink-500/30 transition-all hover:-translate-y-1 md:col-span-2 lg:col-span-3">
+                                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-foreground mb-2">Infrastructure, Data Centers & Cloud</h3>
+                                        <p className="text-sm font-bold text-pink-600 mb-4 uppercase tracking-wider">Always-on operational intelligence</p>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            Gain real-time visibility across infrastructure, data centers, networks, and cloud environments with centralized monitoring and analytics. Detect issues faster, reduce downtime, and optimize performance using Siscom Fishnet's NOC intelligence.
+                                        </p>
+                                        <div className="mt-6">
+                                            <Link
+                                                href="/contact"
+                                                className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                            >
+                                                Optimize Your Infrastructure <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                            </Link>
+                                        </div>
+                                    </div>
+                                    <div className="hidden lg:flex items-center justify-center p-6 bg-muted/50 rounded-xl border border-border/50">
+                                        <div className="text-center space-y-2">
+                                            <div className="text-3xl font-bold text-foreground">100%</div>
+                                            <div className="text-sm text-muted-foreground">Visibility Across Stack</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </FadeIn>
+                        </FadeInStagger>
+                    </div>
+                </section>
             </main>
             <Footer />
         </div>
     );
 }
-

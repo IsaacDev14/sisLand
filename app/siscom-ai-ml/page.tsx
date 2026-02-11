@@ -54,11 +54,11 @@ export default function SiscomAIMLPage() {
                         <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-pink-500 transition-colors shadow-sm hover:shadow-md">
                             <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                            <div className="mb-6 h-16 w-16 relative">
+                            <div className="mb-6 h-24 w-24 relative rounded-2xl overflow-hidden border border-pink-500/20 shadow-inner">
                                 <img
-                                    src="/uploaded_image_0_1768799275525.png"
+                                    src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=400&h=400"
                                     alt="Banker AI"
-                                    className="object-contain w-full h-full drop-shadow-sm"
+                                    className="object-cover w-full h-full"
                                 />
                             </div>
                             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-500 transition-colors">Banker AI</h3>
@@ -73,11 +73,11 @@ export default function SiscomAIMLPage() {
                         <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-red-500 transition-colors shadow-sm hover:shadow-md">
                             <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                            <div className="mb-6 h-16 w-16 relative">
+                            <div className="mb-6 h-24 w-24 relative rounded-2xl overflow-hidden border border-red-500/20 shadow-inner">
                                 <img
-                                    src="/uploaded_image_1_1768799275525.png"
+                                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400&h=400"
                                     alt="Risk AI"
-                                    className="object-contain w-full h-full drop-shadow-sm"
+                                    className="object-cover w-full h-full"
                                 />
                             </div>
                             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-red-500 transition-colors">Risk AI</h3>
@@ -92,11 +92,11 @@ export default function SiscomAIMLPage() {
                         <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-pink-500 transition-colors shadow-sm hover:shadow-md">
                             <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                            <div className="mb-6 h-16 w-16 relative">
+                            <div className="mb-6 h-24 w-24 relative rounded-2xl overflow-hidden border border-pink-500/20 shadow-inner">
                                 <img
-                                    src="/uploaded_image_2_1768799275525.png"
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400&h=400"
                                     alt="Data Analyst AI"
-                                    className="object-contain w-full h-full drop-shadow-sm"
+                                    className="object-cover w-full h-full"
                                 />
                             </div>
                             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-500 transition-colors">Data Analyst AI</h3>
@@ -111,11 +111,11 @@ export default function SiscomAIMLPage() {
                         <FadeIn className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 hover:border-red-500 transition-colors shadow-sm hover:shadow-md">
                             <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                            <div className="mb-6 h-16 w-16 relative">
+                            <div className="mb-6 h-24 w-24 relative rounded-2xl overflow-hidden border border-red-500/20 shadow-inner">
                                 <img
-                                    src="/uploaded_image_3_1768799275525.png"
+                                    src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=400&h=400"
                                     alt="Trader AI"
-                                    className="object-contain w-full h-full drop-shadow-sm"
+                                    className="object-cover w-full h-full"
                                 />
                             </div>
                             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-red-500 transition-colors">Trader AI</h3>

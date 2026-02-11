@@ -2,38 +2,50 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FadeIn } from "@/components/FadeIn";
+import Link from "next/link";
+import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 
-const plans = [
-    {
-        name: "Siscom Cloud Starter",
-        features: ["1 Node", "2 Core", "4 GB RAM/srv"],
-        price: "KES 5,000",
-        priceValue: 5000,
-        popular: false,
-    },
-    {
-        name: "Siscom Cloud Business",
-        features: ["5 Users", "5 Core", "10 GB RAM/srv"],
-        price: "KES 15,000",
-        priceValue: 15000,
-        popular: true,
-        badge: "RECOMMENDED"
-    },
-    {
-        name: "Siscom Nodes A100",
-        features: ["A100 GPU", "192 vCPU", "600 GB RAM"],
-        price: "KES 150",
-        priceValue: 150,
-        popular: false,
-    },
+const gpuTypes = [
+    "NVIDIA GB200 NVL72 / HGX B200",
+    "NVIDIA HGX H100 / H200",
+    "NVIDIA HGX A100",
+    "NVIDIA PCIe A100",
+    "NVIDIA L40 / L40S",
+    "NVIDIA A40",
+    "NVIDIA RTX GPUs",
+    "MiniCards",
+    "Non-GPU Compute"
+];
+
+const serviceInterests = [
+    "Siscom Nodes (GPU & AI Compute)",
+    "Siscom Data (Warehousing & Analytics)",
+    "Siscom AI/ML Services",
+    "Sovereign Cloud Infrastructure",
+    "Siscom DAAS (Data Analytics as a Service)"
+];
+
+const timelines = [
+    "Immediately",
+    "Within 1 month",
+    "1-3 months",
+    "3-6 months",
+    "Just exploring"
+];
+
+const resourceCounts = [
+    "1-8 GPUs",
+    "9-32 GPUs",
+    "33-128 GPUs",
+    "128+ GPUs",
+    "Custom Requirements"
 ];
 
 export default function ContactPage() {
-    const [selectedPlan, setSelectedPlan] = useState(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -42,12 +54,29 @@ export default function ContactPage() {
         lastName: '',
         email: '',
         company: '',
+        jobTitle: '',
+        country: '',
+        serviceInterest: '',
+        resourceCount: '',
+        gpuType: [] as string[],
+        timeline: '',
         message: ''
     });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleCheckboxChange = (type: string) => {
+        setFormData(prev => {
+            const current = [...prev.gpuType];
+            if (current.includes(type)) {
+                return { ...prev, gpuType: current.filter(t => t !== type) };
+            } else {
+                return { ...prev, gpuType: [...current, type] };
+            }
+        });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -58,12 +87,15 @@ export default function ContactPage() {
         try {
             await addDoc(collection(db, 'contact_submissions'), {
                 ...formData,
-                selectedPlan: plans[selectedPlan].name,
-                selectedPlanPrice: plans[selectedPlan].price,
                 createdAt: serverTimestamp(),
             });
             setSubmitStatus('success');
-            setFormData({ firstName: '', lastName: '', email: '', company: '', message: '' });
+            // Reset form
+            setFormData({
+                firstName: '', lastName: '', email: '', company: '', jobTitle: '',
+                country: '', serviceInterest: '', resourceCount: '', gpuType: [],
+                timeline: '', message: ''
+            });
         } catch (error) {
             console.error('Error submitting form:', error);
             setSubmitStatus('error');
@@ -72,192 +104,258 @@ export default function ContactPage() {
         }
     };
 
+    if (submitStatus === 'success') {
+        return (
+            <div className="min-h-screen bg-background text-foreground font-sans">
+                <Navbar />
+                <main className="pt-24 pb-16 flex items-center justify-center px-6">
+                    <FadeIn className="max-w-md w-full text-center">
+                        <div className="mb-6 flex justify-center">
+                            <div className="w-16 h-16 bg-pink-500/10 rounded-full flex items-center justify-center text-pink-600">
+                                <CheckCircle2 className="w-8 h-8" />
+                            </div>
+                        </div>
+                        <h1 className="text-2xl font-bold mb-3">Request Received</h1>
+                        <p className="text-muted-foreground mb-6 text-base">
+                            Thank you for reaching out. Our team of specialists will review your requirements and get back to you within 24 hours.
+                        </p>
+                        <button
+                            onClick={() => setSubmitStatus('idle')}
+                            className="text-pink-600 text-sm font-semibold hover:gap-2 flex items-center gap-1 mx-auto transition-all"
+                        >
+                            Back to Form <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </FadeIn>
+                </main>
+                <Footer />
+            </div>
+        );
+    }
+
     return (
-        <div className="min-h-screen bg-background text-foreground font-sans overflow-hidden">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30">
             <Navbar />
 
-            <main className="pt-32 pb-16">
-                {/* Hero */}
-                <section className="text-center mb-16 px-6">
-                    <FadeIn>
-                        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                            Let's Build Something <span className="text-pink-500">Amazing</span>
-                        </h1>
-                        <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                            Have questions about our enterprise cloud solutions or need a custom quote?
-                            Our team is ready to help you attain digital excellence.
-                        </p>
-                    </FadeIn>
-                </section>
+            <main className="pt-24 pb-16 relative">
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-12 items-start">
+                        {/* Left Content */}
+                        <FadeIn className="lg:sticky lg:top-32">
+                            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-6">
+                                Contact Us
+                            </h1>
+                            <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                                We'd love to better understand your capacity needs and learn how our platform can take your AI-powered innovation to the next level.
+                            </p>
+                            <p className="text-base text-muted-foreground leading-relaxed">
+                                Fill out the form and tell us more about yourself. Our experts are ready to architect the perfect solution for your organization.
+                            </p>
 
-                {/* Two Column: Form + Pricing */}
-                <section className="mx-auto max-w-6xl px-6 lg:px-8 mb-16">
-                    <div className="grid lg:grid-cols-2 gap-8">
-                        {/* Left: Contact Form */}
-                        <FadeIn>
-                            <div className="bg-card rounded-2xl border-2 border-pink-500/30 p-8 shadow-sm">
-                                <h2 className="text-xl font-bold text-foreground mb-2">Send us a Message</h2>
-                                <p className="text-sm text-muted-foreground mb-6">
-                                    Fill out the form below and we'll get back to you within 24 hours.
-                                </p>
+                            <div className="mt-8 space-y-6">
+                                <div>
+                                    <h3 className="text-sm font-semibold text-foreground mb-1">Our Location</h3>
+                                    <p className="text-sm text-muted-foreground">Reliance Center, Woodvale</p>
+                                    <p className="text-sm text-muted-foreground">Nairobi, Kenya</p>
+                                </div>
+                                <div>
+                                    <h3 className="text-sm font-semibold text-foreground mb-1">Quick Contact</h3>
+                                    <p className="text-sm text-muted-foreground">Tech: tech@siscom.tech</p>
+                                    <p className="text-sm text-muted-foreground">Investor: investor@siscomcloud.africa</p>
+                                    <p className="text-sm text-muted-foreground">Phone: +254 745 666 660</p>
+                                </div>
+                            </div>
+                        </FadeIn>
 
-                                {submitStatus === 'success' && (
-                                    <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-600 text-sm">
-                                        ✓ Message sent successfully! We'll get back to you soon.
-                                    </div>
-                                )}
+                        {/* Right Form */}
+                        <FadeIn className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden">
+                            {/* Decorative element */}
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/5 blur-3xl rounded-full -mr-12 -mt-12" />
 
-                                {submitStatus === 'error' && (
-                                    <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-600 text-sm">
-                                        ✕ Something went wrong. Please try again.
-                                    </div>
-                                )}
-
-                                <form onSubmit={handleSubmit} className="space-y-5">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-medium text-muted-foreground mb-1.5">First Name</label>
-                                            <input
-                                                type="text"
-                                                name="firstName"
-                                                value={formData.firstName}
-                                                onChange={handleInputChange}
-                                                placeholder="John"
-                                                required
-                                                className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-foreground text-sm focus:outline-none focus:border-pink-500 transition-colors"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-medium text-muted-foreground mb-1.5">Last Name</label>
-                                            <input
-                                                type="text"
-                                                name="lastName"
-                                                value={formData.lastName}
-                                                onChange={handleInputChange}
-                                                placeholder="Doe"
-                                                required
-                                                className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-foreground text-sm focus:outline-none focus:border-pink-500 transition-colors"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-muted-foreground mb-1.5">Work Email</label>
+                            <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+                                <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-medium text-foreground">First name<span className="text-pink-500">*</span></label>
                                         <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleInputChange}
-                                            placeholder="john@company.com"
                                             required
-                                            className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-foreground text-sm focus:outline-none focus:border-pink-500 transition-colors"
+                                            type="text"
+                                            name="firstName"
+                                            value={formData.firstName}
+                                            onChange={handleInputChange}
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
                                         />
                                     </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-muted-foreground mb-1.5">Company Name</label>
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-medium text-foreground">Last name<span className="text-pink-500">*</span></label>
                                         <input
+                                            required
+                                            type="text"
+                                            name="lastName"
+                                            value={formData.lastName}
+                                            onChange={handleInputChange}
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-xs font-medium text-foreground">Company name<span className="text-pink-500">*</span></label>
+                                        <input
+                                            required
                                             type="text"
                                             name="company"
                                             value={formData.company}
                                             onChange={handleInputChange}
-                                            placeholder="Your company name"
-                                            className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-foreground text-sm focus:outline-none focus:border-pink-500 transition-colors"
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-xs font-medium text-foreground">Business email<span className="text-pink-500">*</span></label>
+                                        <input
+                                            required
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-medium text-foreground">Job title<span className="text-pink-500">*</span></label>
+                                        <input
+                                            required
+                                            type="text"
+                                            name="jobTitle"
+                                            value={formData.jobTitle}
+                                            onChange={handleInputChange}
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5 ">
+                                        <label className="text-sm font-medium text-foreground">Country<span className="text-pink-500">*</span></label>
+                                        <input
+                                            required
+                                            type="text"
+                                            name="country"
+                                            value={formData.country}
+                                            onChange={handleInputChange}
+                                            placeholder="e.g. Kenya"
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
                                         />
                                     </div>
 
-                                    <div>
-                                        <label className="block text-sm font-medium text-muted-foreground mb-1.5">How can we help?</label>
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-xs font-medium text-foreground">I plan to use Siscom for:<span className="text-pink-500">*</span></label>
+                                        <div className="relative">
+                                            <select
+                                                required
+                                                name="serviceInterest"
+                                                value={formData.serviceInterest}
+                                                onChange={handleInputChange}
+                                                className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all appearance-none"
+                                            >
+                                                <option value="">Please Select</option>
+                                                {serviceInterests.map(item => (
+                                                    <option key={item} value={item}>{item}</option>
+                                                ))}
+                                            </select>
+                                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-1.5 md:col-span-2 border-t border-border pt-6 mt-2">
+                                        <h3 className="text-sm font-bold text-foreground">Infrastructure Selection</h3>
+                                        <p className="text-[11px] text-muted-foreground">Select your required GPU hardware from Siscom's high-performance compute fleet.</p>
+                                    </div>
+
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-sm font-medium text-foreground">Expected Number of GPUs<span className="text-pink-500">*</span></label>
+                                        <div className="relative">
+                                            <select
+                                                required
+                                                name="resourceCount"
+                                                value={formData.resourceCount}
+                                                onChange={handleInputChange}
+                                                className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all appearance-none"
+                                            >
+                                                <option value="">Please Select</option>
+                                                {resourceCounts.map(item => (
+                                                    <option key={item} value={item}>{item}</option>
+                                                ))}
+                                            </select>
+                                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4 md:col-span-2">
+                                        <label className="text-sm font-medium text-foreground block">Types of GPUs<span className="text-pink-500">*</span></label>
+                                        <div className="space-y-2.5">
+                                            {gpuTypes.map(type => (
+                                                <label key={type} className="flex items-center gap-3 cursor-pointer group">
+                                                    <div className="relative flex items-center justify-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={formData.gpuType.includes(type)}
+                                                            onChange={() => handleCheckboxChange(type)}
+                                                            className="peer h-4.5 w-4.5 cursor-pointer appearance-none rounded border border-border bg-muted/30 checked:border-pink-500 checked:bg-pink-500 transition-all shadow-sm"
+                                                        />
+                                                        <span className="absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{type}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-xs font-medium text-foreground">When are you looking to start your project?<span className="text-pink-500">*</span></label>
+                                        <div className="relative">
+                                            <select
+                                                required
+                                                name="timeline"
+                                                value={formData.timeline}
+                                                onChange={handleInputChange}
+                                                className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all appearance-none"
+                                            >
+                                                <option value="">Please Select</option>
+                                                {timelines.map(item => (
+                                                    <option key={item} value={item}>{item}</option>
+                                                ))}
+                                            </select>
+                                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-xs font-medium text-foreground">Tell us about your need for high-performance compute/data, and how you plan to use it to advance your business?<span className="text-pink-500">*</span></label>
                                         <textarea
+                                            required
+                                            rows={3}
                                             name="message"
                                             value={formData.message}
                                             onChange={handleInputChange}
-                                            rows={4}
-                                            placeholder="Tell us about your project needs..."
-                                            required
-                                            className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-foreground text-sm focus:outline-none focus:border-pink-500 transition-colors resize-none"
-                                        ></textarea>
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all resize-none"
+                                        />
                                     </div>
+                                </FadeInStagger>
 
+                                <div className="pt-2">
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full bg-pink-500 text-white font-semibold py-3 rounded-lg hover:bg-pink-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full bg-pink-600 text-white font-bold py-3 rounded-lg hover:bg-pink-500 transition-all shadow-lg shadow-pink-600/20 disabled:opacity-50 flex items-center justify-center gap-2 group text-sm"
                                     >
-                                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                                        {isSubmitting ? 'Architecting Solution...' : 'Submit Request'}
+                                        {!isSubmitting && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                                     </button>
-                                </form>
-                            </div>
-                        </FadeIn>
-
-                        {/* Right: Plan Selection */}
-                        <FadeIn>
-                            <div className="bg-card rounded-2xl border border-border p-8 shadow-sm">
-                                <h2 className="text-xl font-bold text-foreground mb-6">Select Your Plan</h2>
-
-                                <div className="space-y-4 mb-8">
-                                    {plans.map((plan, idx) => (
-                                        <div
-                                            key={idx}
-                                            onClick={() => setSelectedPlan(idx)}
-                                            className={`relative p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedPlan === idx
-                                                    ? 'border-pink-500 bg-pink-500/5'
-                                                    : 'border-border hover:border-muted-foreground/30'
-                                                }`}
-                                        >
-                                            {plan.badge && (
-                                                <span className="absolute top-3 right-3 text-[10px] font-bold bg-pink-500 text-white px-2 py-0.5 rounded">
-                                                    {plan.badge}
-                                                </span>
-                                            )}
-                                            <div className="flex items-center gap-3 mb-2">
-                                                <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${selectedPlan === idx ? 'border-pink-500' : 'border-muted-foreground/50'
-                                                    }`}>
-                                                    {selectedPlan === idx && <div className="w-2 h-2 rounded-full bg-pink-500" />}
-                                                </div>
-                                                <span className={`font-semibold ${selectedPlan === idx ? 'text-pink-500' : 'text-foreground'}`}>
-                                                    {plan.name}
-                                                </span>
-                                                <span className="ml-auto font-bold text-foreground">{plan.price}</span>
-                                            </div>
-                                            <div className="flex gap-3 ml-7 text-xs text-muted-foreground">
-                                                {plan.features.map((f, i) => (
-                                                    <span key={i}>{f}</span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    ))}
+                                    <p className="text-[10px] text-muted-foreground mt-4 leading-relaxed">
+                                        By clicking submit, you agree to allow Siscom Africa to store and process the personal information submitted above to provide you the content requested. See our <Link href="#" className="text-pink-600 hover:underline">Privacy Policy</Link> for details.
+                                    </p>
                                 </div>
-
-                                <div className="border-t border-border pt-6">
-                                    <div className="flex justify-between items-center mb-6">
-                                        <span className="text-muted-foreground">Total Due Today</span>
-                                        <span className="text-2xl font-bold text-foreground">{plans[selectedPlan].price}</span>
-                                    </div>
-                                    <button className="w-full bg-pink-500 text-white font-semibold py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center gap-2">
-                                        Proceed to Checkout <span>→</span>
-                                    </button>
-                                </div>
-                            </div>
+                            </form>
                         </FadeIn>
                     </div>
-                </section>
-
-                {/* Map */}
-                <section className="mx-auto max-w-6xl px-6 lg:px-8">
-                    <FadeIn>
-                        <div className="rounded-2xl overflow-hidden border border-border h-64 bg-muted">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8176144890954!2d36.7800!3d-1.2864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTcnMTEuMCJTIDM2wrA0Nic0OC4wIkU!5e0!3m2!1sen!2ske!4v1234567890"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen
-                                loading="lazy"
-                                className="grayscale"
-                            ></iframe>
-                        </div>
-                    </FadeIn>
                 </section>
             </main>
             <Footer />
