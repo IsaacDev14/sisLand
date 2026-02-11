@@ -28,7 +28,7 @@ export default function CommunityPage() {
                             </Badge>
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-8">
                                 Building Africa's <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
+                                <span className="text-pink-600 bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 ">
                                     Tech Ecosystem
                                 </span>
                             </h1>
