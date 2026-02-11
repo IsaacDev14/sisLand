@@ -228,8 +228,8 @@ export default function ContactPage() {
                                             className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
                                         />
                                     </div>
-                                    <div className="space-y-1.5">
-                                        <label className="text-xs font-medium text-foreground">Country<span className="text-pink-500">*</span></label>
+                                    <div className="space-y-1.5 ">
+                                        <label className="text-sm font-medium text-foreground">Country<span className="text-pink-500">*</span></label>
                                         <input
                                             required
                                             type="text"
@@ -260,12 +260,13 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-1.5 md:col-span-2 border-t border-border pt-4 mt-2">
-                                        <label className="text-xs font-semibold text-foreground">Project Specs</label>
+                                    <div className="space-y-1.5 md:col-span-2 border-t border-border pt-6 mt-2">
+                                        <h3 className="text-sm font-bold text-foreground">Infrastructure Selection</h3>
+                                        <p className="text-[11px] text-muted-foreground">Select your required GPU hardware from Siscom's high-performance compute fleet.</p>
                                     </div>
 
                                     <div className="space-y-1.5 md:col-span-2">
-                                        <label className="text-xs font-medium text-foreground">Expected Number of GPUs<span className="text-pink-500">*</span></label>
+                                        <label className="text-sm font-medium text-foreground">Expected Number of GPUs<span className="text-pink-500">*</span></label>
                                         <div className="relative">
                                             <select
                                                 required
@@ -283,17 +284,17 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-3 md:col-span-2">
-                                        <label className="text-xs font-medium text-foreground block">Types of GPUs<span className="text-pink-500">*</span></label>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <div className="space-y-4 md:col-span-2">
+                                        <label className="text-sm font-medium text-foreground block">Types of GPUs<span className="text-pink-500">*</span></label>
+                                        <div className="space-y-2.5">
                                             {gpuTypes.map(type => (
-                                                <label key={type} className="flex items-center gap-2.5 cursor-pointer group">
+                                                <label key={type} className="flex items-center gap-3 cursor-pointer group">
                                                     <div className="relative flex items-center justify-center">
                                                         <input
                                                             type="checkbox"
                                                             checked={formData.gpuType.includes(type)}
                                                             onChange={() => handleCheckboxChange(type)}
-                                                            className="peer h-4 w-4 cursor-pointer appearance-none rounded border border-border bg-muted/30 checked:border-pink-500 checked:bg-pink-500 transition-all"
+                                                            className="peer h-4.5 w-4.5 cursor-pointer appearance-none rounded border border-border bg-muted/30 checked:border-pink-500 checked:bg-pink-500 transition-all shadow-sm"
                                                         />
                                                         <span className="absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
@@ -301,7 +302,7 @@ export default function ContactPage() {
                                                             </svg>
                                                         </span>
                                                     </div>
-                                                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">{type}</span>
+                                                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{type}</span>
                                                 </label>
                                             ))}
                                         </div>
