@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { GridPattern } from "@/components/GridPattern";
 import { FadeIn } from "@/components/FadeIn";
 import { SolutionCard } from "@/components/SolutionCard";
 import { Badge } from "@/components/ui/badge";
@@ -124,13 +123,8 @@ export default function SiscomNodesPage() {
 
             <main className="pt-32 pb-24 relative">
                 {/* Background Pattern */}
-                <GridPattern
-                    x={-1}
-                    y={-1}
-                    className="absolute inset-0 h-full w-full fill-neutral-200/30 stroke-neutral-200/30 [mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] dark:fill-neutral-800/20 dark:stroke-neutral-800/20"
-                    width={40}
-                    height={40}
-                />
+                {/* Background Pattern - Solid Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background pointer-events-none" />
 
                 {/* Hero Section */}
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">

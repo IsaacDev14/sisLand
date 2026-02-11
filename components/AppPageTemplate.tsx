@@ -103,14 +103,7 @@ export default function AppPageTemplate({
                         className="opacity-40 stroke-pink-500/20"
                     />
                     <div className="absolute inset-0 z-0 pointer-events-none">
-                        <GridPattern
-                            width={60}
-                            height={60}
-                            x={-1}
-                            y={-1}
-                            strokeDasharray={"4 2"}
-                            className="[mask-image:radial-gradient(800px_circle_at_center,white,transparent)] opacity-20"
-                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
                     </div>
 
                     <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
