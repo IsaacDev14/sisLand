@@ -97,15 +97,9 @@ export default function Home2Hero() {
                                     fill="none"
                                     preserveAspectRatio="none"
                                 >
-                                    <defs>
-                                        <linearGradient id="underlineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stopColor="#EC4899" />
-                                            <stop offset="100%" stopColor="#8B5CF6" />
-                                        </linearGradient>
-                                    </defs>
                                     <path
                                         d="M2 8.5C50 2 100 2 150 8.5C200 15 250 5 298 8.5"
-                                        stroke="url(#underlineGradient)"
+                                        stroke="#EC4899"
                                         strokeWidth="3"
                                         strokeLinecap="round"
                                     />
