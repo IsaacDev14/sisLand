@@ -38,10 +38,10 @@ const timelines = [
 ];
 
 const resourceCounts = [
-    "1-8 Nodes",
-    "9-32 Nodes",
-    "33-128 Nodes",
-    "128+ Nodes",
+    "1-8 GPUs",
+    "9-32 GPUs",
+    "33-128 GPUs",
+    "128+ GPUs",
     "Custom Requirements"
 ];
 
@@ -260,51 +260,52 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    {(formData.serviceInterest.includes("Nodes") || formData.serviceInterest.includes("Cloud")) && (
-                                        <>
-                                            <div className="space-y-1.5 md:col-span-2">
-                                                <label className="text-xs font-medium text-foreground">Expected Number of Nodes/GPUs<span className="text-pink-500">*</span></label>
-                                                <div className="relative">
-                                                    <select
-                                                        required
-                                                        name="resourceCount"
-                                                        value={formData.resourceCount}
-                                                        onChange={handleInputChange}
-                                                        className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all appearance-none"
-                                                    >
-                                                        <option value="">Please Select</option>
-                                                        {resourceCounts.map(item => (
-                                                            <option key={item} value={item}>{item}</option>
-                                                        ))}
-                                                    </select>
-                                                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-                                                </div>
-                                            </div>
-                                            <div className="space-y-3 md:col-span-2">
-                                                <label className="text-xs font-medium text-foreground block">Types of GPUs Required</label>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                                    {gpuTypes.map(type => (
-                                                        <label key={type} className="flex items-center gap-2.5 cursor-pointer group">
-                                                            <div className="relative flex items-center justify-center">
-                                                                <input
-                                                                    type="checkbox"
-                                                                    checked={formData.gpuType.includes(type)}
-                                                                    onChange={() => handleCheckboxChange(type)}
-                                                                    className="peer h-4 w-4 cursor-pointer appearance-none rounded border border-border bg-muted/30 checked:border-pink-500 checked:bg-pink-500 transition-all"
-                                                                />
-                                                                <span className="absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                                                    </svg>
-                                                                </span>
-                                                            </div>
-                                                            <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">{type}</span>
-                                                        </label>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </>
-                                    )}
+                                    <div className="space-y-1.5 md:col-span-2 border-t border-border pt-4 mt-2">
+                                        <label className="text-xs font-semibold text-foreground">Project Specs</label>
+                                    </div>
+
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-xs font-medium text-foreground">Expected Number of GPUs<span className="text-pink-500">*</span></label>
+                                        <div className="relative">
+                                            <select
+                                                required
+                                                name="resourceCount"
+                                                value={formData.resourceCount}
+                                                onChange={handleInputChange}
+                                                className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all appearance-none"
+                                            >
+                                                <option value="">Please Select</option>
+                                                {resourceCounts.map(item => (
+                                                    <option key={item} value={item}>{item}</option>
+                                                ))}
+                                            </select>
+                                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-3 md:col-span-2">
+                                        <label className="text-xs font-medium text-foreground block">Types of GPUs<span className="text-pink-500">*</span></label>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            {gpuTypes.map(type => (
+                                                <label key={type} className="flex items-center gap-2.5 cursor-pointer group">
+                                                    <div className="relative flex items-center justify-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={formData.gpuType.includes(type)}
+                                                            onChange={() => handleCheckboxChange(type)}
+                                                            className="peer h-4 w-4 cursor-pointer appearance-none rounded border border-border bg-muted/30 checked:border-pink-500 checked:bg-pink-500 transition-all"
+                                                        />
+                                                        <span className="absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">{type}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
 
                                     <div className="space-y-1.5 md:col-span-2">
                                         <label className="text-xs font-medium text-foreground">When are you looking to start your project?<span className="text-pink-500">*</span></label>
