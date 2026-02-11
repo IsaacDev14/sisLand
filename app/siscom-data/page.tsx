@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import MagnifyingMesh from "@/components/MagnifyingMesh";
+import { ArrowRight } from "lucide-react";
 
 export default function SiscomDataPage() {
     return (
@@ -66,6 +67,14 @@ export default function SiscomDataPage() {
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> High-performance analytics on unified data</li>
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> Secure foundation for AI & insights</li>
                             </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
                         </FadeIn>
 
                         {/* 2. WorkerBee */}
@@ -81,6 +90,14 @@ export default function SiscomDataPage() {
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> Continuous, real-time monitoring</li>
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> Designed for high-volume finance ops</li>
                             </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
                         </FadeIn>
 
                         {/* 3. Kaa Rada */}
@@ -95,6 +112,14 @@ export default function SiscomDataPage() {
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> Scalable, cost-efficient backup</li>
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> Improved incident investigation</li>
                             </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
                         </FadeIn>
 
                         {/* 4. Siscom Fishnet */}
@@ -109,6 +134,14 @@ export default function SiscomDataPage() {
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> Centralized infrastructure view</li>
                                 <li className="flex gap-2"><span className="text-pink-500">●</span> Faster incident detection & resolution</li>
                             </ul>
+                            <div className="mt-8">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                >
+                                    Get Started <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
                         </FadeIn>
 
                         {/* 5. Siscom DAAS */}
@@ -123,6 +156,14 @@ export default function SiscomDataPage() {
                                     <p className="text-foreground font-medium">
                                         Siscom DAAS delivers expert-led analytics and AI capabilities on demand, so you can move faster, reduce cost, and focus on outcomes.
                                     </p>
+                                    <div className="mt-8">
+                                        <Link
+                                            href="/contact"
+                                            className="inline-flex items-center gap-2 text-pink-600 font-semibold hover:gap-3 transition-all"
+                                        >
+                                            Inquire About DAAS <ArrowRight className="w-4 h-4" />
+                                        </Link>
+                                    </div>
                                 </div>
                                 <div className="flex-1 flex items-center justify-center bg-background/50 rounded-xl p-6 border border-border/50 group-hover:border-pink-500/30 transition-colors">
                                     <div className="text-center space-y-4">
@@ -164,6 +205,14 @@ export default function SiscomDataPage() {
                                         <span className="text-pink-500 mt-0.5">●</span> Treasury and capital optimization
                                     </li>
                                 </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Capital Markets */}
@@ -180,6 +229,14 @@ export default function SiscomDataPage() {
                                         <span className="text-pink-500 mt-0.5">●</span> Risk modeling and predictive analysis
                                     </li>
                                 </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Security Companies */}
@@ -193,6 +250,14 @@ export default function SiscomDataPage() {
                                         <span className="text-pink-500 mt-0.5">●</span> Incident analysis and compliance reporting
                                     </li>
                                 </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Media Companies */}
@@ -206,6 +271,14 @@ export default function SiscomDataPage() {
                                         <span className="text-pink-500 mt-0.5">●</span> Content performance insights
                                     </li>
                                 </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Manufacturing */}
@@ -222,6 +295,14 @@ export default function SiscomDataPage() {
                                         <span className="text-pink-500 mt-0.5">●</span> Production efficiency insights
                                     </li>
                                 </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Aviation */}
@@ -238,6 +319,14 @@ export default function SiscomDataPage() {
                                         <span className="text-pink-500 mt-0.5">●</span> Risk and compliance reporting
                                     </li>
                                 </ul>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Wide Cards for Complex Use Cases */}
@@ -249,6 +338,14 @@ export default function SiscomDataPage() {
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Empower MSMEs with unified data, analytics, and AI to make smarter decisions, optimize operations, and scale faster — without building large data teams.
                                 </p>
+                                <div className="mt-6">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Healthcare */}
@@ -258,6 +355,14 @@ export default function SiscomDataPage() {
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Aggregate siloed clinical, operational, and financial data into a single trusted view. Enable analytics, AI-driven insights, and compliance-ready reporting to improve patient outcomes and efficiency.
                                 </p>
+                                <div className="mt-6">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Agriculture */}
@@ -267,6 +372,14 @@ export default function SiscomDataPage() {
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Unify operational, sensor, weather, and supply chain data to enable predictive insights, yield optimization, and resource efficiency — with market intelligence to track pricing, demand, and trends across regions.
                                 </p>
+                                <div className="mt-6">
+                                    <Link
+                                        href="/contact"
+                                        className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                    >
+                                        Discuss Solution <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                </div>
                             </FadeIn>
 
                             {/* Infrastructure - Spanning full width on mobile/tablet, single column on large */}
@@ -278,6 +391,14 @@ export default function SiscomDataPage() {
                                         <p className="text-muted-foreground leading-relaxed">
                                             Gain real-time visibility across infrastructure, data centers, networks, and cloud environments with centralized monitoring and analytics. Detect issues faster, reduce downtime, and optimize performance using Siscom Fishnet's NOC intelligence.
                                         </p>
+                                        <div className="mt-6">
+                                            <Link
+                                                href="/contact"
+                                                className="text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors flex items-center gap-1 group/btn"
+                                            >
+                                                Optimize Your Infrastructure <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                            </Link>
+                                        </div>
                                     </div>
                                     <div className="hidden lg:flex items-center justify-center p-6 bg-muted/50 rounded-xl border border-border/50">
                                         <div className="text-center space-y-2">
@@ -287,7 +408,6 @@ export default function SiscomDataPage() {
                                     </div>
                                 </div>
                             </FadeIn>
-
                         </FadeInStagger>
                     </div>
                 </section>
