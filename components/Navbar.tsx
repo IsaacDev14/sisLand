@@ -68,15 +68,9 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Right side: Theme toggle + CTA */}
+                    {/* Right side: Theme toggle */}
                     <div className="hidden items-center gap-4 md:flex">
                         <ThemeToggle />
-                        <Link
-                            href="/contact"
-                            className="rounded-full bg-pink-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-500/25 transition-all hover:bg-pink-700 hover:shadow-xl hover:shadow-pink-500/40"
-                        >
-                            Get Started
-                        </Link>
                     </div>
 
                     {/* Mobile menu button */}
@@ -145,13 +139,6 @@ export default function Navbar() {
                             Contact
                         </Link>
 
-                        <Link
-                            href="#contact"
-                            className="mt-4 block rounded-full bg-pink-600 px-5 py-2 text-center text-sm font-semibold text-white hover:bg-pink-700 transition-colors"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Get Started
-                        </Link>
                     </div>
                 )}
             </div>
