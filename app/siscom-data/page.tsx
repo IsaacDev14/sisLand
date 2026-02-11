@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { GridPattern } from "@/components/GridPattern";
+
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 
 export default function SiscomDataPage() {
@@ -12,13 +12,6 @@ export default function SiscomDataPage() {
             <Navbar />
 
             <main className="pt-32 pb-24 relative">
-                {/* Background Pattern - Grid for structure */}
-                <GridPattern
-                    width={60}
-                    height={60}
-                    className="absolute inset-0 h-full w-full fill-neutral-200/30 [mask-image:linear-gradient(to_bottom,white,transparent)] dark:fill-neutral-800/30"
-                />
-
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <FadeIn className="max-w-2xl">
@@ -53,67 +46,99 @@ export default function SiscomDataPage() {
                     </div>
                 </section>
 
+                <div className="w-full h-px bg-border/50 my-16 max-w-7xl mx-auto" />
+
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 mb-24 relative z-10 text-center">
+                    <FadeIn>
+                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Our Data Products</h2>
+                        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+                            Purpose-built solutions for every data challenge, from warehousing to real-time monitoring.
+                        </p>
+                    </FadeIn>
+                </section>
+
                 <section className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
                     <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Feature 1 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
-                            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">01</span>
-                                Clustering
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Identify patterns and segment your data for targeted strategies.
+                        {/* 1. Siscom Data Bank */}
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors flex flex-col">
+                            <h3 className="text-xl font-bold text-foreground mb-2">Siscom Data Bank</h3>
+                            <p className="text-sm font-medium text-pink-600 mb-4 uppercase tracking-wide">Sovereign, compliant data warehousing</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                A secure, sovereign-compliant data warehouse designed for regulated industries.
+                                Centralizes enterprise data while meeting data residency, governance, and regulatory requirements.
                             </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Sovereign and compliant by design</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> High-performance analytics on unified data</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Secure foundation for AI & insights</li>
+                            </ul>
                         </FadeIn>
-                        {/* Feature 2 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
-                            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">02</span>
-                                Mining
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Efficiently process large datasets to discover hidden relationships.
+
+                        {/* 2. WorkerBee */}
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors flex flex-col">
+                            <h3 className="text-xl font-bold text-foreground mb-2">WorkerBee</h3>
+                            <p className="text-sm font-medium text-pink-600 mb-4 uppercase tracking-wide">Automated reconciliation & monitoring</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                Real-time reconciliation and transaction monitoring with zero downtime.
+                                Detect anomalies, breaks, and risks instantly across systems.
                             </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Automated reconciliation across systems</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Continuous, real-time monitoring</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Designed for high-volume finance ops</li>
+                            </ul>
                         </FadeIn>
-                        {/* Feature 3 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
-                            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">03</span>
-                                Visualization
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Interactive dashboards that bring your data story to life.
+
+                        {/* 3. Kaa Rada */}
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors flex flex-col">
+                            <h3 className="text-xl font-bold text-foreground mb-2">Kaa Rada</h3>
+                            <p className="text-sm font-medium text-pink-600 mb-4 uppercase tracking-wide">Cloud CCTV backup & video storage</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                Secure cloud backup for CCTV and video surveillance, ensuring footage is always available when you need it.
                             </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Reliable cloud storage for video streams</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Scalable, cost-efficient backup</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Improved incident investigation</li>
+                            </ul>
                         </FadeIn>
-                        {/* Feature 4 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
-                            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">04</span>
-                                Pipelines
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Automated ETL workflows to keep your data fresh and consistent.
+
+                        {/* 4. Siscom Fishnet */}
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors flex flex-col">
+                            <h3 className="text-xl font-bold text-foreground mb-2">Siscom Fishnet</h3>
+                            <p className="text-sm font-medium text-pink-600 mb-4 uppercase tracking-wide">Unified NOC monitoring</p>
+                            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                A Network Operations Center (NOC) monitoring platform that delivers full visibility across systems, networks, and services.
                             </p>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Real-time monitoring and alerting</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Centralized infrastructure view</li>
+                                <li className="flex gap-2"><span className="text-pink-500">●</span> Faster incident detection & resolution</li>
+                            </ul>
                         </FadeIn>
-                        {/* Feature 5 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
-                            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">05</span>
-                                Storage
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Secure, scalable data lakes compliant with local regulations.
-                            </p>
-                        </FadeIn>
-                        {/* Feature 6 */}
-                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors">
-                            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-sm border border-pink-500/20">06</span>
-                                Governance
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Role-based access control and audit logs for enterprise security.
-                            </p>
+
+                        {/* 5. Siscom DAAS */}
+                        <FadeIn className="p-8 rounded-2xl bg-card border border-border shadow-sm hover:border-pink-500/30 transition-colors flex flex-col md:col-span-2 lg:col-span-2 bg-gradient-to-br from-card to-secondary/30">
+                            <div className="flex flex-col md:flex-row gap-8 h-full">
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-foreground mb-2">Siscom DAAS</h3>
+                                    <p className="text-sm font-medium text-pink-600 mb-4 uppercase tracking-wide">Data Analytics as a Service</p>
+                                    <p className="text-muted-foreground leading-relaxed mb-6">
+                                        Unlock the full power of data analytics, data engineering, business intelligence, and agentic AI — without building or maintaining large, expensive in-house teams.
+                                    </p>
+                                    <p className="text-foreground font-medium">
+                                        Siscom DAAS delivers expert-led analytics and AI capabilities on demand, so you can move faster, reduce cost, and focus on outcomes.
+                                    </p>
+                                </div>
+                                <div className="flex-1 flex items-center justify-center bg-background/50 rounded-xl p-6 border border-border/50">
+                                    <div className="text-center space-y-4">
+                                        <div className="text-4xl font-bold text-foreground">On-Demand</div>
+                                        <div className="text-sm text-muted-foreground uppercase tracking-wider">Expertise</div>
+                                        <div className="w-12 h-1 bg-pink-500 mx-auto rounded-full" />
+                                        <div className="text-sm text-muted-foreground">Analytics • Engineering • BI • AI</div>
+                                    </div>
+                                </div>
+                            </div>
                         </FadeIn>
                     </FadeInStagger>
                 </section>
