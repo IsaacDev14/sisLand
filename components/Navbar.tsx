@@ -19,7 +19,7 @@ export default function Navbar() {
     }, [pathname]);
 
     const navLinks = [
-        { name: "Nodes", href: "/siscom-nodes" },
+        { name: "Nodes", href: "/" },
         { name: "Data", href: "/siscom-data" },
         { name: "AI/ML", href: "/siscom-ai-ml" },
     ];
