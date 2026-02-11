@@ -1,23 +1,5 @@
-"use client";
-
-import Navbar from "@/components/Navbar";
-import Home2Hero from "@/components/Home2Hero";
-import PartnersSection from "@/components/PartnersSection";
-import SolutionsSection from "@/components/SolutionsSection";
-import FooterCTA from "@/components/FooterCTA";
-import Footer from "@/components/Footer";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Home2Hero />
-        <PartnersSection />
-        <SolutionsSection />
-        <FooterCTA />
-      </main>
-      <Footer />
-    </>
-  );
+  redirect("/siscom-nodes");
 }
