@@ -29,14 +29,6 @@ export default function SiscomDataPage() {
                             <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
                                 Siscom Data empowers financial services and modern enterprises to transform raw data into real-time insights, AI-powered decisions, and measurable business outcomes — all on a secure, scalable, cloud-first platform.
                             </p>
-                            <div className="flex gap-4 justify-center">
-                                <Link
-                                    href="/contact"
-                                    className="bg-pink-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-pink-500 transition-all hover:scale-105 shadow-lg shadow-pink-600/20"
-                                >
-                                    Start Analyzing
-                                </Link>
-                            </div>
                         </FadeIn>
                     </div>
                 </section>
