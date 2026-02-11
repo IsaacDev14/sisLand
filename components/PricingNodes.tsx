@@ -99,10 +99,7 @@ export default function PricingNodes() {
         <section className="py-24 bg-background relative overflow-hidden" id="pricing">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Transparent Pricing</h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Choose the infrastructure that fits your workload. No hidden fees.
-                    </p>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Product Pricing</h2>
                 </div>
 
                 {/* Dedicated Servers */}
