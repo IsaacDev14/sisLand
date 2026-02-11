@@ -16,7 +16,6 @@ export default function NodesPage() {
         <Home2Hero />
         <PartnersSection />
         <PricingNodes />
-        <SolutionsSection />
         <FooterCTA />
       </main>
       <Footer />
