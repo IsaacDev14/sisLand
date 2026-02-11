@@ -110,7 +110,10 @@ export default function PricingNodes() {
         <section className="py-24 bg-background relative overflow-hidden" id="pricing">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Infrastructure Offerings</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Infrastructure Offerings</h2>
+                    <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+                        High-performance compute solutions for every workload—from shared instances to dedicated bare metal.
+                    </p>
                 </div>
 
                 {/* Dedicated Servers */}
@@ -144,6 +147,8 @@ export default function PricingNodes() {
                     </div>
                 </div>
 
+                <div className="w-full h-px bg-border/50 my-16" />
+
                 {/* Shared VMs */}
                 <div className="mb-20">
                     <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
@@ -174,6 +179,8 @@ export default function PricingNodes() {
                         </div>
                     </div>
                 </div>
+
+                <div className="w-full h-px bg-border/50 my-16" />
 
                 {/* Bare Metal */}
                 <div className="mb-12">
@@ -206,14 +213,16 @@ export default function PricingNodes() {
                     </div>
                 </div>
 
+                <div className="w-full h-px bg-border/50 my-16" />
+
                 {/* GPU Compute */}
                 <div className="mb-12">
-                    <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-pink-600/10">
-                            <Cpu className="h-6 w-6 text-pink-600" />
-                        </div>
+                    <h3 className="text-3xl md:text-5xl font-black mb-6 text-center tracking-tight">
                         GPU Compute Products
                     </h3>
+                    <p className="text-center text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto mb-12">
+                        High-performance GPU instances optimized for AI training, rendering, and scientific computing.
+                    </p>
                     <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm">
@@ -232,8 +241,8 @@ export default function PricingNodes() {
                                             </td>
                                             <td className="px-6 py-3 align-middle">
                                                 <span className={`text-xs font-bold uppercase tracking-wider ${plan.status === "Available Now"
-                                                        ? "text-foreground"
-                                                        : "text-muted-foreground"
+                                                    ? "text-foreground"
+                                                    : "text-muted-foreground"
                                                     }`}>
                                                     {plan.status}
                                                 </span>
