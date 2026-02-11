@@ -11,7 +11,7 @@ const solutions = [
         subtitle: "SOVEREIGN INFRASTRUCTURE",
         description:
             "Secure, sovereign compute and AI infrastructure built to meet the performance, compliance, and data residency needs of modern enterprises.",
-        href: "/siscom-nodes",
+        href: "/",
     },
     {
         id: "data",
@@ -30,15 +30,6 @@ const solutions = [
         description:
             "Design, deploy, and scale agentic AI and automation use cases—driving efficiency, insight, and competitive advantage.",
         href: "/siscom-ai-ml",
-    },
-    {
-        id: "cloud-apps",
-        icon: "/frames/layer_chassis.png",
-        title: "Cloud Apps",
-        subtitle: "INTELLIGENT SAAS",
-        description:
-            "Purpose-built cloud applications designed for SMEs ready to gain a competitive edge with scalable SaaS solutions.",
-        href: "/cloud-apps",
     },
     {
         id: "devpreneur",

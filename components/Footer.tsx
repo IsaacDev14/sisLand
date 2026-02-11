@@ -4,10 +4,9 @@ import Link from "next/link";
 
 const footerLinks = {
     solutions: [
-        { name: "Siscom Nodes", href: "/siscom-nodes" },
+        { name: "Siscom Nodes", href: "/" },
         { name: "Siscom Data", href: "/siscom-data" },
         { name: "Siscom AI/ML", href: "/siscom-ai-ml" },
-        { name: "Cloud Applications", href: "/cloud-apps" },
         { name: "DevPreneur", href: "/contact" },
     ],
     company: [

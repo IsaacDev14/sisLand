@@ -92,6 +92,17 @@ const bareMetalPlans = [
     },
 ];
 
+const gpuPlans = [
+    { product: "NVIDIA GB200 NVL72 / HGX B200", status: "Available Now" },
+    { product: "NVIDIA HGX H100 / H200", status: "Available Now" },
+    { product: "NVIDIA HGX A100", status: "Available Now" },
+    { product: "NVIDIA PCIe A100", status: "Available Now" },
+    { product: "NVIDIA L40 / L40S", status: "Available Now" },
+    { product: "NVIDIA A40", status: "Available Now" },
+    { product: "NVIDIA RTX GPUs", status: "Coming Soon" },
+    { product: "MiniCards", status: "Coming Soon" },
+];
+
 // --- Component ---
 
 export default function PricingNodes() {
@@ -99,7 +110,7 @@ export default function PricingNodes() {
         <section className="py-24 bg-background relative overflow-hidden" id="pricing">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Product Pricing</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Infrastructure Offerings</h2>
                 </div>
 
                 {/* Dedicated Servers */}
@@ -188,6 +199,60 @@ export default function PricingNodes() {
                                 <tbody className="divide-y divide-border">
                                     {bareMetalPlans.map((plan, idx) => (
                                         <Row key={idx} plan={plan} type="baremetal" />
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                {/* GPU Compute */}
+                <div className="mb-12">
+                    <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-pink-600/10">
+                            <Cpu className="h-6 w-6 text-pink-600" />
+                        </div>
+                        GPU Compute Products
+                    </h3>
+                    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-left text-sm">
+                                <thead className="bg-zinc-900 text-zinc-100 uppercase tracking-wider text-xs font-semibold">
+                                    <tr>
+                                        <th className="px-6 py-3">Product</th>
+                                        <th className="px-6 py-3">Status</th>
+                                        <th className="px-6 py-3 text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-border">
+                                    {gpuPlans.map((plan, idx) => (
+                                        <tr key={idx} className="group hover:bg-secondary/20 transition-colors">
+                                            <td className="px-6 py-3 align-middle">
+                                                <span className="font-bold text-foreground block text-sm">{plan.product}</span>
+                                            </td>
+                                            <td className="px-6 py-3 align-middle">
+                                                <span className={`text-xs font-bold uppercase tracking-wider ${plan.status === "Available Now"
+                                                        ? "text-foreground"
+                                                        : "text-muted-foreground"
+                                                    }`}>
+                                                    {plan.status}
+                                                </span>
+                                            </td>
+                                            <td className="px-6 py-3 align-middle text-right">
+                                                {plan.status === "Available Now" ? (
+                                                    <Link
+                                                        href="#contact"
+                                                        className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-pink-700 hover:shadow-lg hover:shadow-pink-500/20 active:scale-95 whitespace-nowrap"
+                                                    >
+                                                        Deploy <ArrowRight className="ml-2 h-3 w-3" />
+                                                    </Link>
+                                                ) : (
+                                                    <span className="text-xs font-medium text-muted-foreground">
+                                                        -
+                                                    </span>
+                                                )}
+                                            </td>
+                                        </tr>
                                     ))}
                                 </tbody>
                             </table>

@@ -9,7 +9,7 @@ const features = [
         icon: Server,
         title: "Siscom Nodes",
         description: "Secure, sovereign compute and hardware infrastructure built for performance and compliance.",
-        href: "/siscom-nodes",
+        href: "/",
         color: "text-pink-500",
     },
     {
@@ -25,13 +25,6 @@ const features = [
         description: "Deploy scalable agentic AI and automation to drive efficiency and competitive advantage.",
         href: "/siscom-ai-ml",
         color: "text-blue-500",
-    },
-    {
-        icon: LayoutGrid,
-        title: "Cloud Apps",
-        description: "Purpose-built SaaS applications designed to help African SMEs scale and succeed.",
-        href: "/cloud-apps",
-        color: "text-emerald-500",
     },
     {
         icon: Users,

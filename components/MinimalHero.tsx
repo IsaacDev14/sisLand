@@ -64,7 +64,7 @@ export default function MinimalHero() {
                     </Link>
 
                     <Link
-                        href="/siscom-nodes"
+                        href="/"
                         className="inline-flex h-12 items-center justify-center rounded-full px-8 font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
                     >
                         Explore Infrastructure
