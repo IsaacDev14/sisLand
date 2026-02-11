@@ -119,19 +119,19 @@ export default function Home2Hero() {
                         {/* CTAs */}
                         <div className="flex flex-wrap gap-4 mb-12">
                             <a
-                                href="#contact"
+                                href="/contact"
                                 className="hero-cta inline-flex items-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:shadow-lg hover:shadow-pink-500/25"
                             >
-                                Get Started Free
+                                Request GPU Capacity
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </a>
                             <a
-                                href="#demo"
+                                href="/contact"
                                 className="hero-cta inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-7 py-3.5 rounded-lg transition-all [html[data-theme='light']_&]:bg-slate-100 [html[data-theme='light']_&]:text-slate-900 [html[data-theme='light']_&]:hover:bg-slate-200"
                             >
-                                Schedule Demo
+                                Book Technical Consult
                             </a>
                         </div>
 
@@ -141,13 +141,13 @@ export default function Home2Hero() {
                                 <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
-                                <span>No credit card required</span>
+                                <span>99.99% Uptime SLA</span>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
-                                <span>SOC2 Certified</span>
+                                <span>Tier III Sovereignty</span>
                             </div>
                         </div>
                     </div>
