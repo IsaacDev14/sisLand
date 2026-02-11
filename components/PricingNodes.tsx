@@ -113,7 +113,7 @@ export default function PricingNodes() {
                     <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm">
-                                <thead className="bg-secondary/30 text-muted-foreground uppercase tracking-wider text-xs font-semibold">
+                                <thead className="bg-zinc-900 text-zinc-100 uppercase tracking-wider text-xs font-semibold">
                                     <tr>
                                         <th className="px-6 py-4">Plan / Tier</th>
                                         <th className="px-6 py-4">vCPU</th>
@@ -144,7 +144,7 @@ export default function PricingNodes() {
                     <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm">
-                                <thead className="bg-secondary/30 text-muted-foreground uppercase tracking-wider text-xs font-semibold">
+                                <thead className="bg-zinc-900 text-zinc-100 uppercase tracking-wider text-xs font-semibold">
                                     <tr>
                                         <th className="px-6 py-4">Plan / Tier</th>
                                         <th className="px-6 py-4">vCPU</th>
@@ -175,7 +175,7 @@ export default function PricingNodes() {
                     <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm">
-                                <thead className="bg-secondary/30 text-muted-foreground uppercase tracking-wider text-xs font-semibold">
+                                <thead className="bg-zinc-900 text-zinc-100 uppercase tracking-wider text-xs font-semibold">
                                     <tr>
                                         <th className="px-6 py-4">Item</th>
                                         <th className="px-6 py-4">vCPU</th>
