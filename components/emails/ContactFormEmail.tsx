@@ -74,27 +74,28 @@ export const ContactFormEmail = ({
                         <Section>
                             <Row>
                                 <Column className="w-1/3 align-top">
-                                    <Text className="text-[#666666] text-[12px] font-bold uppercase tracking-wider mb-1">Contact Info</Text>
+                                    <Text className="text-[#ec4899] text-[12px] font-bold uppercase tracking-wider mb-2 border-b border-gray-100 pb-1">Contact Info</Text>
                                     <Text className="text-black text-[14px] m-0 mb-4">
-                                        {firstName} {lastName}<br />
+                                        <b className="text-black">{firstName} {lastName}</b><br />
                                         <Link href={`mailto:${email}`} className="text-blue-600 no-underline">
                                             {email}
                                         </Link><br />
+                                        {company}<br />
                                         {jobTitle}<br />
                                         {country}
                                     </Text>
                                 </Column>
                                 <Column className="w-1/3 align-top">
-                                    <Text className="text-[#666666] text-[12px] font-bold uppercase tracking-wider mb-1">Interest</Text>
+                                    <Text className="text-[#ec4899] text-[12px] font-bold uppercase tracking-wider mb-2 border-b border-gray-100 pb-1">Interest</Text>
                                     <Text className="text-black text-[14px] m-0 mb-4">
-                                        {serviceInterest}<br />
+                                        <b>{serviceInterest}</b><br />
                                         Timeline: {timeline}
                                     </Text>
                                 </Column>
                                 <Column className="w-1/3 align-top">
-                                    <Text className="text-[#666666] text-[12px] font-bold uppercase tracking-wider mb-1">Resources</Text>
+                                    <Text className="text-[#ec4899] text-[12px] font-bold uppercase tracking-wider mb-2 border-b border-gray-100 pb-1">Resources</Text>
                                     <Text className="text-black text-[14px] m-0 mb-4">
-                                        {resourceCount}<br />
+                                        <b>{resourceCount}</b><br />
                                         GPU Types: {gpuType.join(", ")}
                                     </Text>
                                 </Column>
@@ -102,7 +103,7 @@ export const ContactFormEmail = ({
                         </Section>
                         <Hr className="border-[#eaeaea] my-[26px] mx-0 w-full" />
                         <Section>
-                            <Text className="text-[#666666] text-[12px] font-bold uppercase tracking-wider mb-1">Message</Text>
+                            <Text className="text-[#ec4899] text-[12px] font-bold uppercase tracking-wider mb-2 border-b border-gray-100 pb-1">Message</Text>
                             <Text className="text-black text-[14px] leading-[24px] bg-gray-50 p-4 rounded-md border border-gray-100">
                                 {message}
                             </Text>

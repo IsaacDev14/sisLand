@@ -8,7 +8,7 @@ import { useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
-import { submitContactForm } from "@/app/actions";
+
 
 const gpuTypes = [
     "NVIDIA GB200 NVL72 / HGX B200",
@@ -86,17 +86,33 @@ export default function ContactPage() {
         setSubmitStatus('idle');
 
         try {
-            // Send email via Resend
-            const result = await submitContactForm(formData);
+            // Setup timeout
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+
+            // Send email via API Route
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+                signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
+
+            const result = await response.json();
 
             if (result.success) {
-                // Also save to Firestore for redundancy
-                await addDoc(collection(db, 'contact_submissions'), {
+                setSubmitStatus('success');
+
+                // Also save to Firestore for redundancy (non-blocking)
+                addDoc(collection(db, 'contact_submissions'), {
                     ...formData,
                     createdAt: serverTimestamp(),
-                });
+                }).catch(err => console.error("Firestore backup failed:", err));
 
-                setSubmitStatus('success');
                 // Reset form
                 setFormData({
                     firstName: '', lastName: '', email: '', company: '', jobTitle: '',
@@ -178,12 +194,12 @@ export default function ContactPage() {
                         </FadeIn>
 
                         {/* Right Form */}
-                        <FadeIn className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden">
+                        <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden">
                             {/* Decorative element */}
                             <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/5 blur-3xl rounded-full -mr-12 -mt-12" />
 
                             <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
-                                <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="space-y-1.5">
                                         <label className="text-xs font-medium text-foreground">First name<span className="text-pink-500">*</span></label>
                                         <input
@@ -349,7 +365,7 @@ export default function ContactPage() {
                                             className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all resize-none"
                                         />
                                     </div>
-                                </FadeInStagger>
+                                </div>
 
                                 <div className="pt-2">
                                     <button
@@ -365,7 +381,7 @@ export default function ContactPage() {
                                     </p>
                                 </div>
                             </form>
-                        </FadeIn>
+                        </div>
                     </div>
                 </section>
             </main>
