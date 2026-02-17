@@ -86,11 +86,13 @@ export default function ContactPage() {
         setSubmitStatus('idle');
 
         try {
+            console.log("CLIENT: Starting submission...");
             // Setup timeout
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+            const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
 
             // Send email via API Route
+            console.log("CLIENT: Sending fetch request to /api/contact");
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -99,10 +101,12 @@ export default function ContactPage() {
                 body: JSON.stringify(formData),
                 signal: controller.signal
             });
+            console.log("CLIENT: Fetch response received", response.status);
 
             clearTimeout(timeoutId);
 
             const result = await response.json();
+            console.log("CLIENT: Parse JSON result", result);
 
             if (result.success) {
                 setSubmitStatus('success');
@@ -123,8 +127,12 @@ export default function ContactPage() {
                 alert(`Error: ${JSON.stringify(result.error)}`);
                 throw new Error('Failed to send email');
             }
-        } catch (error) {
-            console.error('Error submitting form:', error);
+        } catch (error: any) {
+            if (error.name === 'AbortError') {
+                alert("Request timed out. The server might still be processing your request.");
+            } else {
+                console.error('Error submitting form:', error);
+            }
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
