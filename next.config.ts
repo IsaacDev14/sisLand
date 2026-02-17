@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  serverExternalPackages: ['@react-email/components', '@react-email/render', '@react-email/tailwind'],
 };
 
 export default nextConfig;

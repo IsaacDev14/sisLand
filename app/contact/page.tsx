@@ -8,6 +8,7 @@ import { useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
+import { submitContactForm } from "@/app/actions";
 
 const gpuTypes = [
     "NVIDIA GB200 NVL72 / HGX B200",
@@ -85,17 +86,27 @@ export default function ContactPage() {
         setSubmitStatus('idle');
 
         try {
-            await addDoc(collection(db, 'contact_submissions'), {
-                ...formData,
-                createdAt: serverTimestamp(),
-            });
-            setSubmitStatus('success');
-            // Reset form
-            setFormData({
-                firstName: '', lastName: '', email: '', company: '', jobTitle: '',
-                country: '', serviceInterest: '', resourceCount: '', gpuType: [],
-                timeline: '', message: ''
-            });
+            // Send email via Resend
+            const result = await submitContactForm(formData);
+
+            if (result.success) {
+                // Also save to Firestore for redundancy
+                await addDoc(collection(db, 'contact_submissions'), {
+                    ...formData,
+                    createdAt: serverTimestamp(),
+                });
+
+                setSubmitStatus('success');
+                // Reset form
+                setFormData({
+                    firstName: '', lastName: '', email: '', company: '', jobTitle: '',
+                    country: '', serviceInterest: '', resourceCount: '', gpuType: [],
+                    timeline: '', message: ''
+                });
+            } else {
+                alert(`Error: ${JSON.stringify(result.error)}`);
+                throw new Error('Failed to send email');
+            }
         } catch (error) {
             console.error('Error submitting form:', error);
             setSubmitStatus('error');
