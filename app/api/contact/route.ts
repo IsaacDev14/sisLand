@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
         const data = await resend.emails.send({
             from: "Siscom Contact Form <onboarding@resend.dev>", // Update this when you have a custom domain
-            to: ["mwitiisaac14@gmail.com"], // Keeping user's email for their continued testing
+            to: ["tech@siscom.tech"],
             subject: `New Contact Request: ${firstName} ${lastName} - ${company}`,
             html: emailHtml,
         });
