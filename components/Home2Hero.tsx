@@ -74,14 +74,6 @@ export default function Home2Hero() {
                     {/* LEFT: Text Content */}
                     <div className="max-w-xl">
                         {/* Eyebrow */}
-                        <div className="hero-eyebrow inline-flex items-center gap-2 mb-6">
-                            <span className="text-xs font-bold tracking-widest text-pink-600 uppercase">
-                                Africa&apos;s Cloud Platform
-                            </span>
-                            <span className="px-2 py-0.5 text-[10px] font-semibold bg-pink-100 text-pink-700 rounded-full">
-                                NEW
-                            </span>
-                        </div>
 
                         {/* Main Headline */}
                         <h1 className="hero-title text-[3.5rem] sm:text-6xl lg:text-[4.25rem] font-bold leading-[1.05] tracking-tight text-foreground mb-6">
@@ -136,20 +128,6 @@ export default function Home2Hero() {
                         </div>
 
                         {/* Trust indicators */}
-                        <div className="hero-cta flex items-center gap-4 text-sm text-muted-foreground">
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
-                                <span>99.99% Uptime SLA</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
-                                <span>Tier III Sovereignty</span>
-                            </div>
-                        </div>
                     </div>
 
                     {/* RIGHT: Animated Product Visual */}
@@ -295,9 +273,9 @@ export default function Home2Hero() {
                                     {/* Floating metrics */}
                                     <div className="absolute bottom-4 left-4 right-4 flex gap-3">
                                         {[
-                                            { label: "Uptime", value: "99.99%", color: "text-green-600" },
-                                            { label: "Latency", value: "<15ms", color: "text-blue-600" },
-                                            { label: "Nodes", value: "10+", color: "text-purple-600" },
+                                            { label: "Uptime", value: "99.99%", color: "text-pink-600" },
+                                            { label: "Latency", value: "<15ms", color: "text-pink-500" },
+                                            { label: "Nodes", value: "10+", color: "text-red-500" },
                                         ].map((metric) => (
                                             <div key={metric.label} className="flex-1 bg-secondary rounded-lg p-3 text-center">
                                                 <div className={`text-lg font-bold ${metric.color}`}>{metric.value}</div>
@@ -309,7 +287,7 @@ export default function Home2Hero() {
                             </div>
 
                             {/* Floating badge */}
-                            <div className="absolute -top-3 -right-3 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-pulse">
+                            <div className="absolute -top-3 -right-3 bg-pink-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-pulse">
                                 ● LIVE
                             </div>
                         </div>
