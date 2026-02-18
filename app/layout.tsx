@@ -17,9 +17,7 @@ export const metadata: Metadata = {
     title: "Siscom Solutions - Sovereign Cloud & AI Infrastructure",
     description:
         "Reinventing what's possible with Local Cloud, Data Intelligence & AI Advantage for African enterprises.",
-    icons: {
-        icon: "/siscom-logo.png",
-    },
+    icons: undefined, // Let Next.js handle app/icon.png automatically
 };
 
 export default function RootLayout({
