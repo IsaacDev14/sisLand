@@ -114,10 +114,10 @@ export default function SiscomDataPage() {
                             </div>
                         </FadeIn>
 
-                        {/* 4. Siscom Fishnet */}
+                        {/* 4. WASP */}
                         <FadeIn className="group p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-pink-500/40 transition-all duration-300 flex flex-col hover:-translate-y-1">
-                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-600 transition-colors">Siscom Fishnet</h3>
-                            <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Unified NOC Monitoring</p>
+                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-pink-600 transition-colors">WASP</h3>
+                            <p className="text-xs font-bold text-pink-600 mb-4 uppercase tracking-wider">Wireless Access Secure Protocol</p>
                             <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
                                 A Network Operations Center (NOC) monitoring platform that delivers full visibility across systems, networks, and services.
                             </p>
@@ -381,7 +381,7 @@ export default function SiscomDataPage() {
                                         <h3 className="text-2xl font-bold text-foreground mb-2">Infrastructure, Data Centers & Cloud</h3>
                                         <p className="text-sm font-bold text-pink-600 mb-4 uppercase tracking-wider">Always-on operational intelligence</p>
                                         <p className="text-muted-foreground leading-relaxed">
-                                            Gain real-time visibility across infrastructure, data centers, networks, and cloud environments with centralized monitoring and analytics. Detect issues faster, reduce downtime, and optimize performance using Siscom Fishnet's NOC intelligence.
+                                            Gain real-time visibility across infrastructure, data centers, networks, and cloud environments with centralized monitoring and analytics. Detect issues faster, reduce downtime, and optimize performance using WASP's NOC intelligence.
                                         </p>
                                         <div className="mt-6">
                                             <Link
