@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Siscom Solutions - Sovereign Cloud & AI Infrastructure
+
+This is the official codebase for the Siscom Solutions marketing and service platform. It showcases our capabilities in Local Cloud, Data Intelligence, and AI Advantage for African enterprises.
+
+## Technologies Used
+
+-   **Framework:** Next.js 16 (App Router)
+-   **Styling:** Tailwind CSS v4 + Framer Motion + GSAP
+-   **Backend:** Next.js API Routes (Node.js Runtime)
+-   **Email Service:** Resend
+-   **Database:** Firebase (Firestore)
+
+## Project Structure
+
+```bash
+sisLand/
+├── app/                  # Application source code (Next.js App Router)
+│   ├── api/              # Server-side API routes (e.g., Contact Form)
+│   ├── layout.tsx        # Root layout (Navbar, Footer, Fonts)
+│   └── page.tsx          # Home page
+├── components/           # Reusable UI components
+│   ├── emails/           # Email templates
+│   └── ui/               # Design system primitives
+├── public/               # Static assets (Images, Logos)
+└── lib/                  # Utility functions and Firebase config
+```
 
 ## Getting Started
 
-First, run the development server:
+1.  **Install Dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+2.  **Environment Variables:**
+
+    Create a `.env.local` file in the root directory and add the following keys:
+
+    ```env
+    RESEND_API_KEY=your_resend_api_key_here
+    NEXT_PUBLIC_FIREBASE_API_KEY=...
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=...
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
+    # ... other firebase config keys
+    ```
+
+3.  **Run Development Server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Deployment
+
+Since this application utilizes server-side API routes for secure email handling, it requires a Node.js runtime environment. It cannot be deployed as a static export.
+
+**For cPanel Deployment:**
+Please refer to the `DEPLOYMENT.md` file in this repository for detailed, step-by-step instructions on deploying to a cPanel environment using the "Setup Node.js App" feature.
+
+**Standard Build Command:**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This command generates an optimized production build in the `.next` folder.
