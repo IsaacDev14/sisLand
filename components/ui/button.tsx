@@ -1,10 +1,9 @@
 
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot" // Need to check if radix is installed, if not, I'll remove Slot support for now to avoid breaking.
+import { Slot } from "@radix-ui/react-slot" 
 import { cn } from "@/lib/utils"
 
-// Since I don't know if radix-ui is installed, I will make a simpler version without Slot for now to ensuring no breakages. 
-// If user has full shadcn, they can replace this.
+
 
 export interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
