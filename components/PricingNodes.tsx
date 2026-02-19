@@ -250,10 +250,10 @@ export default function PricingNodes() {
                                             <td className="px-6 py-3 align-middle text-right">
                                                 {plan.status === "Available Now" ? (
                                                     <Link
-                                                        href="#contact"
+                                                        href="/contact?intent=gpu_reservation"
                                                         className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-pink-700 hover:shadow-lg hover:shadow-pink-500/20 active:scale-95 whitespace-nowrap"
                                                     >
-                                                        Deploy <ArrowRight className="ml-2 h-3 w-3" />
+                                                        Reserve <ArrowRight className="ml-2 h-3 w-3" />
                                                     </Link>
                                                 ) : (
                                                     <span className="text-xs font-medium text-muted-foreground">
