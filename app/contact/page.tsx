@@ -237,11 +237,15 @@ Please contact me with further details or setup instructions.`;
                             </h1>
                             {isGpuReservation ? (
                                 <>
-                                    <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                                        Reserve Available GPUs (NVIDIA H200 – Available Today)
+                                    <p className="text-base text-foreground leading-[1.8] font-medium mb-4">
+                                        <span className="bg-pink-300 dark:bg-pink-500/40 text-foreground px-1 py-1 rounded-sm box-decoration-clone">
+                                            Reserve Available GPUs (NVIDIA H200 – Available Today)
+                                        </span>
                                     </p>
-                                    <p className="text-base text-muted-foreground leading-relaxed">
-                                        Secure priority access to currently available NVIDIA H200 GPU infrastructure for AI training, research, and production deployments.
+                                    <p className="text-base text-foreground leading-[1.8] font-medium">
+                                        <span className="bg-pink-300 dark:bg-pink-500/40 text-foreground px-1 py-1 rounded-sm box-decoration-clone">
+                                            Secure priority access to currently available NVIDIA H200 GPU infrastructure for AI training, research, and production deployments.
+                                        </span>
                                     </p>
                                 </>
                             ) : (
