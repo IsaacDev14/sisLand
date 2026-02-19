@@ -239,7 +239,7 @@ Please contact me with further details or setup instructions.`;
                                 <>
                                     <p className="text-base text-foreground leading-[1.8] font-medium mb-4">
                                         <span className="bg-pink-300 dark:bg-pink-500/40 text-foreground px-1 py-1 rounded-sm box-decoration-clone">
-                                            Reserve Available GPUs (NVIDIA H200 – Available Today)
+                                            Reserve Available GPUs (NVIDIA H200 &ndash; Available Today)
                                         </span>
                                     </p>
                                     <p className="text-base text-foreground leading-[1.8] font-medium">
