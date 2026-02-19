@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Info, ArrowRight, Server, Cpu, Database } from "lucide-react";
+import { Check, Info, ArrowRight, Server, Cpu, Database, X } from "lucide-react";
 import Link from "next/link";
 
 // --- Data Definitions ---
@@ -275,6 +276,10 @@ export default function PricingNodes() {
 }
 
 function Row({ plan, type }: { plan: any; type: string }) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const needsOsSelection = type === "shared" && plan.note;
+    const deployHref = `/contact?intent=Infrastructure Offerings&plan=${encodeURIComponent(plan.tier || plan.item)}&cpu=${encodeURIComponent(plan.cpu)}&ram=${encodeURIComponent(plan.ram)}&storage=${encodeURIComponent(plan.storage)}`;
+
     return (
         <tr className="group hover:bg-secondary/20 transition-colors">
             <td className="px-6 py-5 align-middle">
@@ -293,12 +298,52 @@ function Row({ plan, type }: { plan: any; type: string }) {
                 </div>
             </td>
             <td className="px-6 py-5 align-middle text-right">
-                <Link
-                    href={`/contact?intent=Infrastructure Offerings&plan=${encodeURIComponent(plan.tier || plan.item)}&price=${encodeURIComponent(plan.price)}&cpu=${encodeURIComponent(plan.cpu)}&ram=${encodeURIComponent(plan.ram)}&storage=${encodeURIComponent(plan.storage)}`}
-                    className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-pink-700 hover:shadow-lg hover:shadow-pink-500/20 active:scale-95 whitespace-nowrap"
-                >
-                    Deploy <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                {needsOsSelection ? (
+                    <>
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-pink-700 hover:shadow-lg hover:shadow-pink-500/20 active:scale-95 whitespace-nowrap"
+                        >
+                            Deploy <ArrowRight className="ml-2 h-4 w-4" />
+                        </button>
+
+                        {isModalOpen && (
+                            <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm px-4">
+                                <div className="bg-card border border-border rounded-xl shadow-xl w-full max-w-md p-6 relative text-left">
+                                    <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
+                                        <X className="h-5 w-5" />
+                                    </button>
+                                    <h3 className="text-xl font-bold mb-2">Select Operating System</h3>
+                                    <p className="text-muted-foreground text-sm mb-6">Choose your preferred operating system for the {plan.tier || plan.item} plan.</p>
+
+                                    <div className="flex flex-col gap-3">
+                                        <Link
+                                            href={`${deployHref}&price=${encodeURIComponent(plan.price)}`}
+                                            className="flex items-center justify-between p-4 border border-border rounded-lg hover:border-pink-500 hover:bg-pink-500/5 transition-colors group"
+                                        >
+                                            <span className="font-semibold text-foreground group-hover:text-pink-600 transition-colors">Linux (Ubuntu/Debian)</span>
+                                            <span className="text-sm font-medium text-muted-foreground">{plan.price.replace(" (Linux)", "")}</span>
+                                        </Link>
+                                        <Link
+                                            href={`${deployHref}&price=${encodeURIComponent(plan.note)}`}
+                                            className="flex items-center justify-between p-4 border border-border rounded-lg hover:border-pink-500 hover:bg-pink-500/5 transition-colors group"
+                                        >
+                                            <span className="font-semibold text-foreground group-hover:text-pink-600 transition-colors">Windows Server</span>
+                                            <span className="text-sm font-medium text-muted-foreground">{plan.note.replace(" (Windows)", "")}</span>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </>
+                ) : (
+                    <Link
+                        href={`${deployHref}&price=${encodeURIComponent(plan.price)}`}
+                        className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-pink-700 hover:shadow-lg hover:shadow-pink-500/20 active:scale-95 whitespace-nowrap"
+                    >
+                        Deploy <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                )}
             </td>
         </tr>
     );
