@@ -7,7 +7,7 @@ import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, MapPin, Mail, Phone } from "lucide-react";
 
 
 const gpuTypes = [
@@ -190,8 +190,8 @@ export default function ContactPage() {
                             <div className="mt-8 space-y-6">
                                 <div>
                                     <h3 className="text-sm font-semibold text-foreground mb-1">Our Location</h3>
-                                    <p className="text-sm text-muted-foreground">Reliance Center, Woodvale</p>
-                                    <p className="text-sm text-muted-foreground">Nairobi, Kenya</p>
+                                    <p className="text-sm text-muted-foreground">Reliance Center, Floor 2, Woodvale</p>
+                                    <p className="text-sm text-muted-foreground">Westlands, Nairobi, Kenya</p>
                                 </div>
                                 <div>
                                     <h3 className="text-sm font-semibold text-foreground mb-1">Quick Contact</h3>
@@ -404,6 +404,56 @@ export default function ContactPage() {
                             </form>
                         </div>
                     </div>
+                </section>
+
+                {/* Map & Address Section */}
+                <section className="mx-auto max-w-7xl px-6 lg:px-8 mt-16 relative z-10">
+                    <FadeIn>
+                        <div className="mb-8 text-center">
+                            <h2 className="text-2xl font-bold text-foreground mb-2">Visit Our Office</h2>
+                            <p className="text-sm text-muted-foreground">We're located in the heart of Nairobi's business district.</p>
+                        </div>
+
+                        {/* Map Container with Overlaid Card */}
+                        <div className="relative rounded-xl overflow-hidden border border-border shadow-sm">
+                            {/* Full-width Google Map */}
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.819542367738!2d36.77890261475392!3d-1.2636093990384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17399073da9d%3A0x8d63e08e7b0e4f13!2sReliance%20Center!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"
+                                width="100%"
+                                height="450"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Siscom Africa Office - Reliance Center, Westlands, Nairobi"
+                            />
+
+                            {/* Floating Address Card */}
+                            <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-sm border border-border rounded-xl p-5 shadow-lg max-w-xs">
+                                <div className="flex items-start gap-3 mb-3">
+                                    <div className="w-9 h-9 bg-pink-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <MapPin className="w-4 h-4 text-pink-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-sm font-bold text-foreground">Siscom Africa Headquarters</h3>
+                                        <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                                            Reliance Center, Floor 2<br />
+                                            Woodvale, Westlands<br />
+                                            Nairobi, Kenya
+                                        </p>
+                                    </div>
+                                </div>
+                                <a
+                                    href="https://www.google.com/maps/dir//Reliance+Center,+Woodvale+Groove,+Nairobi"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 text-sm font-semibold text-pink-600 hover:text-pink-500 transition-colors mt-1"
+                                >
+                                    Get Directions <ArrowRight className="w-3.5 h-3.5" />
+                                </a>
+                            </div>
+                        </div>
+                    </FadeIn>
                 </section>
             </main>
             <Footer />
