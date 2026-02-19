@@ -294,7 +294,7 @@ function Row({ plan, type }: { plan: any; type: string }) {
             </td>
             <td className="px-6 py-5 align-middle text-right">
                 <Link
-                    href="#contact"
+                    href={`/contact?intent=Infrastructure Offerings&plan=${encodeURIComponent(plan.tier || plan.item)}&price=${encodeURIComponent(plan.price)}&cpu=${encodeURIComponent(plan.cpu)}&ram=${encodeURIComponent(plan.ram)}&storage=${encodeURIComponent(plan.storage)}`}
                     className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-pink-700 hover:shadow-lg hover:shadow-pink-500/20 active:scale-95 whitespace-nowrap"
                 >
                     Deploy <ArrowRight className="ml-2 h-4 w-4" />

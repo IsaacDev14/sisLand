@@ -1,31 +1,29 @@
 interface ContactFormEmailProps {
-    firstName: string;
-    lastName: string;
+    fullName: string;
     email: string;
+    phone?: string;
     company: string;
-    jobTitle: string;
-    country: string;
+    organizationType: string;
     serviceInterest: string;
-    resourceCount: string;
-    gpuType: string[];
+    resourceCount?: string;
+    gpuType?: string[];
     timeline: string;
     message: string;
 }
 
 export const generateEmailHtml = ({
-    firstName,
-    lastName,
+    fullName,
     email,
+    phone,
     company,
-    jobTitle,
-    country,
+    organizationType,
     serviceInterest,
     resourceCount,
     gpuType,
     timeline,
     message,
 }: ContactFormEmailProps): string => {
-    const gpuList = gpuType.join(", ");
+    const gpuList = gpuType ? gpuType.join(", ") : "";
 
     return `
 <!DOCTYPE html>
@@ -54,7 +52,7 @@ export const generateEmailHtml = ({
             </h1>
             <p style="color: #555; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
                 Hello Admin,<br>
-                <strong>${firstName} ${lastName}</strong> has submitted a new inquiry regarding <strong>${serviceInterest}</strong>.
+                <strong>${fullName}</strong> has submitted a new inquiry regarding <strong>${serviceInterest}</strong>.
             </p>
 
             <!-- INFO TABLE -->
@@ -64,7 +62,7 @@ export const generateEmailHtml = ({
                         Contact Name
                     </td>
                     <td style="color: #222; font-weight: 500; font-size: 14px; padding: 12px; vertical-align: top;">
-                        ${firstName} ${lastName}
+                        ${fullName}
                     </td>
                 </tr>
                 <tr style="border-bottom: 1px solid #eee;">
@@ -85,18 +83,18 @@ export const generateEmailHtml = ({
                 </tr>
                 <tr style="border-bottom: 1px solid #eee;">
                     <td style="background-color: #f9f9f9; width: 30%; color: #666; font-weight: 700; text-transform: uppercase; font-size: 12px; padding: 12px; border-right: 1px solid #eee; vertical-align: top;">
-                        Job Title
+                        Phone
                     </td>
                     <td style="color: #222; font-weight: 500; font-size: 14px; padding: 12px; vertical-align: top;">
-                        ${jobTitle}
+                        ${phone || "N/A"}
                     </td>
                 </tr>
                 <tr style="border-bottom: 1px solid #eee;">
                     <td style="background-color: #f9f9f9; width: 30%; color: #666; font-weight: 700; text-transform: uppercase; font-size: 12px; padding: 12px; border-right: 1px solid #eee; vertical-align: top;">
-                        Location
+                        Org Type
                     </td>
                     <td style="color: #222; font-weight: 500; font-size: 14px; padding: 12px; vertical-align: top;">
-                        ${country}
+                        ${organizationType}
                     </td>
                 </tr>
                 <tr>
@@ -109,6 +107,7 @@ export const generateEmailHtml = ({
                 </tr>
             </table>
 
+            ${(resourceCount || (gpuType && gpuType.length > 0)) ? `
             <!-- HIGHLIGHT BOX -->
             <div style="background-color: #f8f9fc; border: 1px solid #eef0f5; border-left: 4px solid #FF0055; border-radius: 2px; padding: 25px; margin-bottom: 30px;">
                 <div style="color: #1a1a1a; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #e0e0e0;">
@@ -118,7 +117,7 @@ export const generateEmailHtml = ({
                     <tr>
                         <td style="width: 50%; vertical-align: top;">
                             <div style="color: #111; font-size: 20px; font-weight: 700; margin-bottom: 4px;">
-                                ${resourceCount}
+                                ${resourceCount || 'N/A'}
                             </div>
                             <div style="color: #666; font-size: 14px;">
                                 Quantity Requested
@@ -126,16 +125,16 @@ export const generateEmailHtml = ({
                         </td>
                         <td style="width: 50%; vertical-align: top;">
                             <div style="color: #111; font-size: 20px; font-weight: 700; margin-bottom: 4px;">
-                                ${gpuType.length > 0 ? gpuType[0] : 'None'}
-                                ${gpuType.length > 1 ? `<span style="font-size: 14px; font-weight: 400; color: #666; margin-left: 4px;">(+${gpuType.length - 1} more)</span>` : ''}
+                                ${gpuType && gpuType.length > 0 ? gpuType[0] : 'None'}
+                                ${gpuType && gpuType.length > 1 ? '<span style="font-size: 14px; font-weight: 400; color: #666; margin-left: 4px;">(+' + (gpuType.length - 1) + ' more)</span>' : ''}
                             </div>
                             <div style="color: #666; font-size: 14px;">
-                                ${gpuType.length > 1 ? `Models: ${gpuList}` : 'Model'}
+                                ${gpuType && gpuType.length > 1 ? 'Models: ' + gpuList : 'Model'}
                             </div>
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div>` : ''}
 
             <!-- MESSAGE BOX -->
             <div style="margin-bottom: 35px;">

@@ -17,7 +17,7 @@ export async function POST(request: Request) {
         const formData = await request.json();
 
         // Log the submission attempt
-        console.log("SERVER: Forwarding contact submission to Google Script for:", formData.firstName, formData.lastName);
+        console.log("SERVER: Forwarding contact submission to Google Script for:", formData.fullName, formData.company);
 
         // Forward to Google Apps Script
         const response = await fetch(scriptUrl, {

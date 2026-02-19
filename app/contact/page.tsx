@@ -10,25 +10,10 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { ArrowRight, CheckCircle2, ChevronDown, MapPin, Mail, Phone } from "lucide-react";
 
 
-const gpuTypes = [
-    "NVIDIA GB200 NVL72 / HGX B200",
-    "NVIDIA HGX H100 / H200",
-    "NVIDIA HGX A100",
-    "NVIDIA PCIe A100",
-    "NVIDIA L40 / L40S",
-    "NVIDIA A40",
-    "NVIDIA RTX GPUs",
-    "MiniCards",
-    "Non-GPU Compute"
-];
-
 const serviceInterests = [
     "GPU Reservation",
-    "Siscom Nodes (GPU & AI Compute)",
-    "Siscom Data (Warehousing & Analytics)",
-    "Siscom AI/ML Services",
-    "Sovereign Cloud Infrastructure",
-    "Siscom DAAS (Data Analytics as a Service)"
+    "Infrastructure Offerings",
+    "Other"
 ];
 
 const timelines = [
@@ -37,14 +22,6 @@ const timelines = [
     "1-3 months",
     "3-6 months",
     "Just exploring"
-];
-
-const resourceCounts = [
-    "1-8 GPUs",
-    "9-32 GPUs",
-    "33-128 GPUs",
-    "128+ GPUs",
-    "Custom Requirements"
 ];
 
 const primaryUseCasesList = [
@@ -73,22 +50,16 @@ export default function ContactPage() {
 
     const [formData, setFormData] = useState({
         // Standard flow fields
-        firstName: '',
-        lastName: '',
+        fullName: '',
+        company: '',
+        organizationType: '',
         email: '',
         phone: '',
-        company: '',
-        jobTitle: '',
-        country: '',
         serviceInterest: '',
-        resourceCount: '',
-        gpuType: [] as string[],
         timeline: '',
         message: '',
 
         // GPU Reservation specific fields
-        fullName: '',
-        organizationType: '',
         gpuConfiguration: '',
         gpuCount: '',
         allocationType: '',
@@ -107,8 +78,34 @@ export default function ContactPage() {
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         const intent = searchParams.get('intent');
+
         if (intent === 'gpu_reservation') {
             setFormData(prev => ({ ...prev, serviceInterest: 'GPU Reservation' }));
+        } else if (intent === 'Infrastructure Offerings') {
+            const plan = searchParams.get('plan');
+            const price = searchParams.get('price');
+            const cpu = searchParams.get('cpu');
+            const ram = searchParams.get('ram');
+            const storage = searchParams.get('storage');
+
+            let message = '';
+            if (plan) {
+                message = `I am interested in deploying the following infrastructure plan:
+                
+Plan: ${plan}
+Price: ${price || 'N/A'}
+vCPU: ${cpu || 'N/A'}
+RAM: ${ram || 'N/A'}
+Storage: ${storage || 'N/A'}
+
+Please contact me with further details or setup instructions.`;
+            }
+
+            setFormData(prev => ({
+                ...prev,
+                serviceInterest: 'Infrastructure Offerings',
+                ...(message ? { message } : {})
+            }));
         }
     }, []);
 
@@ -123,7 +120,7 @@ export default function ContactPage() {
         }
     };
 
-    const handleArrayCheckboxChange = (field: 'gpuType' | 'primaryUseCases' | 'networkingRequirements', value: string) => {
+    const handleArrayCheckboxChange = (field: 'primaryUseCases' | 'networkingRequirements', value: string) => {
         setFormData(prev => {
             const current = [...prev[field]];
             if (current.includes(value)) {
@@ -173,10 +170,9 @@ export default function ContactPage() {
 
                 // Reset form
                 setFormData({
-                    firstName: '', lastName: '', email: '', phone: '', company: '', jobTitle: '',
-                    country: '', serviceInterest: '', resourceCount: '', gpuType: [],
-                    timeline: '', message: '',
-                    fullName: '', organizationType: '', gpuConfiguration: '', gpuCount: '',
+                    fullName: '', email: '', phone: '', company: '', organizationType: '',
+                    serviceInterest: '', timeline: '', message: '',
+                    gpuConfiguration: '', gpuCount: '',
                     allocationType: '', primaryUseCases: [], intendedWorkload: '', budgetRange: '',
                     deploymentTimeline: '', dataResidency: '', preferredDataRegion: '',
                     storageRequirement: '', networkingRequirements: [], confirmLegitimate: false, confirmContact: false
@@ -528,31 +524,20 @@ export default function ContactPage() {
                                     </div>
                                 ) : (
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {/* Standard Flow Form Elements */}
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-foreground">First name<span className="text-pink-500">*</span></label>
+                                        {/* Standard Flow Form Elements - Personal Information */}
+                                        <div className="space-y-1.5 md:col-span-2">
+                                            <label className="text-xs font-medium text-foreground">1. Full Name<span className="text-pink-500">*</span></label>
                                             <input
                                                 required
                                                 type="text"
-                                                name="firstName"
-                                                value={formData.firstName}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
-                                            />
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-foreground">Last name<span className="text-pink-500">*</span></label>
-                                            <input
-                                                required
-                                                type="text"
-                                                name="lastName"
-                                                value={formData.lastName}
+                                                name="fullName"
+                                                value={formData.fullName}
                                                 onChange={handleInputChange}
                                                 className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
                                             />
                                         </div>
                                         <div className="space-y-1.5 md:col-span-2">
-                                            <label className="text-xs font-medium text-foreground">Company name<span className="text-pink-500">*</span></label>
+                                            <label className="text-xs font-medium text-foreground">2. Company / Organization Name<span className="text-pink-500">*</span></label>
                                             <input
                                                 required
                                                 type="text"
@@ -563,7 +548,7 @@ export default function ContactPage() {
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-foreground">Business email<span className="text-pink-500">*</span></label>
+                                            <label className="text-xs font-medium text-foreground">3. Email Address<span className="text-pink-500">*</span></label>
                                             <input
                                                 required
                                                 type="email"
@@ -574,9 +559,8 @@ export default function ContactPage() {
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-foreground">Phone number<span className="text-pink-500">*</span></label>
+                                            <label className="text-xs font-medium text-foreground">4. Phone Number <span className="text-muted-foreground font-normal">(Optional)</span></label>
                                             <input
-                                                required
                                                 type="tel"
                                                 name="phone"
                                                 value={formData.phone}
@@ -585,91 +569,19 @@ export default function ContactPage() {
                                                 className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
                                             />
                                         </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-foreground">Job title<span className="text-pink-500">*</span></label>
-                                            <input
-                                                required
-                                                type="text"
-                                                name="jobTitle"
-                                                value={formData.jobTitle}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
-                                            />
-                                        </div>
-                                        <div className="space-y-1.5 ">
-                                            <label className="text-sm font-medium text-foreground">Country<span className="text-pink-500">*</span></label>
-                                            <input
-                                                required
-                                                type="text"
-                                                name="country"
-                                                value={formData.country}
-                                                onChange={handleInputChange}
-                                                placeholder="e.g. Kenya"
-                                                className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
-                                            />
-                                        </div>
-
-                                        <div className="space-y-1.5 md:col-span-2 border-t border-border pt-6 mt-2">
-                                            <h3 className="text-sm font-bold text-foreground">Infrastructure Selection</h3>
-                                            <p className="text-[11px] text-muted-foreground">Select your required GPU hardware from Siscom's high-performance compute fleet.</p>
-                                        </div>
-
                                         <div className="space-y-1.5 md:col-span-2">
-                                            <label className="text-sm font-medium text-foreground">Expected Number of GPUs<span className="text-pink-500">*</span></label>
+                                            <label className="text-xs font-medium text-foreground">5. Organization Type<span className="text-pink-500">*</span></label>
                                             <div className="relative">
                                                 <select
                                                     required
-                                                    name="resourceCount"
-                                                    value={formData.resourceCount}
+                                                    name="organizationType"
+                                                    value={formData.organizationType}
                                                     onChange={handleInputChange}
                                                     className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all appearance-none"
                                                 >
                                                     <option value="">Please Select</option>
-                                                    {resourceCounts.map(item => (
-                                                        <option key={item} value={item}>{item}</option>
-                                                    ))}
-                                                </select>
-                                                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-                                            </div>
-                                        </div>
-
-                                        <div className="space-y-4 md:col-span-2">
-                                            <label className="text-sm font-medium text-foreground block">Types of GPUs<span className="text-pink-500">*</span></label>
-                                            <div className="space-y-2.5">
-                                                {gpuTypes.map(type => (
-                                                    <label key={type} className="flex items-center gap-3 cursor-pointer group">
-                                                        <div className="relative flex items-center justify-center">
-                                                            <input
-                                                                type="checkbox"
-                                                                checked={formData.gpuType.includes(type)}
-                                                                onChange={() => handleArrayCheckboxChange('gpuType', type)}
-                                                                className="peer h-4.5 w-4.5 cursor-pointer appearance-none rounded border border-border bg-muted/30 checked:border-pink-500 checked:bg-pink-500 transition-all shadow-sm"
-                                                            />
-                                                            <span className="absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{type}</span>
-                                                    </label>
-                                                ))}
-                                            </div>
-                                        </div>
-
-                                        <div className="space-y-1.5 md:col-span-2">
-                                            <label className="text-xs font-medium text-foreground">When are you looking to start your project?<span className="text-pink-500">*</span></label>
-                                            <div className="relative">
-                                                <select
-                                                    required
-                                                    name="timeline"
-                                                    value={formData.timeline}
-                                                    onChange={handleInputChange}
-                                                    className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all appearance-none"
-                                                >
-                                                    <option value="">Please Select</option>
-                                                    {timelines.map(item => (
-                                                        <option key={item} value={item}>{item}</option>
+                                                    {["AI Startup", "Enterprise", "Research Institution", "Government", "Cloud Provider", "Other"].map(opt => (
+                                                        <option key={opt} value={opt}>{opt}</option>
                                                     ))}
                                                 </select>
                                                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
@@ -709,7 +621,7 @@ export default function ContactPage() {
                 </section>
 
                 {/* Map & Address Section */}
-                <section className="mx-auto max-w-7xl px-6 lg:px-8 mt-16 relative z-10">
+                < section className="mx-auto max-w-7xl px-6 lg:px-8 mt-16 relative z-10" >
                     <FadeIn>
                         <div className="mb-8 text-center">
                             <h2 className="text-2xl font-bold text-foreground mb-2">Visit Our Office</h2>
