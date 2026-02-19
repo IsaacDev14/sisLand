@@ -66,4 +66,6 @@ Please refer to the `DEPLOYMENT.md` file in this repository for detailed, step-b
 npm run build
 ```
 
-This command generates an optimized production build in the `.next` folder.
+This command generates an optimized production build in the `.next` folder. 
+
+
