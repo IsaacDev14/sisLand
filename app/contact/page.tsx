@@ -54,6 +54,7 @@ export default function ContactPage() {
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
         company: '',
         jobTitle: '',
         country: '',
@@ -119,7 +120,7 @@ export default function ContactPage() {
 
                 // Reset form
                 setFormData({
-                    firstName: '', lastName: '', email: '', company: '', jobTitle: '',
+                    firstName: '', lastName: '', email: '', phone: '', company: '', jobTitle: '',
                     country: '', serviceInterest: '', resourceCount: '', gpuType: [],
                     timeline: '', message: ''
                 });
@@ -241,7 +242,7 @@ export default function ContactPage() {
                                             className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
                                         />
                                     </div>
-                                    <div className="space-y-1.5 md:col-span-2">
+                                    <div className="space-y-1.5">
                                         <label className="text-xs font-medium text-foreground">Business email<span className="text-pink-500">*</span></label>
                                         <input
                                             required
@@ -249,6 +250,18 @@ export default function ContactPage() {
                                             name="email"
                                             value={formData.email}
                                             onChange={handleInputChange}
+                                            className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-medium text-foreground">Phone number<span className="text-pink-500">*</span></label>
+                                        <input
+                                            required
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            placeholder="e.g. +254 712 345 678"
                                             className="w-full bg-muted/30 border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
                                         />
                                     </div>

@@ -1,8 +1,3 @@
-import { Resend } from "resend";
-// import { ContactFormEmail } from "@/components/emails/ContactFormEmail";
-// import { ContactFormEmail } from "@/components/emails/ContactFormEmail.test"; 
-// import { render } from "@react-email/render";
-import { generateEmailHtml } from "./generateEmailHtml";
 import { NextResponse } from "next/server";
 
 export const runtime = 'nodejs';
@@ -10,43 +5,44 @@ export const runtime = 'nodejs';
 export async function POST(request: Request) {
     console.log("SERVER: /api/contact POST received");
     try {
-        const apiKey = process.env.RESEND_API_KEY;
-        console.log("SERVER: Checking API Key:", apiKey ? "Present" : "Missing");
-        if (!apiKey) {
-            throw new Error("Missing RESEND_API_KEY");
+        const scriptUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+        // Log environment status (don't log the full URL for security if possible, though it's public anyway)
+        console.log("SERVER: Checking GOOGLE_SHEETS_WEBHOOK_URL:", scriptUrl ? "Present" : "Missing");
+
+        if (!scriptUrl) {
+            throw new Error("Missing GOOGLE_SHEETS_WEBHOOK_URL in environment variables.");
         }
-        const resend = new Resend(apiKey);
 
         const formData = await request.json();
-        const { firstName, lastName, email, company, jobTitle, country, serviceInterest, resourceCount, gpuType, timeline, message } = formData;
 
-        console.log("SERVER: Starting contact form submission via API Route for:", firstName, lastName);
+        // Log the submission attempt
+        console.log("SERVER: Forwarding contact submission to Google Script for:", formData.firstName, formData.lastName);
 
-        const emailHtml = generateEmailHtml({
-            firstName,
-            lastName,
-            email,
-            company,
-            jobTitle,
-            country,
-            serviceInterest,
-            resourceCount,
-            gpuType,
-            timeline,
-            message,
+        // Forward to Google Apps Script
+        const response = await fetch(scriptUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
         });
 
-        const data = await resend.emails.send({
-            from: "Siscom Contact Form <onboarding@resend.dev>", // Update this when you have a custom domain
-            to: ["tech@siscom.tech"],
-            subject: `New Contact Request: ${firstName} ${lastName} - ${company}`,
-            html: emailHtml,
-        });
+        const result = await response.json();
+        console.log("SERVER: Google Script response:", result);
 
-        console.log("SERVER: Email sent successfully:", data);
-        return NextResponse.json({ success: true, data });
+        // Check for success (Google Script usually returns { result: "success" } or { status: "success" })
+        if (result.result === "success" || result.status === "success") {
+            return NextResponse.json({ success: true, data: result });
+        } else {
+            throw new Error(result.error || result.message || "Unknown error from Google Script");
+        }
+
     } catch (error: any) {
-        console.error("SERVER: Resend Error in API Route:", error);
-        return NextResponse.json({ success: false, error: error.message || "Internal Server Error" }, { status: 500 });
+        console.error("SERVER: Error in API Route:", error);
+        return NextResponse.json(
+            { success: false, error: error.message || "Internal Server Error" },
+            { status: 500 }
+        );
     }
 }
