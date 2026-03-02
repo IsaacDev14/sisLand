@@ -14,7 +14,7 @@ const dedicatedPlans = [
         cpu: "12 vCPU",
         ram: "16 GB",
         storage: "256 GB SSD",
-        price: "Ksh 23,308",
+        price: "Ksh 18,500",
         target: "Entry-level servers, small businesses",
     },
     {
@@ -22,7 +22,7 @@ const dedicatedPlans = [
         cpu: "20 vCPU",
         ram: "32 GB",
         storage: "256 GB SSD",
-        price: "Ksh 39,832",
+        price: "Ksh 30,500",
         target: "Mid-tier organizations, databases",
     },
     {
@@ -30,7 +30,7 @@ const dedicatedPlans = [
         cpu: "32 vCPU",
         ram: "64 GB",
         storage: "512 GB SSD",
-        price: "Ksh 63,141",
+        price: "Ksh 47,500",
         target: "High-performance compute, analytics",
     },
     {
@@ -38,7 +38,7 @@ const dedicatedPlans = [
         cpu: "32 vCPU",
         ram: "128 GB",
         storage: "512 GB SSD",
-        price: "Ksh 90,682",
+        price: "Ksh 74,500",
         target: "AI/ML, fintech, mission-critical workloads",
     },
 ];
