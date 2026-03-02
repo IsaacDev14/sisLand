@@ -88,7 +88,8 @@ const bareMetalPlans = [
         cpu: "128 vCPU",
         ram: "256 GB",
         storage: "5.76 TB SSD",
-        price: "Ksh 170,000",
+        price: "Ksh 99,999",
+        note: "For the 1st year",
         target: "Maximum performance, total isolation",
     },
 ];
