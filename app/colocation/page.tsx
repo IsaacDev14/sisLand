@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { db } from "@/lib/firebase";
@@ -76,6 +76,7 @@ export default function ColocationPage() {
     const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+    const [toast, setToast] = useState<string | null>(null);
 
     const [formData, setFormData] = useState({
         fullName: "",
@@ -95,6 +96,8 @@ export default function ColocationPage() {
     const handleRegionSelect = (region: string) => {
         setSelectedRegion(region);
         setFormData((prev) => ({ ...prev, selectedColocationRegion: region }));
+        setToast(region);
+        setTimeout(() => setToast(null), 2500);
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -153,6 +156,26 @@ export default function ColocationPage() {
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-pink-500/30 overflow-hidden">
             <Navbar />
+
+            {/* ── Toast notification ── */}
+            <AnimatePresence>
+                {toast && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -40 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed top-24 left-1/2 -translate-x-1/2 z-50"
+                    >
+                        <div className="flex items-center gap-2 bg-card border border-pink-600/30 shadow-lg rounded-full px-5 py-2.5">
+                            <CheckCircle2 className="w-4 h-4 text-pink-600" />
+                            <span className="text-sm font-medium text-foreground">
+                                <span className="font-bold text-pink-600">{toast}</span> selected — scroll down to complete the form
+                            </span>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <main className="relative">
 
@@ -382,7 +405,7 @@ export default function ColocationPage() {
                             variants={fadeUp}
                             className="text-center mb-16"
                         >
-                            
+
                             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground mt-3">
                                 Choose Your Location &amp; Get a Quote
                             </h2>
