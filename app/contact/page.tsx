@@ -13,6 +13,7 @@ import { ArrowRight, CheckCircle2, ChevronDown, MapPin, Mail, Phone } from "luci
 const serviceInterests = [
     "GPU Reservation",
     "Infrastructure Offerings",
+    "Colocation",
     "Other"
 ];
 

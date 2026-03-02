@@ -19,6 +19,7 @@ export default function Navbar() {
     }, [pathname]);
 
     const navLinks = [
+        { name: "Colocation", href: "/colocation" },
         { name: "Nodes", href: "/" },
         { name: "Data", href: "/siscom-data" },
         { name: "AI/ML", href: "/siscom-ai-ml" },
