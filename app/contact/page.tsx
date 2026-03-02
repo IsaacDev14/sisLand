@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { useState, useEffect } from "react";
 import { db } from "@/lib/firebase";
@@ -46,6 +47,7 @@ const networkingRequirementsList = [
 ];
 
 export default function ContactPage() {
+    const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -112,6 +114,12 @@ Please contact me with further details or setup instructions.`;
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value, type } = e.target;
+
+        // Redirect to dedicated colocation form
+        if (name === 'serviceInterest' && value === 'Colocation') {
+            router.push('/colocation#quote');
+            return;
+        }
 
         if (type === 'checkbox') {
             const checked = (e.target as HTMLInputElement).checked;
