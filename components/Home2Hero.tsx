@@ -159,8 +159,8 @@ export default function Home2Hero() {
 
                                 {/* Animated dashboard content */}
                                 <div className="relative h-[350px]">
-                                    {/* Pink/purple gradient circle background */}
-                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 opacity-90" />
+                                    {/* Pink solid circle background */}
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-pink-600 opacity-90" />
 
                                     {/* Animated connection lines - colored based on active service */}
                                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 350">
@@ -223,7 +223,7 @@ export default function Home2Hero() {
                                                 >
                                                     {nodes[prevNode].icon}
                                                 </span>
-                                                <span className="text-xs font-medium whitespace-nowrap text-foreground">
+                                                <span className="text-xs font-medium whitespace-nowrap text-muted-foreground">
                                                     {nodes[prevNode].label}
                                                 </span>
                                             </div>
@@ -244,7 +244,7 @@ export default function Home2Hero() {
                                             >
                                                 {nodes[activeNode].icon}
                                             </span>
-                                            <span className="text-xs font-medium whitespace-nowrap text-foreground">
+                                            <span className="text-xs font-medium whitespace-nowrap text-muted-foreground">
                                                 {nodes[activeNode].label}
                                             </span>
                                         </div>
