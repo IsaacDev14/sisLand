@@ -274,7 +274,7 @@ export default function ColocationPage() {
                                     className="group relative rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-pink-500/50 hover:shadow-lg hover:-translate-y-1"
                                 >
                                     <div className="flex items-center gap-3 mb-5">
-                                        <div className="w-10 h-10 rounded-lg bg-pink-600/10 text-pink-600 flex items-center justify-center font-bold text-sm">
+                                        <div className="w-10 h-10 rounded-lg bg-pink-600 text-white flex items-center justify-center font-bold text-sm">
                                             {partner.num}
                                         </div>
                                         <h3 className="text-xl font-bold text-foreground">
@@ -284,10 +284,7 @@ export default function ColocationPage() {
                                     <p className="text-sm text-muted-foreground leading-relaxed">
                                         {partner.desc}
                                     </p>
-                                    <div className="mt-6 flex items-center gap-2 text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-sm font-medium">Learn More</span>
-                                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                    </div>
+
                                 </motion.div>
                             ))}
                         </div>
