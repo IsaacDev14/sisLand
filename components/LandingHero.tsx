@@ -15,10 +15,9 @@ export default function LandingHero() {
                     playsInline
                     preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
-                    poster="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80"
                 >
                     <source
-                        src="https://videos.pexels.com/video-files/3252118/3252118-uhd_2560_1440_25fps.mp4"
+                        src="https://videos.pexels.com/video-files/3160492/3160492-uhd_2560_1440_30fps.mp4"
                         type="video/mp4"
                     />
                 </video>
