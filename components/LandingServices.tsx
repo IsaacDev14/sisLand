@@ -30,8 +30,35 @@ export default function LandingServices() {
             subtitle: "Starnets Internet Zones",
             description:
                 "Our subsidiary Starnets delivers affordable high-speed connectivity using Starlink-powered internet zones for universities and institutions in remote regions where fiber access remains limited.",
-            image: "https://images.pexels.com/photos/5690940/pexels-photo-5690940.jpeg?auto=compress&cs=tinysrgb&w=800&q=80", // Alternative: satellite dish or connectivity image
-            link: "/contact", // Assuming Starnets specifically might not have a page yet
+            image: "https://images.pexels.com/photos/5690940/pexels-photo-5690940.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            link: "/contact",
+        },
+        {
+            id: "e-gov",
+            title: "E-Government AI Campuses",
+            subtitle: "National AI Infrastructure",
+            description:
+                "Siscom partners with governments through PPP programs to develop AI campuses and compute clusters across Kenya, helping power national digital transformation and AI innovation.",
+            image: "https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            link: "/contact",
+        },
+        {
+            id: "compute",
+            title: "Compute Solutions (IaaS)",
+            subtitle: "Infrastructure-as-a-Service",
+            description:
+                "Deploy virtual machines, AI workloads and enterprise applications on Siscom's scalable compute infrastructure without investing in physical hardware.",
+            image: "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            link: "/contact",
+        },
+        {
+            id: "data",
+            title: "Data Warehousing & Processing",
+            subtitle: "Data Platforms for the AI Era",
+            description:
+                "Process, store and analyze large datasets using Siscom's advanced data infrastructure designed for analytics, machine learning pipelines and business intelligence.",
+            image: "https://images.pexels.com/photos/6476142/pexels-photo-6476142.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            link: "/siscom-data",
         },
     ];
 
