@@ -76,26 +76,34 @@ export default function LandingServices() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                 </div>
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-black/30 group-hover:via-slate-950/80 transition-all duration-500" />
+                {/* Dual gradient overlay for top and bottom readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60 transition-opacity duration-500 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-slate-950/20" />
 
-                {/* Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-                    <span className="text-pink-500 font-bold tracking-wider uppercase text-xs mb-1.5">
-                        {service.title}
-                    </span>
-                    <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-                        {service.subtitle}
-                    </h3>
-                    <p className="text-slate-300 text-sm leading-relaxed mb-5 line-clamp-3">
-                        {service.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-white text-sm font-medium group/link">
-                        <span className="bg-pink-600 px-4 py-2 rounded text-xs font-semibold group-hover:bg-pink-700 transition-colors">
-                            Find out more
+                {/* Content Overlay - separated top and bottom */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                    {/* Top Content - ONLY TITLE */}
+                    <div>
+                        <span className="text-white font-extrabold tracking-widest uppercase text-sm mb-2 block">
+                            {service.title}
                         </span>
-                        <ArrowRight className="w-4 h-4 text-pink-500 transition-transform group-hover:translate-x-1" />
-                    </span>
+                    </div>
+
+                    {/* Bottom Content - Subtitle, Description, Button */}
+                    <div>
+                        <h3 className="text-2xl font-bold text-white leading-tight mb-3">
+                            {service.subtitle}
+                        </h3>
+                        <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3">
+                            {service.description}
+                        </p>
+                        <span className="inline-flex items-center gap-2 text-white text-sm font-medium">
+                            <span className="bg-pink-600 px-5 py-2.5 rounded text-xs font-bold hover:bg-pink-700 transition-colors">
+                                Find out more
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-pink-500 transition-transform group-hover:translate-x-1" />
+                        </span>
+                    </div>
                 </div>
             </Link>
         </FadeIn>

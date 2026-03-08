@@ -3,6 +3,28 @@
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import { MessageSquare, ArrowRight } from "lucide-react";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+function CountingStat({ value, suffix, decimals = 0 }: { value: number; suffix: string; decimals?: number }) {
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, (latest) => latest.toFixed(decimals));
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    useEffect(() => {
+        if (isInView) {
+            animate(count, value, { duration: 2, ease: "easeOut" });
+        }
+    }, [isInView, value, count]);
+
+    return (
+        <span ref={ref}>
+            <motion.span>{rounded}</motion.span>
+            {suffix}
+        </span>
+    );
+}
 
 export default function LandingInfrastructure() {
     return (
@@ -38,27 +60,35 @@ export default function LandingInfrastructure() {
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     <FadeIn delay={0.1}>
-                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 text-center hover:border-pink-500/30 transition-colors">
-                            <div className="text-4xl font-bold text-pink-600 mb-2">5+</div>
+                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 text-center hover:border-pink-500/30 transition-all hover:shadow-lg hover:shadow-pink-600/5 group">
+                            <div className="text-4xl font-bold text-pink-600 mb-2 group-hover:scale-110 transition-transform">
+                                <CountingStat value={5} suffix="+" />
+                            </div>
                             <div className="text-sm font-medium text-slate-500">Countries</div>
                         </div>
                     </FadeIn>
                     <FadeIn delay={0.2}>
-                        <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 text-center hover:border-pink-500/30 transition-colors">
-                            <div className="text-4xl font-bold text-pink-600 mb-2">100+</div>
-                            <div className="text-sm font-medium text-slate-500 dark:text-slate-400">SME Partners</div>
+                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 text-center hover:border-pink-500/30 transition-all hover:shadow-lg hover:shadow-pink-600/5 group">
+                            <div className="text-4xl font-bold text-pink-600 mb-2 group-hover:scale-110 transition-transform">
+                                <CountingStat value={100} suffix="+" />
+                            </div>
+                            <div className="text-sm font-medium text-slate-500">SME Partners</div>
                         </div>
                     </FadeIn>
                     <FadeIn delay={0.3}>
-                        <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 text-center hover:border-pink-500/30 transition-colors">
-                            <div className="text-4xl font-bold text-pink-600 mb-2">99.9%</div>
-                            <div className="text-sm font-medium text-slate-500 dark:text-slate-400">Uptime SLA</div>
+                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 text-center hover:border-pink-500/30 transition-all hover:shadow-lg hover:shadow-pink-600/5 group">
+                            <div className="text-4xl font-bold text-pink-600 mb-2 group-hover:scale-110 transition-transform">
+                                <CountingStat value={99.9} suffix="%" decimals={1} />
+                            </div>
+                            <div className="text-sm font-medium text-slate-500">Uptime SLA</div>
                         </div>
                     </FadeIn>
                     <FadeIn delay={0.4}>
-                        <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 text-center hover:border-pink-500/30 transition-colors">
-                            <div className="text-4xl font-bold text-pink-600 mb-2">24/7</div>
-                            <div className="text-sm font-medium text-slate-500 dark:text-slate-400">Support</div>
+                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 text-center hover:border-pink-500/30 transition-all hover:shadow-lg hover:shadow-pink-600/5 group">
+                            <div className="text-4xl font-bold text-pink-600 mb-2 group-hover:scale-110 transition-transform">
+                                24/7
+                            </div>
+                            <div className="text-sm font-medium text-slate-500">Support</div>
                         </div>
                     </FadeIn>
                 </div>
