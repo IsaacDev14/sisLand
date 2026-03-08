@@ -6,28 +6,23 @@ import { FadeIn } from "@/components/FadeIn";
 export default function LandingHero() {
     return (
         <section className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center">
-            {/* Background Video */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-0"
-            >
-                <source
-                    src="https://videos.pexels.com/video-files/3160492/3160492-uhd_2560_1440_30fps.mp4"
-                    type="video/mp4"
-                />
-                {/* Fallback image if video fails */}
-                <img
-                    src="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80"
-                    alt="Tech background"
+            {/* Background Video Layer */}
+            <div className="absolute inset-0 z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     className="absolute inset-0 w-full h-full object-cover"
-                />
-            </video>
-
-            {/* Dark Overlay for Readability */}
-            <div className="absolute inset-0 bg-slate-950/60 z-10" />
+                >
+                    <source
+                        src="https://videos.pexels.com/video-files/3160492/3160492-uhd_2560_1440_30fps.mp4"
+                        type="video/mp4"
+                    />
+                </video>
+                {/* Dark Overlay for Readability */}
+                <div className="absolute inset-0 bg-slate-900/70" />
+            </div>
 
             {/* Content Container */}
             <div className="relative z-20 mx-auto max-w-7xl px-6 w-full pt-20">
