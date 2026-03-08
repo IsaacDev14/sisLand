@@ -28,9 +28,9 @@ function CountingStat({ value, suffix, decimals = 0 }: { value: number; suffix: 
 
 export default function LandingInfrastructure() {
     return (
-        <section className="py-24 bg-white border-t border-slate-200">
+        <section className="py-12 bg-white border-t border-slate-200">
             <div className="mx-auto max-w-7xl px-6 relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-8">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
                             Build on Africa&apos;s Next <span className="text-pink-600">Digital<br />Infrastructure Layer</span>

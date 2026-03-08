@@ -28,9 +28,9 @@ export default function LandingTargetMarket() {
     ];
 
     return (
-        <section className="py-24 bg-white border-t border-slate-200">
+        <section className="py-12 bg-white border-t border-slate-200">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="text-center max-w-2xl mx-auto mb-16">
+                <div className="text-center max-w-2xl mx-auto mb-8">
                     <FadeIn>
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
                             Built for Africa&apos;s <span className="text-pink-600">AI Economy</span>
