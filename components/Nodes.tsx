@@ -9,7 +9,7 @@ import MagnifyingMesh from "@/components/MagnifyingMesh";
 // Split layout • Animated product visual • Blurred glow orbs
 // Clean typography • Client logo ticker • Enterprise-modern aesthetic
 
-export default function Home2Hero() {
+export default function Nodes() {
     const heroRef = useRef<HTMLElement>(null);
     const visualRef = useRef<HTMLDivElement>(null);
     const [activeNode, setActiveNode] = useState(0);

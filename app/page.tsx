@@ -1,22 +1,21 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import Home2Hero from "@/components/Home2Hero";
-import PartnersSection from "@/components/PartnersSection";
-import PricingNodes from "@/components/PricingNodes";
-
-import FooterCTA from "@/components/FooterCTA";
+import LandingHero from "@/components/LandingHero";
+import LandingServices from "@/components/LandingServices";
+import LandingInfrastructure from "@/components/LandingInfrastructure";
+import LandingTargetMarket from "@/components/LandingTargetMarket";
 import Footer from "@/components/Footer";
 
-export default function NodesPage() {
+export default function Home() {
   return (
     <>
       <Navbar />
       <main>
-        <Home2Hero />
-        <PartnersSection />
-        <PricingNodes />
-        <FooterCTA />
+        <LandingHero />
+        <LandingServices />
+        <LandingInfrastructure />
+        <LandingTargetMarket />
       </main>
       <Footer />
     </>
