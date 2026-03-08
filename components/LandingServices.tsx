@@ -2,105 +2,120 @@
 
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
-import { ArrowRight } from "lucide-react";
 
 export default function LandingServices() {
     const services = [
         {
             id: "colocation",
-            title: "Colocation",
-            subtitle: "Distributed Colocation Infrastructure",
-            description:
-                "Access Tier III data center capabilities through Siscom's distributed clusters across Kenya, Tanzania, Nigeria, South Africa and Germany — designed to give SMEs secure, scalable infrastructure without large long-term contracts.",
+            title: "Distributed Colocation Infrastructure",
             image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
             link: "/colocation",
         },
         {
             id: "edge-ai",
-            title: "EdgeAI Infrastructure",
-            subtitle: "AI Infrastructure for the Edge",
-            description:
-                "Through our partnership with Navon World, Siscom is deploying modular AI-ready data centers beginning at Naivasha SEZ, enabling powerful edge compute clusters for AI workloads and advanced digital services.",
+            title: "AI Infrastructure for the Edge",
             image: "https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
             link: "/siscom-ai-ml",
         },
         {
             id: "starnets",
-            title: "Starnets",
-            subtitle: "Starnets Internet Zones",
-            description:
-                "Our subsidiary Starnets delivers affordable high-speed connectivity using Starlink-powered internet zones for universities and institutions in remote regions where fiber access remains limited.",
+            title: "Starnets Internet Zones",
             image: "https://images.pexels.com/photos/5690940/pexels-photo-5690940.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
             link: "/contact",
         },
         {
             id: "e-gov",
             title: "E-Government AI Campuses",
-            subtitle: "National AI Infrastructure",
-            description:
-                "Siscom partners with governments through PPP programs to develop AI campuses and compute clusters across Kenya, helping power national digital transformation and AI innovation.",
             image: "https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
             link: "/contact",
         },
         {
             id: "compute",
             title: "Compute Solutions (IaaS)",
-            subtitle: "Infrastructure-as-a-Service",
-            description:
-                "Deploy virtual machines, AI workloads and enterprise applications on Siscom's scalable compute infrastructure without investing in physical hardware.",
             image: "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
             link: "/contact",
         },
         {
             id: "data",
             title: "Data Warehousing & Processing",
-            subtitle: "Data Platforms for the AI Era",
-            description:
-                "Process, store and analyze large datasets using Siscom's advanced data infrastructure designed for analytics, machine learning pipelines and business intelligence.",
-            image: "https://images.pexels.com/photos/6476142/pexels-photo-6476142.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            image: "https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
             link: "/siscom-data",
         },
     ];
 
+    const topRow = services.slice(0, 3);
+    const bottomRow = services.slice(3);
+
     return (
-        <section id="services" className="w-full bg-slate-950 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-3">
-                {services.map((service, index) => (
-                    <FadeIn key={service.id} delay={index * 0.1} className="relative group h-[500px] md:h-[600px] overflow-hidden">
-                        {/* Background Image */}
-                        <div className="absolute inset-0 z-0">
-                            <img
-                                src={service.image}
-                                alt={service.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
+        <section id="services" className="w-full bg-slate-950">
+            <div className="px-4 py-4">
+                {/* Top row - 3 equal columns */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    {topRow.map((service, index) => (
+                        <FadeIn key={service.id} delay={index * 0.08}>
+                            <Link href={service.link} className="block group relative h-[340px] md:h-[380px] rounded-xl overflow-hidden">
+                                {/* Background Image */}
+                                <div className="absolute inset-0">
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                </div>
+                                {/* Dark gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/30" />
 
-                        {/* Dark Gradient Overlay for Text Readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 md:from-slate-950/90 via-slate-950/40 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-90" />
+                                {/* Title top-left */}
+                                <div className="absolute top-0 left-0 right-0 p-6 z-10">
+                                    <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                                        {service.title}
+                                    </h3>
+                                </div>
 
-                        {/* Content block constrained to bottom */}
-                        <div className="absolute inset-0 z-20 p-8 md:p-10 flex flex-col justify-end">
-                            <h3 className="text-pink-500 font-bold tracking-wider uppercase text-sm mb-2">
-                                {service.title}
-                            </h3>
-                            <h4 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
-                                {service.subtitle}
-                            </h4>
-                            <p className="text-slate-300 mb-8 leading-relaxed line-clamp-4">
-                                {service.description}
-                            </p>
-
-                            <Link
-                                href={service.link}
-                                className="inline-flex items-center gap-2 text-white font-medium group/link"
-                            >
-                                Learn More
-                                <ArrowRight className="w-5 h-5 transition-transform group-hover/link:translate-x-1 text-pink-500" />
+                                {/* Button bottom-left */}
+                                <div className="absolute bottom-0 left-0 p-6 z-10">
+                                    <span className="inline-block bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold px-5 py-2.5 rounded transition-colors">
+                                        Find out more
+                                    </span>
+                                </div>
                             </Link>
-                        </div>
-                    </FadeIn>
-                ))}
+                        </FadeIn>
+                    ))}
+                </div>
+
+                {/* Bottom row - 3 equal columns */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {bottomRow.map((service, index) => (
+                        <FadeIn key={service.id} delay={(index + 3) * 0.08}>
+                            <Link href={service.link} className="block group relative h-[340px] md:h-[380px] rounded-xl overflow-hidden">
+                                {/* Background Image */}
+                                <div className="absolute inset-0">
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                </div>
+                                {/* Dark gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/30" />
+
+                                {/* Title top-left */}
+                                <div className="absolute top-0 left-0 right-0 p-6 z-10">
+                                    <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                                        {service.title}
+                                    </h3>
+                                </div>
+
+                                {/* Button bottom-left */}
+                                <div className="absolute bottom-0 left-0 p-6 z-10">
+                                    <span className="inline-block bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold px-5 py-2.5 rounded transition-colors">
+                                        Find out more
+                                    </span>
+                                </div>
+                            </Link>
+                        </FadeIn>
+                    ))}
+                </div>
             </div>
         </section>
     );
