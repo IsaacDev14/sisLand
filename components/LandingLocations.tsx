@@ -8,7 +8,7 @@ export default function LandingLocations() {
     ];
 
     return (
-        <section className="py-24 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+        <section className="py-24 bg-white border-t border-slate-200">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
                     {locations.map((location, index) => (

@@ -6,8 +6,15 @@ import { FadeIn } from "@/components/FadeIn";
 export default function LandingHero() {
     return (
         <section className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-end">
-            {/* Background Video Layer */}
+            {/* Background Layer */}
             <div className="absolute inset-0 z-0">
+                {/* Fallback background image (shows instantly before video loads or if no video) */}
+                <img
+                    src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80"
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                {/* Video — drop your own video as public/hero-bg.mp4 */}
                 <video
                     autoPlay
                     muted
@@ -16,10 +23,7 @@ export default function LandingHero() {
                     preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                 >
-                    <source
-                        src="https://videos.pexels.com/video-files/3160492/3160492-uhd_2560_1440_30fps.mp4"
-                        type="video/mp4"
-                    />
+                    <source src="/hero-bg.mp4" type="video/mp4" />
                 </video>
                 {/* Dark Overlay for Readability */}
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-slate-950/50" />
