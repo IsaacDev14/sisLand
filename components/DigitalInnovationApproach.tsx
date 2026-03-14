@@ -6,38 +6,32 @@ const steps = [
     {
         number: "01",
         title: "Research & Product Discovery",
-        description: "Validate the problem, market, and opportunity.",
-        features: ["R&D", "Market validation", "Feasibility"],
+        image: "https://images.unsplash.com/photo-1553413077-190dd306264c?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "02",
         title: "UX Research & Product Design",
-        description: "Design intuitive digital experiences.",
-        features: ["User journeys", "UX research", "Prototyping"],
+        image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "03",
         title: "Product Architecture",
-        description: "Build strong product foundations.",
-        features: ["PRD docs", "Technical arch.", "API planning"],
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "04",
         title: "Agile Product Development",
-        description: "Our engineering teams bring the platform to life.",
-        features: ["Frontend dev", "Backend eng", "API integrations"],
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "05",
         title: "Infrastructure & DevOps",
-        description: "Launch on scalable infrastructure powered by Siscom Cloud.",
-        features: ["DevOps", "Cloud infra", "CI/CD"],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "06",
         title: "Testing & Launch",
-        description: "Deliver reliable production-ready platforms.",
-        features: ["QA testing", "Security", "Deployment"],
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     }
 ];
 
@@ -116,30 +110,31 @@ export default function DigitalInnovationApproach() {
                     </FadeIn>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-slate-100">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {steps.map((step, idx) => (
                         <FadeIn key={step.number} delay={idx * 0.1}>
-                            <div className={`p-10 h-full border-slate-100 
-                                ${idx % 3 !== 2 ? 'lg:border-r' : ''} 
-                                ${idx < 3 ? 'border-b' : ''}
-                                ${idx % 2 !== 1 ? 'md:border-r lg:border-r-inherit' : ''}
-                                ${idx < 4 ? 'md:border-b lg:border-b-inherit' : ''}
-                                `}>
-                                <div className="text-lg font-bold text-orange-600 mb-6">
-                                    {step.number}
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#002B5B] mb-6">
-                                    {step.title}
-                                </h3>
-                                <p className="text-slate-500 mb-8 leading-relaxed font-light">
-                                    {step.description}
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {step.features.map((feat) => (
-                                        <span key={feat} className="px-3 py-1 bg-slate-100 text-[11px] font-bold text-[#002B5B] uppercase tracking-wider rounded-sm">
-                                            {feat}
-                                        </span>
-                                    ))}
+                            <div className="relative aspect-[4/3] group overflow-hidden cursor-pointer">
+                                {/* Image */}
+                                <img 
+                                    src={step.image} 
+                                    alt={step.title}
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                
+                                {/* Overlay (Liquid Blue-ish Gradient) */}
+                                <div className="absolute inset-0 bg-[#002B5B]/40 mix-blend-multiply" />
+                                
+                                {/* Bottom Gradient for Text Readability */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#002B5B] via-transparent to-transparent opacity-90" />
+
+                                {/* Content */}
+                                <div className="absolute inset-x-8 bottom-8">
+                                    <div className="text-orange-500 font-bold mb-2">
+                                        {step.number}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white leading-tight">
+                                        {step.title}
+                                    </h3>
                                 </div>
                             </div>
                         </FadeIn>
