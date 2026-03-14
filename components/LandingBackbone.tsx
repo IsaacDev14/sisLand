@@ -8,7 +8,7 @@ export default function LandingBackbone() {
             <div className="mx-auto max-w-7xl px-6">
                 <div className="text-center max-w-4xl mx-auto mb-8">
                     <FadeIn>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
                             A Distributed <span className="text-pink-600">Digital Backbone</span>
                         </h2>
 
