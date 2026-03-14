@@ -67,7 +67,7 @@ export default function LandingServices() {
 
     const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => (
         <FadeIn delay={index * 0.08}>
-            <Link href={service.link} className="block group relative h-[420px] md:h-[460px] rounded-xl overflow-hidden">
+            <Link href={service.link} className="block group relative h-[250px] md:h-[280px] rounded-xl overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <img
@@ -81,7 +81,7 @@ export default function LandingServices() {
                 <div className="absolute inset-0 bg-slate-950/20" />
 
                 {/* Content Overlay - separated top and bottom */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
                     {/* Top Content - ONLY TITLE */}
                     <div>
                         <span className="text-white font-extrabold tracking-widest uppercase text-sm mb-2 block">
@@ -89,14 +89,11 @@ export default function LandingServices() {
                         </span>
                     </div>
 
-                    {/* Bottom Content - Subtitle, Description, Button */}
+                    {/* Bottom Content - Subtitle and Button */}
                     <div>
-                        <h3 className="text-2xl font-bold text-white leading-tight mb-3">
+                        <h3 className="text-xl font-bold text-white leading-tight mb-4">
                             {service.subtitle}
                         </h3>
-                        <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3">
-                            {service.description}
-                        </p>
                         <span className="inline-flex items-center gap-2 text-white text-sm font-medium">
                             <span className="bg-pink-600 px-5 py-2.5 rounded text-xs font-bold hover:bg-pink-700 transition-colors">
                                 Find out more

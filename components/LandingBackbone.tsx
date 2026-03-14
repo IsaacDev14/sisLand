@@ -8,12 +8,10 @@ export default function LandingBackbone() {
             <div className="mx-auto max-w-7xl px-6">
                 <div className="text-center max-w-4xl mx-auto mb-8">
                     <FadeIn>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-tight mb-8">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-tight">
                             A Distributed <span className="text-pink-600">Digital Backbone</span>
                         </h2>
-                        <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-                            Siscom operates a distributed infrastructure footprint designed to bring compute closer to African businesses. Our clusters span strategic locations across Africa and Europe to deliver low latency, resilience and scalable performance.
-                        </p>
+
                     </FadeIn>
                 </div>
 
