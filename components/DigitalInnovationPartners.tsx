@@ -125,9 +125,9 @@ export default function DigitalInnovationPartners() {
     const allPartners = [...partners, ...partners];
 
     return (
-        <section className="bg-white py-12 overflow-hidden border-y border-slate-100">
+        <section className="bg-white pt-10 pb-6 overflow-hidden border-y border-slate-100">
             {/* Header */}
-            <div className="mb-8 text-center">
+            <div className="mb-4 text-center">
                 <FadeIn>
                     <p className="text-sm font-semibold uppercase tracking-widest text-pink-600">
                         Trusted Partners & Technology Stack

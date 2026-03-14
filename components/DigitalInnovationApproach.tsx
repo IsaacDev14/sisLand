@@ -37,13 +37,13 @@ const steps = [
 
 export default function DigitalInnovationApproach() {
     return (
-        <section className="bg-white py-24">
+        <section className="bg-white pt-12 pb-24">
             {/* Story Intro */}
-            <div className="mx-auto max-w-7xl px-6 mb-32">
+            <div className="mx-auto max-w-7xl px-6 mb-16">
                 <div className="max-w-5xl">
                     <FadeIn direction="up">
                         <div className="text-center mx-auto max-w-3xl">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#002B5B] leading-tight mb-12">
+                            <h2 className="text-3xl md:text-5xl font-bold text-[#002B5B] leading-tight mb-6">
                                 Bring Your Ideas to Life
                             </h2>
                         </div>
@@ -51,7 +51,7 @@ export default function DigitalInnovationApproach() {
                     
                     <FadeIn direction="up" delay={0.1}>
                         <div className="text-center mx-auto max-w-3xl">
-                            <p className="text-xl text-slate-500 font-light leading-relaxed mb-10">
+                            <p className="text-xl text-slate-500 font-light leading-relaxed mb-8">
                                 Most organizations struggle to move from idea → product → scalable platform. 
                                 Siscom Innovation solves this with a dedicated innovation hub that works 
                                 with you from concept to launch.

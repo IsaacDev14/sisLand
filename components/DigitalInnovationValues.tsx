@@ -93,13 +93,13 @@ export default function DigitalInnovationValues() {
                 </div>
 
                 {/* Additional Info: Global Teams (Re-styled for consistency) */}
-                <div className="mt-32 pt-24 border-t border-slate-100">
-                    <div className="grid lg:grid-cols-2 gap-20">
+                <div className="mt-20 pt-16 border-t border-slate-100">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                         <FadeIn direction="left">
-                            <h2 className="text-3xl font-bold text-[#002B5B] mb-8 uppercase tracking-tight">
+                            <h2 className="text-3xl font-bold text-[#002B5B] mb-6 uppercase tracking-tight">
                                 Global Engineering Teams
                             </h2>
-                            <p className="text-xl text-slate-600 font-light leading-relaxed">
+                            <p className="text-lg text-slate-600 font-light leading-relaxed">
                                 Siscom Innovation operates a distributed engineering network across Kenya, India, and the United States. 
                                 Our teams are composed of elite engineers who have built complex systems for some of the world's leading organizations.
                             </p>
@@ -107,11 +107,11 @@ export default function DigitalInnovationValues() {
                         <FadeIn direction="right">
                             <div className="grid grid-cols-2 gap-12">
                                 <div>
-                                    <p className="text-5xl font-black text-[#002B5B]">100+</p>
+                                    <p className="text-5xl font-black text-pink-600">100+</p>
                                     <p className="text-sm uppercase tracking-widest text-slate-500 mt-4">Engineers Globally</p>
                                 </div>
                                 <div>
-                                    <p className="text-5xl font-black text-[#002B5B]">50+</p>
+                                    <p className="text-5xl font-black text-pink-600">50+</p>
                                     <p className="text-sm uppercase tracking-widest text-slate-500 mt-4">Large Projects</p>
                                 </div>
                             </div>
