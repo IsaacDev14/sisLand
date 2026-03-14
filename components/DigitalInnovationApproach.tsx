@@ -6,12 +6,12 @@ const steps = [
     {
         number: "01",
         title: "Research & Product Discovery",
-        image: "https://images.unsplash.com/photo-1553413077-190dd306264c?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "02",
         title: "UX Research & Product Design",
-        image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "03",

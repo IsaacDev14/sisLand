@@ -24,13 +24,13 @@ const whyChoose = [
     {
         title: "Enterprise Infrastructure",
         description: "Built on Siscom Cloud for scalability and reliability.",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800",
         color: "bg-red-500"
     },
     {
         title: "Deep Fintech Experience",
         description: "Strong expertise in payments, banking, and digital platforms.",
-        image: "https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
         color: "bg-blue-500"
     },
     {

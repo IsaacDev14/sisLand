@@ -5,32 +5,32 @@ import { FadeIn } from "./FadeIn";
 const sectors = [
     {
         title: "Fintech & Payments",
-        image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
         color: "bg-red-500"
     },
     {
         title: "Core Banking Platforms",
-        image: "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
         color: "bg-purple-500"
     },
     {
         title: "Investment & Capital Markets",
-        image: "https://images.unsplash.com/photo-1611974717482-58a2d2c1ec0a?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
         color: "bg-cyan-500"
     },
     {
         title: "Government Digitization",
-        image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
         color: "bg-red-500"
     },
     {
         title: "MSME & Cooperative Platforms",
-        image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800",
         color: "bg-blue-500"
     },
     {
         title: "E-Commerce & Logistics",
-        image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
         color: "bg-cyan-500"
     }
 ];
