@@ -1,65 +1,79 @@
-"use client";
-
 import { FadeIn } from "./FadeIn";
-import { MoveRight } from "lucide-react";
+import { ChevronDown, MoveRight } from "lucide-react";
 
 export default function DigitalInnovationHero() {
     return (
-        <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden bg-slate-950 pt-20">
-            {/* Network Background Image */}
-            <div className="absolute inset-0 z-0">
+        <section className="relative min-h-[95vh] w-full flex items-center overflow-hidden bg-[#002B5B]">
+            {/* Background Image: City Buildings with Overlay */}
+            <div className="absolute inset-0">
                 <img
-                    src="/images/digital-innovation-hero.png"
-                    alt="Network Background"
-                    className="h-full w-full object-cover opacity-60"
+                    src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=2000"
+                    alt="City Buildings"
+                    className="h-full w-full object-cover opacity-60 mix-blend-luminosity"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950" />
+                <div className="absolute inset-0 bg-[#002B5B]/50" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#002B5B] via-transparent to-transparent opacity-60" />
             </div>
 
-            <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:py-24">
-                <div className="max-w-4xl">
-                    <FadeIn delay={0.1}>
+            <div className="relative z-10 mx-auto max-w-7xl px-8 w-full pt-40 pb-20">
+                <div className="max-w-5xl">
+                    <FadeIn direction="up">
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
-                            Build Scalable Digital <br />
-                            <span className="text-pink-500">Platforms — Faster</span>
+                            Build Scalable <br />
+                            Digital Platforms
                         </h1>
                     </FadeIn>
                     
-                    <FadeIn delay={0.2}>
-                        <p className="mt-8 text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl">
-                            Turn your ideas into market-ready platforms with Siscom Innovation. 
-                            From research and product design to engineering and deployment, 
-                            our innovation hub helps organizations build powerful digital platforms 
-                            for fintech, payments, government, and the AI economy.
-                        </p>
-                    </FadeIn>
-
-                    <FadeIn delay={0.3}>
-                        <div className="mt-12 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                            <button className="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white font-semibold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-sm">
-                                Start Your Project
-                                <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button className="px-8 py-4 border border-white/20 hover:bg-white/10 text-white font-semibold transition-all rounded-none uppercase tracking-wider text-sm">
-                                Book Innovation Consultation
-                            </button>
+                    <FadeIn direction="up" delay={0.1}>
+                        <div className="mt-8 max-w-2xl">
+                            <p className="text-lg md:text-xl text-white font-light leading-relaxed">
+                                Turn your ideas into market-ready platforms with the Siscom Innovation Hub.
+                            </p>
+                            <p className="mt-4 text-base text-slate-300 font-light leading-relaxed">
+                                We help organizations build powerful digital platforms for fintech, 
+                                government, and the AI economy — from concept to deployment.
+                            </p>
                         </div>
                     </FadeIn>
 
-                    <FadeIn delay={0.4}>
-                        <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-8 border-t border-white/10 pt-10">
-                            <div>
-                                <p className="text-3xl md:text-4xl font-bold text-white">100+</p>
-                                <p className="text-sm text-slate-400 uppercase tracking-widest mt-1">Engineers Globally</p>
+                    <div className="mt-16 flex flex-col xl:flex-row xl:items-center gap-10 xl:gap-20">
+                        <FadeIn direction="up" delay={0.2}>
+                            <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+                                <button className="px-8 py-4 bg-white text-[#002B5B] font-bold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-xs hover:bg-slate-100">
+                                    Start Your Project
+                                    <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                                <button className="px-8 py-4 border border-white/20 hover:bg-white/10 text-white font-bold transition-all rounded-none uppercase tracking-wider text-xs">
+                                    Book Consultation
+                                </button>
                             </div>
-                            <div>
-                                <p className="text-3xl md:text-4xl font-bold text-white">50+</p>
-                                <p className="text-sm text-slate-400 uppercase tracking-widest mt-1">Large Projects Delivered</p>
+                        </FadeIn>
+
+                        {/* Horizontal Trust indicators on the right */}
+                        <FadeIn direction="up" delay={0.3}>
+                            <div className="flex flex-wrap items-center gap-x-10 gap-y-6 xl:border-l xl:border-white/20 xl:pl-16">
+                                <div className="flex items-center gap-4">
+                                    <p className="text-3xl font-bold text-white leading-none">100+</p>
+                                    <p className="text-[11px] text-slate-300 uppercase tracking-widest font-medium leading-tight">Engineers <br /> Globally</p>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <p className="text-3xl font-bold text-white leading-none">50+</p>
+                                    <p className="text-[11px] text-slate-300 uppercase tracking-widest font-medium leading-tight">Large Projects <br /> Delivered</p>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <p className="text-3xl font-bold text-white leading-none">10+</p>
+                                    <p className="text-[11px] text-slate-300 uppercase tracking-widest font-medium leading-tight">Payment Platforms <br /> Built</p>
+                                </div>
                             </div>
-                            <div className="col-span-2 md:col-span-1">
-                                <p className="text-3xl md:text-4xl font-bold text-white">10+</p>
-                                <p className="text-sm text-slate-400 uppercase tracking-widest mt-1">Payment Platforms Built</p>
-                            </div>
+                        </FadeIn>
+                    </div>
+                </div>
+
+                {/* Scroll Down Indicator */}
+                <div className="absolute bottom-4 left-8">
+                    <FadeIn delay={0.5}>
+                        <div className="w-12 h-12 border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors cursor-pointer group">
+                            <ChevronDown className="w-6 h-6 text-white group-hover:translate-y-1 transition-transform" />
                         </div>
                     </FadeIn>
                 </div>
