@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/Navbar";
 import Nodes from "@/components/Nodes";
-import PartnersSection from "@/components/PartnersSection";
 import PricingNodes from "@/components/PricingNodes";
 
 import FooterCTA from "@/components/FooterCTA";
@@ -14,7 +13,6 @@ export default function NodesPage() {
             <Navbar />
             <main>
                 <Nodes />
-                <PartnersSection />
                 <PricingNodes />
                 <FooterCTA />
             </main>

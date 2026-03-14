@@ -12,7 +12,9 @@ export default function DigitalInnovationHero() {
                     className="h-full w-full object-cover opacity-60 mix-blend-luminosity"
                 />
                 <div className="absolute inset-0 bg-[#002B5B]/50" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#002B5B] via-transparent to-transparent opacity-60" />
+                {/* Siscom Brand Gradient Highlight */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#002B5B] via-transparent to-pink-600/20 opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#002B5B] via-[#002B5B]/40 to-transparent opacity-80" />
             </div>
 
             <div className="relative z-10 mx-auto max-w-7xl px-8 w-full pt-40 pb-20">
@@ -20,7 +22,7 @@ export default function DigitalInnovationHero() {
                     <FadeIn direction="up">
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
                             Build Scalable <br />
-                            Digital Platforms
+                            <span className="text-pink-500">Digital Platforms</span>
                         </h1>
                     </FadeIn>
                     
@@ -29,7 +31,7 @@ export default function DigitalInnovationHero() {
                             <p className="text-lg md:text-xl text-white font-light leading-relaxed">
                                 Turn your ideas into market-ready platforms with the Siscom Innovation Hub.
                             </p>
-                            <p className="mt-4 text-base text-slate-300 font-light leading-relaxed">
+                            <p className="mt-4 text-base text-slate-300 font-light leading-relaxed border-l-2 border-pink-600 pl-6">
                                 We help organizations build powerful digital platforms for fintech, 
                                 government, and the AI economy — from concept to deployment.
                             </p>
@@ -39,7 +41,7 @@ export default function DigitalInnovationHero() {
                     <div className="mt-16 flex flex-col xl:flex-row xl:items-center gap-10 xl:gap-20">
                         <FadeIn direction="up" delay={0.2}>
                             <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
-                                <button className="px-8 py-4 bg-white text-[#002B5B] font-bold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-xs hover:bg-slate-100">
+                                <button className="px-8 py-4 bg-pink-600 text-white font-bold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-xs hover:bg-pink-700 shadow-lg shadow-pink-900/20">
                                     Start Your Project
                                     <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </button>
@@ -53,15 +55,15 @@ export default function DigitalInnovationHero() {
                         <FadeIn direction="up" delay={0.3}>
                             <div className="flex flex-wrap items-center gap-x-10 gap-y-6 xl:border-l xl:border-white/20 xl:pl-16">
                                 <div className="flex items-center gap-4">
-                                    <p className="text-3xl font-bold text-white leading-none">100+</p>
+                                    <p className="text-3xl font-bold text-pink-500 leading-none">100+</p>
                                     <p className="text-[11px] text-slate-300 uppercase tracking-widest font-medium leading-tight">Engineers <br /> Globally</p>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <p className="text-3xl font-bold text-white leading-none">50+</p>
+                                    <p className="text-3xl font-bold text-pink-500 leading-none">50+</p>
                                     <p className="text-[11px] text-slate-300 uppercase tracking-widest font-medium leading-tight">Large Projects <br /> Delivered</p>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <p className="text-3xl font-bold text-white leading-none">10+</p>
+                                    <p className="text-3xl font-bold text-pink-500 leading-none">10+</p>
                                     <p className="text-[11px] text-slate-300 uppercase tracking-widest font-medium leading-tight">Payment Platforms <br /> Built</p>
                                 </div>
                             </div>
