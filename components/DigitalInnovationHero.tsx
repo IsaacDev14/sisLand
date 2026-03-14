@@ -1,5 +1,6 @@
 import { FadeIn } from "./FadeIn";
 import { ChevronDown, MoveRight } from "lucide-react";
+import Link from "next/link";
 
 export default function DigitalInnovationHero() {
     return (
@@ -41,13 +42,13 @@ export default function DigitalInnovationHero() {
                     <div className="mt-16 flex flex-col xl:flex-row xl:items-center gap-10 xl:gap-20">
                         <FadeIn direction="up" delay={0.2}>
                             <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
-                                <button className="px-8 py-4 bg-pink-600 text-white font-bold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-xs hover:bg-pink-700 shadow-lg shadow-pink-900/20">
+                                <Link href="/contact" className="px-8 py-4 bg-pink-600 text-white font-bold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-xs hover:bg-pink-700 shadow-lg shadow-pink-900/20">
                                     Start Your Project
                                     <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                                <button className="px-8 py-4 border border-white/20 hover:bg-white/10 text-white font-bold transition-all rounded-none uppercase tracking-wider text-xs">
+                                </Link>
+                                <Link href="/contact" className="px-8 py-4 border border-white/20 hover:bg-white/10 text-white font-bold transition-all rounded-none uppercase tracking-wider text-xs text-center flex items-center justify-center">
                                     Book Consultation
-                                </button>
+                                </Link>
                             </div>
                         </FadeIn>
 
