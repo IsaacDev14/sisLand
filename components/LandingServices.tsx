@@ -17,7 +17,7 @@ export default function LandingServices() {
         },
         {
             id: "edge-ai",
-            title: "EdgeAI Infrastructure",
+            title: "Infrastructure Solutions",
             subtitle: "AI Infrastructure for the Edge",
             description:
                 "Through our partnership with Navon World, Siscom is deploying modular AI-ready data centers beginning at Naivasha SEZ, enabling powerful edge compute clusters for AI workloads and advanced digital services.",
@@ -34,32 +34,24 @@ export default function LandingServices() {
             link: "/contact",
         },
         {
-            id: "e-gov",
-            title: "E-Government AI Campuses",
-            subtitle: "National AI Infrastructure",
+            id: "siscom-ai",
+            title: "Siscom AI",
+            subtitle: "Managed ML & Compute Clusters",
             description:
-                "Siscom partners with governments through PPP programs to develop AI campuses and compute clusters across Kenya, helping power national digital transformation and AI innovation.",
+                "Through our partnership with Navon World, Siscom is deploying modular AI-ready data centers enabling powerful compute clusters for AI workloads and advanced digital services.",
             image: "https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
-            link: "/contact",
+            link: "/siscom-ai-ml",
         },
         {
-            id: "compute",
-            title: "Compute Solutions (IaaS)",
-            subtitle: "Infrastructure-as-a-Service",
-            description:
-                "Deploy virtual machines, AI workloads and enterprise applications on Siscom\u2019s scalable compute infrastructure without investing in physical hardware.",
-            image: "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
-            link: "/contact",
-        },
-        {
-            id: "data",
-            title: "Data Warehousing & Processing",
-            subtitle: "Data Platforms for the AI Era",
+            id: "siscom-data",
+            title: "Siscom Data",
+            subtitle: "Scalable Data Platforms",
             description:
                 "Process, store and analyze large datasets using Siscom\u2019s advanced data infrastructure designed for analytics, machine learning pipelines and business intelligence.",
-            image: "https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            image: "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
             link: "/siscom-data",
         },
+
     ];
 
     const topRow = services.slice(0, 3);
