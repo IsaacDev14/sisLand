@@ -4,18 +4,18 @@ import { FadeIn } from "./FadeIn";
 
 export default function InfrastructureDescription() {
     return (
-        <section className="bg-white py-12 px-6">
+        <section className="bg-white py-10 px-6">
             <div className="max-w-7xl mx-auto">
-                <div className="max-w-3xl mx-auto text-center">
+                <div className="max-w-2xl mx-auto text-center">
                     <FadeIn delay={0.1}>
-                        <h2 className="text-xl md:text-2xl font-bold text-indigo-950 leading-tight mb-4">
-                            Reliable communication is essential to your business.
+                        <h2 className="text-lg md:text-xl font-bold text-slate-900 tracking-tight mb-3">
+                            Build on Africa&apos;s Next <span className="text-pink-600">Digital Infrastructure Layer</span>
                         </h2>
                     </FadeIn>
                     
                     <FadeIn delay={0.2}>
-                        <p className="text-base text-slate-500 font-light leading-relaxed">
-                            Siscom Africa provides the secure infrastructure you need to manage critical data and digital operations with absolute reliability.
+                        <p className="text-sm md:text-base text-slate-500 font-light leading-relaxed">
+                            Whether you&apos;re building AI applications, scaling a startup or enabling national digital transformation, Siscom provides the infrastructure foundation for Africa&apos;s next wave of innovation.
                         </p>
                     </FadeIn>
                 </div>

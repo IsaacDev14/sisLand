@@ -59,7 +59,7 @@ export default function LandingServices() {
 
     const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => (
         <FadeIn delay={index * 0.08}>
-            <Link href={service.link} className="block group relative h-[250px] md:h-[280px] rounded-xl overflow-hidden">
+            <Link href={service.link} className="block group relative h-[250px] md:h-[280px] rounded-none overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <img
@@ -87,7 +87,7 @@ export default function LandingServices() {
                             {service.subtitle}
                         </h3>
                         <span className="inline-flex items-center gap-2 text-white text-sm font-medium">
-                            <span className="bg-pink-600 px-5 py-2.5 rounded text-xs font-bold hover:bg-pink-700 transition-colors">
+                            <span className="bg-pink-600 px-5 py-2.5 rounded-none text-xs font-bold hover:bg-pink-700 transition-colors">
                                 Find out more
                             </span>
                             <ArrowRight className="w-4 h-4 text-pink-500 transition-transform group-hover:translate-x-1" />
