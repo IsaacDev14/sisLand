@@ -22,7 +22,7 @@ export default function InfrastructureSolutionsHero() {
                 <div className="max-w-2xl">
                     <FadeIn delay={0.1}>
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight mb-4">
-                            Infrastructure solutions
+                            Siscom Data Centers
                         </h1>
                     </FadeIn>
                     <FadeIn delay={0.2}>

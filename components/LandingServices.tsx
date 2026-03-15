@@ -17,7 +17,7 @@ export default function LandingServices() {
         },
         {
             id: "edge-ai",
-            title: "Infrastructure Solutions",
+            title: "Siscom Data Centers",
             subtitle: "AI Infrastructure for the Edge",
             description:
                 "Through our partnership with Navon World, Siscom is deploying modular AI-ready data centers beginning at Naivasha SEZ, enabling powerful edge compute clusters for AI workloads and advanced digital services.",
