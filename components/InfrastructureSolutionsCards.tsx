@@ -5,7 +5,7 @@ import { FadeIn } from "./FadeIn";
 
 export default function InfrastructureSolutionsCards() {
     return (
-        <section className="bg-slate-100 py-24 px-6 flex items-center justify-center">
+        <section className="bg-background pb-24 pt-0 px-6 flex items-center justify-center transition-colors duration-300">
             <div className="w-full max-w-3xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -14,8 +14,8 @@ export default function InfrastructureSolutionsCards() {
                         <Link href="/colocation" className="group relative h-[260px] w-full overflow-hidden rounded-none shadow-xl cursor-pointer bg-black block">
                             {/* Base Image */}
                             <img
-                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                                alt="Colocation Meeting"
+                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000"
+                                alt="Colocation Data Center"
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                             />
 
@@ -55,7 +55,7 @@ export default function InfrastructureSolutionsCards() {
                         <Link href="/siscom-nodes" className="group relative h-[260px] w-full overflow-hidden rounded-none shadow-xl cursor-pointer bg-black block">
                             {/* Base Image */}
                             <img
-                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000"
                                 alt="Server Nodes"
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                             />

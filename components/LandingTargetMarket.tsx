@@ -28,14 +28,14 @@ export default function LandingTargetMarket() {
     ];
 
     return (
-        <section className="py-12 bg-white border-t border-slate-200">
+        <section className="py-12 bg-background border-t border-border transition-colors duration-300">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="text-center max-w-2xl mx-auto mb-8">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">
                             Built for Africa&apos;s <span className="text-pink-600">AI Economy</span>
                         </h2>
-                        <p className="text-lg text-slate-600">
+                        <p className="text-lg text-muted-foreground">
                             We architect performance-driven solutions meant to bridge the digital divide.
                         </p>
                     </FadeIn>
@@ -44,14 +44,14 @@ export default function LandingTargetMarket() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {points.map((point, index) => (
                         <FadeIn key={point.title} delay={index * 0.1}>
-                            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 h-full hover:shadow-md hover:border-pink-500/30 transition-all group">
+                            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border h-full hover:shadow-md hover:border-pink-500/30 transition-all duration-300 group">
                                 <div className="w-14 h-14 rounded-xl bg-pink-600 flex items-center justify-center mb-6 group-hover:bg-pink-700 transition-colors shadow-lg shadow-pink-600/20">
                                     {point.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                                <h3 className="text-xl font-bold text-foreground mb-3">
                                     {point.title}
                                 </h3>
-                                <p className="text-slate-600 leading-relaxed">
+                                <p className="text-muted-foreground leading-relaxed">
                                     {point.description}
                                 </p>
                             </div>

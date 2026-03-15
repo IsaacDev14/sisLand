@@ -4,7 +4,7 @@ import { FadeIn } from "./FadeIn";
 
 export default function InfrastructureDescription() {
     return (
-        <section className="bg-background py-10 px-6 transition-colors duration-300">
+        <section className="bg-background pt-16 pb-8 px-6 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
                 <div className="max-w-2xl mx-auto text-center">
                     <FadeIn delay={0.1}>

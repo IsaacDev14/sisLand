@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function DigitalInnovationHero() {
     return (
-        <section className="relative min-h-[95vh] w-full flex items-center overflow-hidden bg-[#002B5B]">
+        <section className="relative min-h-[75vh] w-full flex items-center overflow-hidden bg-[#002B5B]">
             {/* Background Image: City Buildings with Overlay */}
             <div className="absolute inset-0">
                 <img
@@ -18,10 +18,10 @@ export default function DigitalInnovationHero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#002B5B] via-[#002B5B]/40 to-transparent opacity-80" />
             </div>
 
-            <div className="relative z-10 mx-auto max-w-7xl px-8 w-full pt-40 pb-20">
+            <div className="relative z-10 mx-auto max-w-7xl px-8 w-full pt-32 pb-16">
                 <div className="max-w-5xl">
                     <FadeIn direction="up">
-                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
+                        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
                             Build Scalable <br />
                             <span className="text-pink-500">Digital Platforms</span>
                         </h1>
@@ -39,14 +39,14 @@ export default function DigitalInnovationHero() {
                         </div>
                     </FadeIn>
 
-                    <div className="mt-16 flex flex-col xl:flex-row xl:items-center gap-10 xl:gap-20">
+                    <div className="mt-12 flex flex-col xl:flex-row xl:items-center gap-10 xl:gap-20">
                         <FadeIn direction="up" delay={0.2}>
                             <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
-                                <Link href="/contact" className="px-8 py-4 bg-pink-600 text-white font-bold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-xs hover:bg-pink-700 shadow-lg shadow-pink-900/20">
+                                <Link href="/contact" className="px-6 py-3 bg-pink-600 text-white font-bold flex items-center gap-2 group transition-all rounded-none uppercase tracking-wider text-xs hover:bg-pink-700 shadow-lg shadow-pink-900/20">
                                     Start Your Project
                                     <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </Link>
-                                <Link href="/contact" className="px-8 py-4 border border-white/20 hover:bg-white/10 text-white font-bold transition-all rounded-none uppercase tracking-wider text-xs text-center flex items-center justify-center">
+                                <Link href="/contact" className="px-6 py-3 border border-white/20 hover:bg-white/10 text-white font-bold transition-all rounded-none uppercase tracking-wider text-xs text-center flex items-center justify-center">
                                     Book Consultation
                                 </Link>
                             </div>
