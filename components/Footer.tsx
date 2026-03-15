@@ -7,6 +7,7 @@ const footerLinks = {
         { name: "Siscom Nodes", href: "/" },
         { name: "Siscom Data", href: "/siscom-data" },
         { name: "Siscom AI/ML", href: "/siscom-ai-ml" },
+        { name: "Siscom Innovation", href: "/siscom-innovation" },
         { name: "DevPreneur", href: "/contact" },
     ],
     company: [
