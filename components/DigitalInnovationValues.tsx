@@ -51,7 +51,7 @@ export default function DigitalInnovationValues() {
                             <h2 className="text-4xl font-bold text-[#002B5B] dark:text-white mb-4">
                                 Why Organisations Choose Siscom
                             </h2>
-                            <p className="text-xl text-muted-foreground font-light">
+                            <p className="text-xl text-foreground/80 dark:text-muted-foreground font-normal">
                                 Full spectrum from idea to launch.
                             </p>
                         </div>
@@ -99,7 +99,7 @@ export default function DigitalInnovationValues() {
                             <h2 className="text-3xl font-bold text-[#002B5B] dark:text-white mb-6 uppercase tracking-tight">
                                 Global Engineering Teams
                             </h2>
-                            <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                            <p className="text-lg text-foreground/80 dark:text-muted-foreground font-normal leading-relaxed">
                                 Siscom Innovation operates a distributed engineering network across Kenya, India, and the United States. 
                                 Our teams are composed of elite engineers who have built complex systems for some of the world's leading organizations.
                             </p>

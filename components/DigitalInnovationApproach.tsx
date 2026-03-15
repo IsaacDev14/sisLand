@@ -51,7 +51,7 @@ export default function DigitalInnovationApproach() {
                     
                     <FadeIn direction="up" delay={0.1}>
                         <div className="text-center mx-auto max-w-3xl">
-                            <p className="text-xl text-muted-foreground font-light leading-relaxed mb-8">
+                            <p className="text-xl text-foreground/80 dark:text-muted-foreground font-normal leading-relaxed mb-8">
                                 Most organizations struggle to move from idea → product → scalable platform. 
                                 Siscom Innovation solves this with a dedicated innovation hub that works 
                                 with you from concept to launch.
@@ -119,7 +119,7 @@ export default function DigitalInnovationApproach() {
                                     </FadeIn>
                                 ))}
                             </div>
-                            <p className="text-muted-foreground font-light mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+                            <p className="text-foreground/70 dark:text-muted-foreground font-normal mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
                                 We combine product strategy, engineering, and infrastructure to deliver platforms that scale.
                             </p>
                         </div>
@@ -135,7 +135,7 @@ export default function DigitalInnovationApproach() {
                             <h2 className="text-4xl font-bold text-[#002B5B] dark:text-white mb-4">
                                 The Siscom Innovation Process
                             </h2>
-                            <p className="text-xl text-muted-foreground font-light">
+                            <p className="text-xl text-foreground/80 dark:text-muted-foreground font-normal">
                                 Our proven framework transforms ideas into scalable platforms.
                             </p>
                         </div>

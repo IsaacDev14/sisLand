@@ -12,7 +12,7 @@ import DigitalInnovationCTA from "@/components/DigitalInnovationCTA";
 
 export default function DigitalInnovationPage() {
     return (
-        <div className="flex min-h-screen flex-col bg-white">
+        <div className="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300">
             <Navbar />
             <main>
                 <DigitalInnovationHero />
