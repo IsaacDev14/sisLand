@@ -43,15 +43,15 @@ const whyChoose = [
 
 export default function DigitalInnovationValues() {
     return (
-        <section className="bg-white py-24">
+        <section className="bg-background py-24 transition-colors duration-300">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="max-w-5xl">
                     <FadeIn>
                         <div className="mb-20">
-                            <h2 className="text-4xl font-bold text-[#002B5B] mb-4">
+                            <h2 className="text-4xl font-bold text-[#002B5B] dark:text-white mb-4">
                                 Why Organisations Choose Siscom
                             </h2>
-                            <p className="text-xl text-slate-500 font-light">
+                            <p className="text-xl text-muted-foreground font-light">
                                 Full spectrum from idea to launch.
                             </p>
                         </div>
@@ -93,13 +93,13 @@ export default function DigitalInnovationValues() {
                 </div>
 
                 {/* Additional Info: Global Teams (Re-styled for consistency) */}
-                <div className="mt-20 pt-16 border-t border-slate-100">
+                <div className="mt-20 pt-16 border-t border-slate-100 dark:border-slate-800">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                         <FadeIn direction="left">
-                            <h2 className="text-3xl font-bold text-[#002B5B] mb-6 uppercase tracking-tight">
+                            <h2 className="text-3xl font-bold text-[#002B5B] dark:text-white mb-6 uppercase tracking-tight">
                                 Global Engineering Teams
                             </h2>
-                            <p className="text-lg text-slate-600 font-light leading-relaxed">
+                            <p className="text-lg text-muted-foreground font-light leading-relaxed">
                                 Siscom Innovation operates a distributed engineering network across Kenya, India, and the United States. 
                                 Our teams are composed of elite engineers who have built complex systems for some of the world's leading organizations.
                             </p>
@@ -108,11 +108,11 @@ export default function DigitalInnovationValues() {
                             <div className="grid grid-cols-2 gap-12">
                                 <div>
                                     <p className="text-5xl font-black text-pink-600">100+</p>
-                                    <p className="text-sm uppercase tracking-widest text-slate-500 mt-4">Engineers Globally</p>
+                                    <p className="text-sm uppercase tracking-widest text-muted-foreground mt-4">Engineers Globally</p>
                                 </div>
                                 <div>
                                     <p className="text-5xl font-black text-pink-600">50+</p>
-                                    <p className="text-sm uppercase tracking-widest text-slate-500 mt-4">Large Projects</p>
+                                    <p className="text-sm uppercase tracking-widest text-muted-foreground mt-4">Large Projects</p>
                                 </div>
                             </div>
                         </FadeIn>

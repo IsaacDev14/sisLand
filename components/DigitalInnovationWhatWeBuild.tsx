@@ -37,13 +37,13 @@ const sectors = [
 
 export default function DigitalInnovationWhatWeBuild() {
     return (
-        <section className="bg-white py-24">
+        <section className="bg-background py-24 transition-colors duration-300">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="max-w-5xl">
                     <FadeIn>
                         <div className="mb-16">
-                            <h2 className="text-4xl font-bold text-[#002B5B] mb-4">What We Build</h2>
-                            <p className="text-xl text-slate-500 font-light">
+                            <h2 className="text-4xl font-bold text-[#002B5B] dark:text-white mb-4">What We Build</h2>
+                            <p className="text-xl text-muted-foreground font-light">
                                 Digital platforms across critical sectors.
                             </p>
                         </div>

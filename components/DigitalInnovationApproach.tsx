@@ -37,13 +37,13 @@ const steps = [
 
 export default function DigitalInnovationApproach() {
     return (
-        <section className="bg-white pt-12 pb-24">
+        <section className="bg-background pt-12 pb-24 transition-colors duration-300">
             {/* Story Intro */}
             <div className="mx-auto max-w-7xl px-6 mb-16">
                 <div className="max-w-5xl">
                     <FadeIn direction="up">
                         <div className="text-center mx-auto max-w-3xl">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#002B5B] leading-tight mb-6">
+                            <h2 className="text-3xl md:text-5xl font-bold text-[#002B5B] dark:text-white leading-tight mb-6">
                                 Bring Your Ideas to Life
                             </h2>
                         </div>
@@ -51,7 +51,7 @@ export default function DigitalInnovationApproach() {
                     
                     <FadeIn direction="up" delay={0.1}>
                         <div className="text-center mx-auto max-w-3xl">
-                            <p className="text-xl text-slate-500 font-light leading-relaxed mb-8">
+                            <p className="text-xl text-muted-foreground font-light leading-relaxed mb-8">
                                 Most organizations struggle to move from idea → product → scalable platform. 
                                 Siscom Innovation solves this with a dedicated innovation hub that works 
                                 with you from concept to launch.
@@ -61,7 +61,7 @@ export default function DigitalInnovationApproach() {
 
                     <FadeIn direction="up" delay={0.2}>
                         <div className="mt-16">
-                            <p className="text-xl text-[#002B5B] font-bold mb-10">
+                            <p className="text-xl text-[#002B5B] dark:text-white font-bold mb-10">
                                 With Siscom you get:
                             </p>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -119,7 +119,7 @@ export default function DigitalInnovationApproach() {
                                     </FadeIn>
                                 ))}
                             </div>
-                            <p className="text-slate-500 font-light mt-12 pt-8 border-t border-slate-100 text-center">
+                            <p className="text-muted-foreground font-light mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
                                 We combine product strategy, engineering, and infrastructure to deliver platforms that scale.
                             </p>
                         </div>
@@ -132,10 +132,10 @@ export default function DigitalInnovationApproach() {
                 <div className="max-w-3xl mx-auto text-center">
                     <FadeIn>
                         <div className="mb-20">
-                            <h2 className="text-4xl font-bold text-[#002B5B] mb-4">
+                            <h2 className="text-4xl font-bold text-[#002B5B] dark:text-white mb-4">
                                 The Siscom Innovation Process
                             </h2>
-                            <p className="text-xl text-slate-500 font-light">
+                            <p className="text-xl text-muted-foreground font-light">
                                 Our proven framework transforms ideas into scalable platforms.
                             </p>
                         </div>

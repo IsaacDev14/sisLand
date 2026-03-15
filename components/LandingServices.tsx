@@ -99,7 +99,7 @@ export default function LandingServices() {
     );
 
     return (
-        <section id="services" className="w-full bg-white py-10">
+        <section id="services" className="w-full bg-background py-10 transition-colors duration-300">
             <div className="px-4 py-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     {topRow.map((service, index) => (

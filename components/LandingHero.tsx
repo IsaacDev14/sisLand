@@ -23,7 +23,7 @@ export default function LandingHero() {
                     preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                 >
-                    <source src="/hero-bg.mp4" type="video/mp4" />
+                    <source src="/frames/People_Technology.mp4" type="video/mp4" />
                 </video>
                 {/* Dark Overlay for Readability */}
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-slate-950/50" />
