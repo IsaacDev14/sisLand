@@ -69,9 +69,6 @@ export default function DigitalInnovationSuccess() {
                                     <h3 className="text-xl font-bold text-white leading-tight">
                                         {example.title}
                                     </h3>
-                                    <p className="text-xs text-slate-300 font-light mt-2 line-clamp-3">
-                                        {example.description}
-                                    </p>
                                 </div>
                             </div>
                         </FadeIn>

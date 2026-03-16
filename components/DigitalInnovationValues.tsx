@@ -83,9 +83,6 @@ export default function DigitalInnovationValues() {
                                     <h3 className="text-xl font-bold text-white leading-tight">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm text-slate-300 font-light mt-2 line-clamp-2">
-                                        {item.description}
-                                    </p>
                                 </div>
                             </div>
                         </FadeIn>
