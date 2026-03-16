@@ -25,6 +25,14 @@ const partners = [
         name: "Tradiam",
         src: "/images/partners-Logo/tradiam.png",
     },
+    {
+        name: "Payless",
+        src: "/images/partners-Logo/payless.png",
+    },
+    {
+        name: "xBelong",
+        src: "/images/partners-Logo/xBelong.svg",
+    },
 ];
 
 
