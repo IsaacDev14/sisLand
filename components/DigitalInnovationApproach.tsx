@@ -87,7 +87,7 @@ export default function DigitalInnovationApproach() {
                                     {
                                         title: "Enterprise-grade infrastructure",
                                         description: "Built on robust foundations that prioritize security and high availability.",
-                                        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+                                        image: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80&w=800",
                                         color: "bg-red-500"
                                     },
                                     {
