@@ -1,4 +1,4 @@
-"use client";
+ also see"use client";
 
 import Image from "next/image";
 import { FadeIn } from "./FadeIn";

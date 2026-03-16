@@ -42,8 +42,8 @@ export default function DigitalInnovationWhatWeBuild() {
                 <div className="max-w-5xl">
                     <FadeIn>
                         <div className="mb-16">
-                            <h2 className="text-4xl font-bold text-[#002B5B] dark:text-white mb-4">What We Build</h2>
-                            <p className="text-xl text-foreground/80 dark:text-muted-foreground font-normal">
+                            <h2 className="text-4xl font-bold text-foreground mb-4">What We Build</h2>
+                            <p className="text-xl text-muted-foreground font-normal">
                                 Digital platforms across critical sectors.
                             </p>
                         </div>

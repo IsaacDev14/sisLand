@@ -48,10 +48,10 @@ export default function DigitalInnovationValues() {
                 <div className="max-w-5xl">
                     <FadeIn>
                         <div className="mb-20">
-                            <h2 className="text-4xl font-bold text-[#002B5B] dark:text-white mb-4">
+                            <h2 className="text-4xl font-bold text-foreground mb-4">
                                 Why Organisations Choose Siscom
                             </h2>
-                            <p className="text-xl text-foreground/80 dark:text-muted-foreground font-normal">
+                            <p className="text-xl text-muted-foreground font-normal">
                                 Full spectrum from idea to launch.
                             </p>
                         </div>
@@ -93,13 +93,13 @@ export default function DigitalInnovationValues() {
                 </div>
 
                 {/* Additional Info: Global Teams (Re-styled for consistency) */}
-                <div className="mt-20 pt-16 border-t border-slate-100 dark:border-slate-800">
+                <div className="mt-20 pt-16 border-t border-border">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                         <FadeIn direction="left">
-                            <h2 className="text-3xl font-bold text-[#002B5B] dark:text-white mb-6 uppercase tracking-tight">
+                            <h2 className="text-3xl font-bold text-foreground mb-6 uppercase tracking-tight">
                                 Global Engineering Teams
                             </h2>
-                            <p className="text-lg text-foreground/80 dark:text-muted-foreground font-normal leading-relaxed">
+                            <p className="text-lg text-muted-foreground font-normal leading-relaxed">
                                 Siscom Innovation operates a distributed engineering network across Kenya, India, and the United States. 
                                 Our teams are composed of elite engineers who have built complex systems for some of the world's leading organizations.
                             </p>

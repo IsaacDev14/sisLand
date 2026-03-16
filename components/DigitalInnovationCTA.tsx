@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function DigitalInnovationCTA() {
     return (
-        <section className="bg-background py-24 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
+        <section className="bg-background py-24 border-t border-border transition-colors duration-300">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="bg-pink-600 p-10 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
                     {/* Decorative element */}
