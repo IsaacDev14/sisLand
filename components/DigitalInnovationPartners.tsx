@@ -56,12 +56,12 @@ export default function DigitalInnovationPartners() {
                             key={`${partner.name}-${i}`}
                             className="flex-shrink-0 mx-10 flex items-center"
                         >
-                                <div className="h-12 w-auto flex items-center transition-all duration-300">
+                                <div className={`${partner.name === 'SAF' ? 'h-24 scale-110' : 'h-12'} w-auto flex items-center transition-all duration-300`}>
                                     <Image
                                         src={partner.src}
                                         alt={partner.name}
-                                        width={120}
-                                        height={48}
+                                        width={partner.name === 'SAF' ? 240 : 120}
+                                        height={partner.name === 'SAF' ? 96 : 48}
                                         className="h-full w-auto object-contain"
                                     />
                                 </div>
