@@ -43,7 +43,7 @@ export default function DigitalInnovationApproach() {
                 <div className="max-w-5xl">
                     <FadeIn direction="up">
                         <div className="text-center mx-auto max-w-3xl">
-                            <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-6">
+                            <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight mb-6">
                                 Bring Your Ideas to Life
                             </h2>
                         </div>
