@@ -20,9 +20,6 @@ export default function SiscomDataPage() {
                     </div>
                     <div className="relative z-10 max-w-4xl mx-auto text-center">
                         <FadeIn>
-                            <span className="inline-block bg-pink-500/10 text-pink-600 px-3 py-1 rounded-full text-sm font-medium mb-6 border border-pink-500/20">
-                                SISCOM DATA
-                            </span>
                             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground mb-8">
                                 From Data Warehousing to AI — <span className="text-pink-600">One Intelligent Stack</span>
                             </h1>
