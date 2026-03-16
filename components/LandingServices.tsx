@@ -7,13 +7,13 @@ import { ArrowRight } from "lucide-react";
 export default function LandingServices() {
     const services = [
         {
-            id: "colocation",
-            title: "Colocation",
-            subtitle: "Distributed Colocation Infrastructure",
+            id: "innovation",
+            title: "Siscom Innovation",
+            subtitle: "Digital Platform Innovation",
             description:
-                "Access Tier III data center capabilities through Siscom\u2019s distributed clusters across Kenya, Tanzania, Nigeria, South Africa and Germany \u2014 designed to give SMEs secure, scalable infrastructure without large long-term contracts.",
-            image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
-            link: "/colocation",
+                "Turn your ideas into market-ready platforms with the Siscom Innovation Hub, from concept to deployment across fintech, government and AI sectors.",
+            image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+            link: "/siscom-innovation",
         },
         {
             id: "edge-ai",
