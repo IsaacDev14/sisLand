@@ -62,15 +62,15 @@ export default function DigitalInnovationPartners() {
                     {allPartners.map((partner, i) => (
                         <div
                             key={`${partner.name}-${i}`}
-                            className="flex-shrink-0 mx-10 flex items-center"
+                            className="flex-shrink-0 mx-10 flex items-center justify-center"
                         >
-                                <div className={`${partner.name === 'SAF' ? 'h-24 scale-110' : 'h-12'} w-auto flex items-center transition-all duration-300`}>
+                                <div className={`${partner.name === 'SAF' ? 'h-16 w-44' : 'h-10 w-32'} flex items-center justify-center`}>
                                     <Image
                                         src={partner.src}
                                         alt={partner.name}
-                                        width={partner.name === 'SAF' ? 240 : 120}
-                                        height={partner.name === 'SAF' ? 96 : 48}
-                                        className="h-full w-auto object-contain"
+                                        width={partner.name === 'SAF' ? 240 : 140}
+                                        height={partner.name === 'SAF' ? 64 : 40}
+                                        className="max-h-full max-w-full object-contain"
                                     />
                                 </div>
                         </div>
