@@ -33,7 +33,7 @@ export default function DigitalInnovationPartners() {
     const allPartners = [...partners, ...partners, ...partners, ...partners];
 
     return (
-        <section className="bg-background pt-10 pb-6 overflow-hidden border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
+        <section className="bg-background pt-10 pb-6 overflow-hidden transition-colors duration-300">
             {/* Header */}
             <div className="mb-4 text-center">
                 <FadeIn>
