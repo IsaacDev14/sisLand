@@ -19,8 +19,8 @@ export default function Navbar() {
     }, [pathname]);
 
     const navLinks = [
-        { name: "Colocation", href: "/colocation" },
-        { name: "Nodes", href: "/" },
+        { name: "Siscom Data Centers", href: "/infrastructure-solutions" },
+        { name: "Siscom Innovation", href: "/siscom-innovation" },
         { name: "Data", href: "/siscom-data" },
         { name: "AI/ML", href: "/siscom-ai-ml" },
     ];
