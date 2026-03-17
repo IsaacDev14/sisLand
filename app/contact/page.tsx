@@ -277,8 +277,7 @@ Please contact me with further details or setup instructions.`;
                                 <div>
                                     <h3 className="text-sm font-semibold text-foreground mb-1">Quick Contact</h3>
                                     <p className="text-sm text-muted-foreground">Tech: tech@siscom.tech</p>
-                                    <p className="text-sm text-muted-foreground">Investor: investor@siscomcloud.africa</p>
-                                    <p className="text-sm text-muted-foreground">Phone: +254 745 666 660</p>
+                                    <p className="text-sm text-muted-foreground">Phone: +254110362222</p>
                                 </div>
                             </div>
                         </FadeIn>
