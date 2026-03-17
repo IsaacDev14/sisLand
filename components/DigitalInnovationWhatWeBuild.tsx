@@ -4,33 +4,33 @@ import { FadeIn } from "./FadeIn";
 
 const sectors = [
     {
-        title: "Fintech & Payments",
+        title: "Custom Web Applications",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+        color: "bg-red-500"
+    },
+    {
+        title: "Enterprise Mobile Apps",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
+        color: "bg-purple-500"
+    },
+    {
+        title: "API & Backend Engineering",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+        color: "bg-cyan-500"
+    },
+    {
+        title: "Fintech & Core Banking",
         image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
         color: "bg-red-500"
     },
     {
-        title: "Core Banking Platforms",
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-        color: "bg-purple-500"
-    },
-    {
-        title: "Investment & Capital Markets",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        color: "bg-cyan-500"
-    },
-    {
         title: "Government Digitization",
         image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
-        color: "bg-red-500"
-    },
-    {
-        title: "MSME & Cooperative Platforms",
-        image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800",
         color: "bg-blue-500"
     },
     {
-        title: "E-Commerce & Logistics",
-        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+        title: "E-Commerce & SaaS Platforms",
+        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800",
         color: "bg-cyan-500"
     }
 ];
@@ -53,16 +53,16 @@ export default function DigitalInnovationWhatWeBuild() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {sectors.map((sector, idx) => (
                         <FadeIn key={sector.title} delay={idx * 0.05} direction="up">
-                            <div className="relative aspect-[4/3] group overflow-hidden cursor-pointer">
+                            <div className="relative aspect-[4/3] group overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-500">
                                 {/* Image */}
                                 <img 
                                     src={sector.image} 
                                     alt={sector.title}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 
                                 {/* Overlay (Liquid Blue) */}
-                                <div className="absolute inset-0 bg-[#002B5B]/50 mix-blend-multiply" />
+                                <div className="absolute inset-0 bg-[#002B5B]/50 mix-blend-multiply group-hover:bg-[#002B5B]/30 transition-colors duration-500" />
                                 
                                 {/* Gradient for Readability */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#002B5B] via-[#002B5B]/20 to-transparent opacity-90" />
@@ -70,9 +70,9 @@ export default function DigitalInnovationWhatWeBuild() {
                                 {/* Content */}
                                 <div className="absolute inset-x-10 bottom-10">
                                     {/* Accent Line */}
-                                    <div className={`w-8 h-1 ${sector.color} mb-6`} />
+                                    <div className={`w-8 h-1 ${sector.color} mb-6 transition-all duration-500 group-hover:w-12`} />
                                     
-                                    <h3 className="text-2xl font-bold text-white leading-tight max-w-[200px]">
+                                    <h3 className="text-2xl font-bold text-white leading-tight max-w-[240px]">
                                         {sector.title}
                                     </h3>
                                 </div>
