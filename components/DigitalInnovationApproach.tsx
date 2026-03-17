@@ -67,48 +67,43 @@ export default function DigitalInnovationApproach() {
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {[
                                     {
-                                        title: "End-to-end platform development",
-                                        description: "We manage the entire lifecycle from initial concept to market-ready deployment.",
-                                        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+                                        title: "Future-Proof Architecture",
+                                        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
                                         color: "bg-red-500"
                                     },
                                     {
-                                        title: "Dedicated product teams",
-                                        description: "Access high-performing teams consisting of product managers, designers, and engineers.",
-                                        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+                                        title: "Bank-Grade Security & Compliance",
+                                        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
                                         color: "bg-purple-500"
                                     },
                                     {
-                                        title: "Agile delivery frameworks",
-                                        description: "We use proven agile methodologies to ensure rapid, iterative, and reliable delivery.",
-                                        image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
+                                        title: "High-Adoption UI/UX",
+                                        image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800",
                                         color: "bg-cyan-500"
                                     },
                                     {
-                                        title: "Enterprise-grade infrastructure",
-                                        description: "Built on robust foundations that prioritize security and high availability.",
-                                        image: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80&w=800",
+                                        title: "Rapid Time-to-Market",
+                                        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
                                         color: "bg-red-500"
                                     },
                                     {
-                                        title: "Scalable cloud deployment",
-                                        description: "Leverage Siscom Cloud for infrastructure that grows seamlessly with your user base.",
-                                        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+                                        title: "Continuous Post-Launch Support",
+                                        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
                                         color: "bg-blue-500"
                                     }
                                 ].map((item, idx) => (
                                     <FadeIn key={item.title} delay={idx * 0.1}>
-                                        <div className="relative aspect-[4/3] group overflow-hidden cursor-pointer">
+                                        <div className="relative aspect-[4/3] group overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-500">
                                             <img 
                                                 src={item.image} 
                                                 alt={item.title}
-                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                             />
-                                            <div className="absolute inset-0 bg-[#002B5B]/50 mix-blend-multiply" />
+                                            <div className="absolute inset-0 bg-[#002B5B]/50 mix-blend-multiply group-hover:bg-[#002B5B]/30 transition-colors duration-500" />
                                             <div className="absolute inset-0 bg-gradient-to-t from-[#002B5B] via-[#002B5B]/20 to-transparent opacity-95" />
-                                            <div className="absolute inset-x-6 bottom-6">
-                                                <div className={`w-8 h-1 ${item.color} mb-3`} />
-                                                <h3 className="text-lg font-bold text-white leading-tight">
+                                            <div className="absolute inset-x-6 bottom-6 transition-transform duration-500">
+                                                <div className={`w-10 h-1 ${item.color} mb-4 transition-all duration-500 group-hover:w-16`} />
+                                                <h3 className="text-xl font-bold text-white leading-tight">
                                                     {item.title}
                                                 </h3>
                                             </div>
