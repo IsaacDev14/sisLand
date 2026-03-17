@@ -59,7 +59,7 @@ export default function Footer() {
                                 </svg>
                             </a>
                             <a
-                                href="https://wa.me/254745666660"
+                                href="https://wa.me/254110362222"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-pink-500/20 hover:text-pink-400 [html[data-theme='light']_&]:bg-slate-100 [html[data-theme='light']_&]:text-slate-600"
@@ -170,8 +170,8 @@ export default function Footer() {
                                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                                     />
                                 </svg>
-                                <a href="tel:+254745666660" className="hover:text-pink-400 transition-colors [html[data-theme='light']_&]:hover:text-pink-600">
-                                    +254 745 666 660
+                                <a href="tel:+254110362222" className="hover:text-pink-400 transition-colors [html[data-theme='light']_&]:hover:text-pink-600">
+                                    +254110362222
                                 </a>
                             </li>
                             <li className="flex items-start gap-2">
