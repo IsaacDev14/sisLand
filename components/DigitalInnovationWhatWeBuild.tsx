@@ -23,14 +23,16 @@ const sectors = [
         image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
         color: "bg-red-500"
     },
-    {
+{
         title: "Government Digitization",
-        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
+        // Image: A confident professional in a sharp suit reviewing data in a modern, secure corporate environment. Conveys authority and trust.
+        image: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80&w=800",
         color: "bg-blue-500"
     },
     {
         title: "E-Commerce & SaaS Platforms",
-        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800",
+        // Image: A professional working efficiently at a modern laptop setup, representing scalable digital business management.
+        image: "https://images.unsplash.com/photo-1573167243872-43c6433b9d40?auto=format&fit=crop&q=80&w=800",
         color: "bg-cyan-500"
     }
 ];

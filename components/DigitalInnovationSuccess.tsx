@@ -12,13 +12,13 @@ const examples = [
     {
         title: "Government Digital Services",
         description: "Digitization of public services for county governments.",
-        image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
         color: "bg-purple-500"
     },
     {
         title: "Investment Platforms",
         description: "Digital platforms enabling access to new asset classes.",
-        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1531123414780-f74242c2b052?auto=format&fit=crop&q=80&w=800",
         color: "bg-cyan-500"
     },
     {

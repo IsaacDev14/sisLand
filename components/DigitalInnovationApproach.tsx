@@ -6,31 +6,37 @@ const steps = [
     {
         number: "01",
         title: "Research & Product Discovery",
-        image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
+        // Image: Two Black professionals collaborating over a laptop in a modern office
+        image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "02",
         title: "UX Research & Product Design",
-        image: "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
+        // Image: A Black woman in a corporate tech setting focused on her screen
+        image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "03",
         title: "Product Architecture",
+        // Image: Abstract high-tech circuit board (kept from your original for tech aesthetic)
         image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "04",
         title: "Agile Product Development",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+        // Image: A Black male software engineer working intensely at his computer
+        image: "https://images.unsplash.com/photo-1760952851538-17a59f691efe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
         number: "05",
         title: "Infrastructure & DevOps",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+        // Image: Dark, premium glowing server room racks
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
     },
     {
         number: "06",
         title: "Testing & Launch",
+        // Image: Glowing analytics/dashboard on a screen (kept from your original)
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     }
 ];
@@ -78,7 +84,7 @@ export default function DigitalInnovationApproach() {
                                     },
                                     {
                                         title: "High-Adoption UI/UX",
-                                        image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800",
+                                        image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
                                         color: "bg-cyan-500"
                                     },
                                     {
@@ -88,7 +94,7 @@ export default function DigitalInnovationApproach() {
                                     },
                                     {
                                         title: "Continuous Post-Launch Support",
-                                        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+                                        image: "https://images.unsplash.com/photo-1758876202189-0fbc277dfed9?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                                         color: "bg-blue-500"
                                     }
                                 ].map((item, idx) => (
