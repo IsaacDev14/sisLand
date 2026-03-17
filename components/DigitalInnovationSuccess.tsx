@@ -12,7 +12,7 @@ const examples = [
     {
         title: "Government Digital Services",
         description: "Digitization of public services for county governments.",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+        image: "https://media.licdn.com/dms/image/v2/D4D22AQG5MUcaKjxrPw/feedshare-shrink_800/B4DZfpL4P2HMAg-/0/1751963896838?e=1775088000&v=beta&t=bsOop9jIq9R74TOpKUTmnmJv3I_nm6Wy4WKvk6fYcbM",
         color: "bg-purple-500"
     },
     {

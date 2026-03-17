@@ -15,7 +15,7 @@ const sectors = [
     },
     {
         title: "API & Backend Engineering",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+        image: "https://media.licdn.com/dms/image/v2/D4D22AQEAOBfCVg0nfg/feedshare-shrink_800/B4DZuNtwLdHwAk-/0/1767609151050?e=1775088000&v=beta&t=T7xCpyco6FkIB0HaUL0AkAsf3zLbtssm6iNE29hZwYg",
         color: "bg-cyan-500"
     },
     {
@@ -31,8 +31,7 @@ const sectors = [
     },
     {
         title: "E-Commerce & SaaS Platforms",
-        // Image: A professional working efficiently at a modern laptop setup, representing scalable digital business management.
-        image: "https://images.unsplash.com/photo-1573167243872-43c6433b9d40?auto=format&fit=crop&q=80&w=800",
+        image: "https://media.licdn.com/dms/image/v2/D4D22AQEkNmrXYjZoew/feedshare-shrink_800/B4DZh6SdJ1GsAg-/0/1754398332967?e=1775088000&v=beta&t=ToIyUFq0i2R5I08zfbjiL2nN9OQUSa9okd0QJVbL6TA",
         color: "bg-cyan-500"
     }
 ];

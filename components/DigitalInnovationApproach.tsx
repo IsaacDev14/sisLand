@@ -94,7 +94,7 @@ export default function DigitalInnovationApproach() {
                                     },
                                     {
                                         title: "Continuous Post-Launch Support",
-                                        image: "https://images.unsplash.com/photo-1758876202189-0fbc277dfed9?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                        image: "https://media.licdn.com/dms/image/v2/D5622AQHcD5XCrDDD0A/feedshare-shrink_800/B56ZoFf1MmJkAg-/0/1761028843846?e=1775088000&v=beta&t=k423nfY1Fu2ytTqQ4FT1kp8-_tM1j_Hgo8oq1zI3W1M",
                                         color: "bg-blue-500"
                                     }
                                 ].map((item, idx) => (
