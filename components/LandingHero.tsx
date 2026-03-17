@@ -35,13 +35,14 @@ export default function LandingHero() {
 
                     <FadeIn delay={0.1}>
                         <h1 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold italic leading-[1.2] text-white tracking-tight mb-5">
-                            Is Your Business Ready for the AI Future?
+                            Is Your Business Ready for the <span className="text-pink-600">AI Future?</span>
                         </h1>
                     </FadeIn>
 
                     <FadeIn delay={0.2}>
                         <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl mb-0">
-                            Siscom is innovating and engineering the digital backbone designed specifically for African SMEs to thrive in the AI revolution.
+                            <span className="text-pink-600 font-semibold">Siscom</span> is innovating and engineering the <span className="text-pink-600 font-semibold">digital backbone</span> designed specifically
+                            for African SMEs to thrive in the AI revolution.
                         </p>
                     </FadeIn>
                 </div>
