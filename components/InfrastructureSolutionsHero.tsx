@@ -12,9 +12,8 @@ export default function InfrastructureSolutionsHero() {
                     alt="Infrastructure"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
-                {/* Liquid Tech style gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600/60 via-pink-500/40 to-transparent" />
-                <div className="absolute inset-0 bg-slate-950/20" />
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-slate-950/40" />
             </div>
 
             {/* Content Container */}
