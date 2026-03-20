@@ -8,13 +8,12 @@ export default function InfrastructureSolutionsHero() {
             {/* Background Layer */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80"
+                    src="/images/dashboards/datacenter.jpeg"
                     alt="Infrastructure"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
-                {/* Liquid Tech style gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600/60 via-pink-500/40 to-transparent" />
-                <div className="absolute inset-0 bg-slate-950/20" />
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-slate-950/40" />
             </div>
 
             {/* Content Container */}
@@ -22,12 +21,12 @@ export default function InfrastructureSolutionsHero() {
                 <div className="max-w-2xl">
                     <FadeIn delay={0.1}>
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight mb-4">
-                            Siscom Data Centers
+                            <span className="text-pink-600">Siscom</span> Data Centers
                         </h1>
                     </FadeIn>
                     <FadeIn delay={0.2}>
                         <p className="text-xl md:text-2xl text-white/90 font-light max-w-xl">
-                            Powering the digital spine of the African economy.
+                            Powering the <span className="text-pink-600 font-semibold">digital spine</span> of the African economy.
                         </p>
                     </FadeIn>
                 </div>
