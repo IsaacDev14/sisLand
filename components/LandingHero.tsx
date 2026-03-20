@@ -1,19 +1,32 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function LandingHero() {
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
     return (
         <section className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-end">
             {/* Background Layer */}
-            <div className="absolute inset-0 z-0">
-                {/* Fallback background image (shows instantly before video loads or if no video) */}
-                <img
-                    src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80"
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
+            <div className="absolute inset-0 z-0 bg-slate-950">
+                <AnimatePresence>
+                    {!isVideoLoaded && (
+                        <motion.div
+                            initial={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950"
+                        >
+                            {/* Shimmer effect while loading */}
+                            <div className="absolute inset-0 overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/10 to-transparent animate-shimmer" />
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
                 {/* Video — drop your own video as public/hero-bg.mp4 */}
                 <video
                     autoPlay
@@ -21,7 +34,10 @@ export default function LandingHero() {
                     loop
                     playsInline
                     preload="auto"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    onLoadedData={() => setIsVideoLoaded(true)}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                        isVideoLoaded ? "opacity-100" : "opacity-0"
+                    }`}
                 >
                     <source src="/frames/People_Technology.mp4" type="video/mp4" />
                 </video>
