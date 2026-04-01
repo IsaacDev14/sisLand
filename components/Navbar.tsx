@@ -34,7 +34,7 @@ export default function Navbar() {
                             <img
                                 src="/nodesLogo.png"
                                 alt="Nodes"
-                                className="h-4 md:h-6 w-auto"
+                                className="h-4 md:h-6 w-auto brightness-0 invert [html[data-theme='light']_&]:brightness-100 [html[data-theme='light']_&]:invert-0"
                             />
                     </Link>
 
