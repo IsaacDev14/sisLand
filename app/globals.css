@@ -89,6 +89,8 @@ html[data-theme="dark"] {
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --spacing-34: 8.5rem;
 }
 
 html {

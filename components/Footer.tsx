@@ -26,9 +26,9 @@ export default function Footer() {
                     <div className="md:col-span-1">
                         <Link href="/" className="inline-block">
                             <img
-                                src="/siscom-logo.png"
-                                alt="Siscom"
-                                className="h-8 w-auto brightness-0 invert [html[data-theme='light']_&]:brightness-100 [html[data-theme='light']_&]:invert-0"
+                                src="/nodesLogo.png"
+                                alt="Nodes"
+                                className="h-4 md:h-6 w-auto brightness-0 invert [html[data-theme='light']_&]:brightness-100 [html[data-theme='light']_&]:invert-0"
                             />
                         </Link>
                         <p className="mt-4 text-sm text-slate-400 [html[data-theme='light']_&]:text-slate-600 leading-relaxed">
