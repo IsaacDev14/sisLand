@@ -48,7 +48,7 @@ export default function LandingServices() {
             subtitle: "Scalable Data Platforms",
             description:
                 "Process, store and analyze large datasets using Siscom\u2019s advanced data infrastructure designed for analytics, machine learning pipelines and business intelligence.",
-            image: "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            image: "/images/dashboards/siscomDataCard.png",
             link: "/siscom-data",
         },
 
