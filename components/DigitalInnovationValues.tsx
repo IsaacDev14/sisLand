@@ -5,7 +5,7 @@ import { FadeIn } from "./FadeIn";
 const whyChoose = [
     {
         title: "Strategic Tech Partnership",
-        image: "https://media.licdn.com/dms/image/v2/D5622AQGul1GikHkkaA/feedshare-shrink_800/B56ZnSDykbJkAg-/0/1760165836252?e=1775088000&v=beta&t=RY28hxUOKfVah_FIrCT4tDLTOmOdubyLlenp5NgSCO4",
+        image: "/StrategicTechPartners.png",
         color: "bg-red-500"
     },
     {
@@ -15,7 +15,7 @@ const whyChoose = [
     },
     {
         title: "Flexible Engagement Models",
-        image: "https://media.licdn.com/dms/image/v2/D4E22AQHZNnOQVHMcSg/feedshare-shrink_800/B4EZoAkhdnGcAg-/0/1760946173576?e=1775088000&v=beta&t=bVPHk1Hu_08bjbgEui93iNv54AmcdQn3O9OZe3i5BoE",
+        image: "/flexibleEngagement.png",
         color: "bg-cyan-500"
     },
     {
@@ -30,7 +30,7 @@ const whyChoose = [
     },
     {
         title: "The Siscom Innovation Hub",
-        image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800",
+        image: "/innovationHub.png",
         color: "bg-cyan-500"
     }
 ];

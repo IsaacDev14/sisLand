@@ -6,13 +6,13 @@ const examples = [
     {
         title: "Fintech Payment Platforms",
         description: "Multiple wallet and payment solutions built for fintech companies.",
-        image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=800",
+        image: "/finTechPyament.png",
         color: "bg-red-500"
     },
     {
         title: "Government Digital Services",
         description: "Digitization of public services for county governments.",
-        image: "https://media.licdn.com/dms/image/v2/D4D22AQG5MUcaKjxrPw/feedshare-shrink_800/B4DZfpL4P2HMAg-/0/1751963896838?e=1775088000&v=beta&t=bsOop9jIq9R74TOpKUTmnmJv3I_nm6Wy4WKvk6fYcbM",
+        image: "/GovServices.png",
         color: "bg-purple-500"
     },
     {
