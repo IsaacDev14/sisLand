@@ -12,7 +12,7 @@ export default function LandingServices() {
             subtitle: "Digital Platform Innovation",
             description:
                 "Turn your ideas into market-ready platforms with the Siscom Innovation Hub, from concept to deployment across fintech, government and AI sectors.",
-            image: "https://media.licdn.com/dms/image/v2/D4D12AQG8-0wtB9Fzgg/article-cover_image-shrink_600_2000/B4DZu7Pn92IIAQ-/0/1768373001442?e=1775088000&v=beta&t=yXt7EBfsU2obl9onGluKnRl1tzHSas428mKgVciJtno",
+            image: "/images/dashboards/siscomInnovation.png",
             link: "/siscom-innovation",
         },
         {
@@ -21,8 +21,8 @@ export default function LandingServices() {
             subtitle: "AI Infrastructure for the Edge",
             description:
                 "Through our partnership with Navon World, Siscom is deploying modular AI-ready data centers beginning at Naivasha SEZ, enabling powerful edge compute clusters for AI workloads and advanced digital services.",
-            image: "https://media.licdn.com/dms/image/v2/D4D12AQHWMOvFqDzahg/article-cover_image-shrink_600_2000/B4DZy86OdFH4AQ-/0/1772695913816?e=1775088000&v=beta&t=a1AcQqldGnb3gA0J2t6HSIAQRydztlg0_3n3rr_ziVM",
-            link: "/siscom-ai-ml",
+            image: "/images/dashboards/siscomDataCenter..png",
+            link: "/colocation",
         },
         {
             id: "starnets",
@@ -48,7 +48,7 @@ export default function LandingServices() {
             subtitle: "Scalable Data Platforms",
             description:
                 "Process, store and analyze large datasets using Siscom\u2019s advanced data infrastructure designed for analytics, machine learning pipelines and business intelligence.",
-            image: "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+            image: "/images/dashboards/siscomDataCard.png",
             link: "/siscom-data",
         },
 

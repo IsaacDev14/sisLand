@@ -15,7 +15,7 @@ const sectors = [
     },
     {
         title: "API & Backend Engineering",
-        image: "https://media.licdn.com/dms/image/v2/D4D22AQEAOBfCVg0nfg/feedshare-shrink_800/B4DZuNtwLdHwAk-/0/1767609151050?e=1775088000&v=beta&t=T7xCpyco6FkIB0HaUL0AkAsf3zLbtssm6iNE29hZwYg",
+        image: "/APIaChitecture.png",
         color: "bg-cyan-500"
     },
     {
@@ -31,7 +31,7 @@ const sectors = [
     },
     {
         title: "E-Commerce & SaaS Platforms",
-        image: "https://media.licdn.com/dms/image/v2/D4D22AQEkNmrXYjZoew/feedshare-shrink_800/B4DZh6SdJ1GsAg-/0/1754398332967?e=1775088000&v=beta&t=ToIyUFq0i2R5I08zfbjiL2nN9OQUSa9okd0QJVbL6TA",
+        image: "/SAASandEcommerce.png",
         color: "bg-cyan-500"
     }
 ];
